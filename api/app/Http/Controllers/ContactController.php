@@ -13,7 +13,7 @@ class ContactController extends Controller
     }
 
     public function dataindex(){
-        return "Data index";
+        return Contact::all(); 
     }
 
     public function store(Request $request)
@@ -27,9 +27,15 @@ class ContactController extends Controller
             'instagram' => 'required',
         ]);
 
-        $data = new Contact();
-        $data->fill($request->all());
-        $data->save();
+        try{
+            $data = new Contact();
+            $data->fill($request->all());
+            $data->save();
+            return $data;
+            
+        }catch (\Exception $exception) {
+            return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);
+        }
     }
 
     public function update(Request $request, $id)
@@ -43,14 +49,21 @@ class ContactController extends Controller
             'instagram' => 'required',
         ]);
 
-        $data = Contact::find($id);
-        $data->fill($request->all());
-        $data->save();
+        try{
+            $data = Contact::find($id);
+            $data->fill($request->all());
+            $data->save();
+            return $data;
+            
+        }catch (\Exception $exception) {
+            return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);
+        }
     }
 
     public function destroy($id)
     {
-        $noticia = Contact::findOrFail($id);
-        $noticia->delete();
+        $data = Contact::findOrFail($id);
+        $data->delete();
+        return $data;
     }
 }

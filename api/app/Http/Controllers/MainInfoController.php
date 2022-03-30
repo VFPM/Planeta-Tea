@@ -13,7 +13,7 @@ class MainInfoController extends Controller
     }
 
     public function dataindex(){
-        return "Data index";
+        return MainInfo::all();
     }
 
     public function store(Request $request)

@@ -14,7 +14,7 @@ class InformationController extends Controller
     }
 
     public function dataindex(){
-        return "Data index";
+        return Information::all(); 
     }
 
     public function store(Request $request)

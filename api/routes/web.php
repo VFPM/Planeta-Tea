@@ -18,7 +18,19 @@ Route::get('/', function () {
 });
 
     // Main Info
-    Route::get('sistema/main-info', 'App\Http\Controllers\MainInfoController@dataindex')->name('materias.data');
-    Route::post('sistema/main-info/store', 'App\Http\Controllers\MainInfoController@store')->name('materias.store');
-    Route::put('sistema/main-info/{id}/update', 'App\Http\Controllers\MainInfoController@update')->name('materias.update');
-    Route::delete('sistema/main-info/{id}/destroy', 'App\Http\Controllers\MainInfoController@destroy')->name('materias.destroy');
+    Route::get('sistema/main-info', 'App\Http\Controllers\MainInfoController@dataindex')->name('main-info.data');
+    Route::post('sistema/main-info/store', 'App\Http\Controllers\MainInfoController@store')->name('main-info.store');
+    Route::put('sistema/main-info/{id}/update', 'App\Http\Controllers\MainInfoController@update')->name('main-info.update');
+    Route::delete('sistema/main-info/{id}/destroy', 'App\Http\Controllers\MainInfoController@destroy')->name('main-info.destroy');
+
+    // Contact
+    Route::get('sistema/contact', 'App\Http\Controllers\ContactController@dataindex')->name('contact.data');
+    Route::post('sistema/contact/store', 'App\Http\Controllers\ContactController@store')->name('contact.store');
+    Route::put('sistema/contact/{id}/update', 'App\Http\Controllers\ContactController@update')->name('contact.update');
+    Route::delete('sistema/contact/{id}/destroy', 'App\Http\Controllers\ContactController@destroy')->name('contact.destroy');
+
+    // Information
+    //Route::get('sistema/main-info', 'App\Http\Controllers\MainInfoController@dataindex')->name('main-info.data');
+    //Route::post('sistema/main-info/store', 'App\Http\Controllers\MainInfoController@store')->name('main-info.store');
+    //Route::put('sistema/main-info/{id}/update', 'App\Http\Controllers\MainInfoController@update')->name('main-info.update');
+    //Route::delete('sistema/main-info/{id}/destroy', 'App\Http\Controllers\MainInfoController@destroy')->name('main-info.destroy');
