@@ -48,10 +48,10 @@ Route::get('/', function () {
     Route::delete('sistema/test/{id}/destroy', 'App\Http\Controllers\TestController@destroy')->name('test.destroy');
 
     // Users
-    Route::get('sistema/user', 'App\Http\Controllers\UserController@dataindex')->name('user.data');
-    Route::post('sistema/user/store', 'App\Http\Controllers\UserController@store')->name('user.store');
-    Route::put('sistema/user/{id}/update', 'App\Http\Controllers\UserController@update')->name('user.update');
-    Route::delete('sistema/user/{id}/destroy', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
+    //Route::get('sistema/user', 'App\Http\Controllers\UserController@dataindex')->name('user.data');
+    //Route::post('sistema/user/store', 'App\Http\Controllers\UserController@store')->name('user.store');
+    //Route::put('sistema/user/{id}/update', 'App\Http\Controllers\UserController@update')->name('user.update');
+    //Route::delete('sistema/user/{id}/destroy', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
 
     // Questions
     Route::get('sistema/question', 'App\Http\Controllers\QuestionController@dataindex')->name('question.data');

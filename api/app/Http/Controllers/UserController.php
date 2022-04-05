@@ -14,7 +14,7 @@ class UserController extends Controller
     }
 
     public function dataindex(){
-        $data = User::all()->orderBy("created_at");
+        $data = User::all();
         
         return response()->json([
             'status' => 'success',
@@ -28,8 +28,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'phone' => 'required',
-            'case' => 'required',
             'password' => 'required'
         ]);
 
@@ -55,8 +53,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'phone' => 'required',
-            'case' => 'required',
             'password' => 'required'
         ]);
 
