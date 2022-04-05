@@ -13,6 +13,12 @@ class Question extends Model
     protected $table = 'questions';
 
     protected $fillable = [
-        
+        'number',
+        'question',
+        'test'
     ];
+
+    public function test(){
+        return $this->hasOne(Test::class, 'id', 'test');
+    }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class ContactController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
@@ -13,7 +14,7 @@ class ContactController extends Controller
     }
 
     public function dataindex(){
-        $data = Contact::all()->orderBy("created_at");
+        $data = User::all()->orderBy("created_at");
         
         return response()->json([
             'status' => 'success',
@@ -25,19 +26,24 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'phone' => 'required',
+            'name' => 'required',
             'email' => 'required',
-            'address' => 'required',
-            'facebook' => 'required',
-            'twitter' => 'required',
-            'instagram' => 'required',
+            'phone' => 'required',
+            'case' => 'required',
+            'password' => 'required'
         ]);
 
         try{
-            $data = new Contact();
+            $data = new User();
             $data->fill($request->all());
+            $data->password = Hash::make($request->password);
             $data->save();
-            return $data;
+            
+            return response()->json([
+                'status' => 'success',
+                'data' => $data,
+                'msg' => 'El usuario ha registrado de manera exitosa'
+            ], 200); 
             
         }catch (\Exception $exception) {
             return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);
@@ -47,16 +53,15 @@ class ContactController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'phone' => 'required',
+            'name' => 'required',
             'email' => 'required',
-            'address' => 'required',
-            'facebook' => 'required',
-            'twitter' => 'required',
-            'instagram' => 'required',
+            'phone' => 'required',
+            'case' => 'required',
+            'password' => 'required'
         ]);
 
         try{
-            $data = Contact::find($id);
+            $data = User::find($id);
             $data->fill($request->all());
             $data->save();
             return $data;
@@ -68,7 +73,7 @@ class ContactController extends Controller
 
     public function destroy($id)
     {
-        $data = Contact::findOrFail($id);
+        $data = User::findOrFail($id);
         $data->delete();
         return $data;
     }

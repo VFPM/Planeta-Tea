@@ -16,8 +16,8 @@ class CreateMainInfoTable extends Migration
         Schema::create('main_info', function (Blueprint $table) {
             $table->id();
             $table->string('body');
-            $table->array('values');
-            $table->array('services');
+            $table->json('values');
+            $table->json('services');
             $table->softDeletes();
             $table->timestamps();
         });

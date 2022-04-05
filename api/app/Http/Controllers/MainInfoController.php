@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MainInfo;
 use Illuminate\Http\Request;
 
+
 class MainInfoController extends Controller
 {    
     public function index()
@@ -13,7 +14,13 @@ class MainInfoController extends Controller
     }
 
     public function dataindex(){
-        return MainInfo::all();
+        $data = MainInfo::all()->orderBy("created_at");
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $data,
+            'msg' => 'Se ha mostrado la información correctamente'
+        ],200);
     }
 
     public function store(Request $request)

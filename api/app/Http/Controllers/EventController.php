@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Information;
+use App\Models\Event;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class InformationController extends Controller
+class EventController extends Controller
 {
     public function index()
     {
@@ -14,8 +13,8 @@ class InformationController extends Controller
     }
 
     public function dataindex(){
-        $data = Information::all()->orderBy("created_at"); 
-        
+        $data = Event::all()->orderBy("created_at");
+
         return response()->json([
             'status' => 'success',
             'data' => $data,
@@ -27,16 +26,16 @@ class InformationController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'pdf' => 'required',
+            'body' => 'required',
+            'to' => 'required',
+            'event_date' => 'required',
+            'mode' => 'required',
+            'cost' => 'required',
+            'image' => 'required'
         ]);
-
-        $data = new Information();
+        
+        $data = new Event();
         $data->fill($request->all());
-
-        if($request->file('pdf')){
-            $data->pdf = $request->file('pdf')->store('information', 'public');
-        }
-
         $data->save();
     }
 
@@ -44,24 +43,22 @@ class InformationController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'pdf' => 'required',
+            'body' => 'required',
+            'to' => 'required',
+            'event_date' => 'required',
+            'mode' => 'required',
+            'cost' => 'required',
+            'image' => 'required'
         ]);
 
-        $data = Information::find($id);
+        $data = Event::find($id);
         $data->fill($request->all());
-
-        if($request->file('pdf') != '')
-        {
-            Storage::delete($data->pdf);
-            $data->pdf = $request->file('pdf')->store('information', 'public');
-        }
-
         $data->save();
     }
 
     public function destroy($id)
     {
-        $noticia = Information::findOrFail($id);
+        $noticia = Event::findOrFail($id);
         $noticia->delete();
     }
 }

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Information;
+use App\Models\Test;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class InformationController extends Controller
+class TestController extends Controller
 {
     public function index()
     {
@@ -14,8 +13,8 @@ class InformationController extends Controller
     }
 
     public function dataindex(){
-        $data = Information::all()->orderBy("created_at"); 
-        
+        $data = Test::all()->orderBy("created_at");
+
         return response()->json([
             'status' => 'success',
             'data' => $data,
@@ -26,42 +25,28 @@ class InformationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'pdf' => 'required',
+            'test_name' => 'required'
         ]);
-
-        $data = new Information();
+        
+        $data = new Test();
         $data->fill($request->all());
-
-        if($request->file('pdf')){
-            $data->pdf = $request->file('pdf')->store('information', 'public');
-        }
-
         $data->save();
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'pdf' => 'required',
+            'test_name' => 'required'
         ]);
 
-        $data = Information::find($id);
+        $data = Test::find($id);
         $data->fill($request->all());
-
-        if($request->file('pdf') != '')
-        {
-            Storage::delete($data->pdf);
-            $data->pdf = $request->file('pdf')->store('information', 'public');
-        }
-
         $data->save();
     }
 
     public function destroy($id)
     {
-        $noticia = Information::findOrFail($id);
+        $noticia = Test::findOrFail($id);
         $noticia->delete();
     }
 }
