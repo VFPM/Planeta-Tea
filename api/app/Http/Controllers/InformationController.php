@@ -14,7 +14,7 @@ class InformationController extends Controller
     }
 
     public function dataindex(){
-        $data = Information::all()->orderBy("created_at"); 
+        $data = Information::all(); 
         
         return response()->json([
             'status' => 'success',

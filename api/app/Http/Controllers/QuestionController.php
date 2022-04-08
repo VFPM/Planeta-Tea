@@ -13,7 +13,7 @@ class QuestionController extends Controller
     }
 
     public function dataindex(){
-        $data = Question::all()->orderBy("created_at");
+        $data = Question::all();
 
         return response()->json([
             'status' => 'success',

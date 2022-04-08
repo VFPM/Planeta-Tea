@@ -13,7 +13,7 @@ class TestController extends Controller
     }
 
     public function dataindex(){
-        $data = Test::all()->orderBy("created_at");
+        $data = Test::all();
 
         return response()->json([
             'status' => 'success',

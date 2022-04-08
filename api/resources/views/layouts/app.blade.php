@@ -52,19 +52,19 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('contact.index') }}">{{ __('Contacto') }}</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('event.index') }}">{{ __('Eventos') }}</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('information.index') }}">{{ __('Información') }}</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('main-info.index') }}">{{ __('Información Principal') }}</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('test.index') }}">{{ __('Cuestionario') }}</a>
                             </li>
 
@@ -95,5 +95,18 @@
             @yield('content')
         </main>
     </div>
+
+        
+    <!-- Bootstrap core JavaScript-->
+    <script src={{asset('assets/vendor/jquery/jquery.min.js')}}></script>
+    <script src={{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src={{asset('assets/vendor/jquery-easing/jquery.easing.min.js')}}></script>
+    
+    <!-- Page level plugins -->
+    <script src={{asset('assets/vendor/chart.js/Chart.min.js')}}></script>
+
+    @yield('scripts-page')
 </body>
 </html>

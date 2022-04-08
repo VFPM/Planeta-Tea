@@ -13,7 +13,7 @@ class EventController extends Controller
     }
 
     public function dataindex(){
-        $data = Event::all()->orderBy("created_at");
+        $data = Event::all();
 
         return response()->json([
             'status' => 'success',

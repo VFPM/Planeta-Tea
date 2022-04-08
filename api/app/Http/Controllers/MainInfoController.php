@@ -14,7 +14,7 @@ class MainInfoController extends Controller
     }
 
     public function dataindex(){
-        $data = MainInfo::all()->orderBy("created_at");
+        $data = MainInfo::all();
 
         return response()->json([
             'status' => 'success',
