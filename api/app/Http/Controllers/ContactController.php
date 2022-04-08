@@ -9,11 +9,11 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return "Index";
+        return view('system.Contacto.index');
     }
 
     public function dataindex(){
-        $data = Contact::all()->orderBy("created_at");
+        $data = Contact::all();
         
         return response()->json([
             'status' => 'success',

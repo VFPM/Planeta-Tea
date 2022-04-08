@@ -10,7 +10,7 @@ class InformationController extends Controller
 {
     public function index()
     {
-        return "Index";
+        return view('system.Informacion.index');
     }
 
     public function dataindex(){

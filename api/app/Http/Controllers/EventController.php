@@ -9,7 +9,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        return "Index";
+        return view('system.Evento.index');
     }
 
     public function dataindex(){

@@ -53,19 +53,19 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ __('Contacto') }}</a>
+                                <a class="nav-link" href="{{ route('contact.index') }}">{{ __('Contacto') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ __('Eventos') }}</a>
+                                <a class="nav-link" href="{{ route('event.index') }}">{{ __('Eventos') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ __('Información') }}</a>
+                                <a class="nav-link" href="{{ route('information.index') }}">{{ __('Información') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ __('Información Principal') }}</a>
+                                <a class="nav-link" href="{{ route('main-info.index') }}">{{ __('Información Principal') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ __('Cuestionario') }}</a>
+                                <a class="nav-link" href="{{ route('test.index') }}">{{ __('Cuestionario') }}</a>
                             </li>
 
                             <li class="nav-item dropdown">

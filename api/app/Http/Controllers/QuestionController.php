@@ -9,7 +9,7 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        return "Index";
+        return view('system.Cuestionario.index');
     }
 
     public function dataindex(){

@@ -10,7 +10,7 @@ class MainInfoController extends Controller
 {    
     public function index()
     {
-        return "Index";
+        return view('system.InformacionPrincipal.index');
     }
 
     public function dataindex(){
