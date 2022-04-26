@@ -19,4 +19,55 @@
         </div>
     </div>
 </div>
+
+
+<div class="card shadow mb-4 m-5">
+    <div class="card-header py-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h2 class="m-0">Contacto</h2>
+            </div>
+            <div class="col-sm-12 col-md-6" align="right">
+                <a href="{{route('event.create')}}" class="btn btn-primary">
+                    Aplicar cambios
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body">
+    <div class="row">
+                
+                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="text" class="form-control" id="email_id" name="email" placeholder="Correo electrónico" required>
+                </div>
+    
+                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                    <label for="phone" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="phone_id" name="phone" placeholder="Teléfono" required>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                    <label for="address" class="form-label">Domicilio</label>
+                    <input type="text" class="form-control" id="address_id" name="address" placeholder="Domicilio" required>
+                </div>
+
+
+                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                    <label for="facebook" class="form-label">Facebook</label>
+                    <input type="text" class="form-control" id="facebook_id" name="facebook" placeholder="Facebook" required>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                    <label for="twitter" class="form-label">Twitter</label>
+                    <input type="text" class="form-control" id="twitter_id" name="twitter" placeholder="Twitter" required>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                    <label for="instagram" class="form-label">Instagram</label>
+                    <input type="text" class="form-control" id="instagram_id" name="instagram" placeholder="Instagram" required>
+                </div>
+    </div>
+</div>
 @endsection

@@ -29,9 +29,9 @@
             </div>
             <div class="col-sm-12 col-md-6" align="right">
 
-                <a href="#" class="btn btn-primary">
-                    <i class="fas fa-plus fa-sm text-white-50"></i>
-                    Registrar</a>
+                <a href="{{route('event.create')}}" class="btn btn-primary">
+                    Registrar
+                </a>
             </div>
         </div>
 

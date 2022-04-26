@@ -43,12 +43,14 @@ use Illuminate\Support\Facades\Route;
     // Events
     Route::get('sistema/event', 'App\Http\Controllers\EventController@index')->name('event.index');
     Route::get('sistema/event/data', 'App\Http\Controllers\EventController@dataindex')->name('event.data');
+    Route::get('sistema/event/create', 'App\Http\Controllers\EventController@create')->name('event.create');
     Route::post('sistema/event/store', 'App\Http\Controllers\EventController@store')->name('event.store');
     Route::put('sistema/event/{id}/update', 'App\Http\Controllers\EventController@update')->name('event.update');
     Route::delete('sistema/event/{id}/destroy', 'App\Http\Controllers\EventController@destroy')->name('event.destroy');
 
     // Tests 
     Route::get('sistema/test', 'App\Http\Controllers\TestController@index')->name('test.index');
+    Route::get('sistema/test/create', 'App\Http\Controllers\TestController@create')->name('test.create');
     Route::get('sistema/test/data', 'App\Http\Controllers\TestController@dataindex')->name('test.data');
     Route::post('sistema/test/store', 'App\Http\Controllers\TestController@store')->name('test.store');
     Route::put('sistema/test/{id}/update', 'App\Http\Controllers\TestController@update')->name('test.update');

@@ -22,6 +22,10 @@ class EventController extends Controller
         ],200);
     }
 
+    public function create() {
+        return view('system.Evento.create');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
