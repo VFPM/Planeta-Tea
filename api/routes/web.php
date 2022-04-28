@@ -22,13 +22,16 @@ use Illuminate\Support\Facades\Route;
     // Main Info
     Route::get('sistema/main-info', 'App\Http\Controllers\MainInfoController@index')->name('main-info.index');
     Route::get('sistema/main-info/data', 'App\Http\Controllers\MainInfoController@dataindex')->name('main-info.data');
+    Route::get('sistema/main-info/create', 'App\Http\Controllers\MainInfoController@create')->name('main-info.create');
     Route::post('sistema/main-info/store', 'App\Http\Controllers\MainInfoController@store')->name('main-info.store');
+    Route::get('sistema/main-info/{id}/edit', 'App\Http\Controllers\MainInfoController@edit')->name('main-info.edit');
     Route::put('sistema/main-info/{id}/update', 'App\Http\Controllers\MainInfoController@update')->name('main-info.update');
     Route::delete('sistema/main-info/{id}/destroy', 'App\Http\Controllers\MainInfoController@destroy')->name('main-info.destroy');
 
     // Contact
     Route::get('sistema/contact', 'App\Http\Controllers\ContactController@index')->name('contact.index');
     Route::get('sistema/contact/data', 'App\Http\Controllers\ContactController@dataindex')->name('contact.data');
+    Route::get('sistema/contact/create', 'App\Http\Controllers\ContactController@create')->name('contact.create');
     Route::post('sistema/contact/store', 'App\Http\Controllers\ContactController@store')->name('contact.store');
     Route::put('sistema/contact/{id}/update', 'App\Http\Controllers\ContactController@update')->name('contact.update');
     Route::delete('sistema/contact/{id}/destroy', 'App\Http\Controllers\ContactController@destroy')->name('contact.destroy');
@@ -36,8 +39,10 @@ use Illuminate\Support\Facades\Route;
     // Information
     Route::get('sistema/information', 'App\Http\Controllers\InformationController@index')->name('information.index');
     Route::get('sistema/information/data', 'App\Http\Controllers\InformationController@dataindex')->name('information.data');
+    Route::get('sistema/information/create', 'App\Http\Controllers\InformationController@create')->name('information.create');
     Route::post('sistema/information/store', 'App\Http\Controllers\InformationController@store')->name('information.store');
-    Route::put('sistema/information/{id}/update', 'App\Http\Controllers\InformationController@update')->name('information.update');
+    Route::get('sistema/information/{id}/edit', 'App\Http\Controllers\InformationController@edit')->name('information.edit');
+    Route::patch('sistema/information/{id}/update', 'App\Http\Controllers\InformationController@update')->name('information.update');
     Route::delete('sistema/information/{id}/destroy', 'App\Http\Controllers\InformationController@destroy')->name('information.destroy');
 
     // Events
@@ -45,15 +50,18 @@ use Illuminate\Support\Facades\Route;
     Route::get('sistema/event/data', 'App\Http\Controllers\EventController@dataindex')->name('event.data');
     Route::get('sistema/event/create', 'App\Http\Controllers\EventController@create')->name('event.create');
     Route::post('sistema/event/store', 'App\Http\Controllers\EventController@store')->name('event.store');
-    Route::put('sistema/event/{id}/update', 'App\Http\Controllers\EventController@update')->name('event.update');
+    Route::get('sistema/event/{id}/edit', 'App\Http\Controllers\EventController@edit')->name('event.edit');
+    Route::patch('sistema/event/{id}/update', 'App\Http\Controllers\EventController@update')->name('event.update');
     Route::delete('sistema/event/{id}/destroy', 'App\Http\Controllers\EventController@destroy')->name('event.destroy');
 
     // Tests 
     Route::get('sistema/test', 'App\Http\Controllers\TestController@index')->name('test.index');
     Route::get('sistema/test/create', 'App\Http\Controllers\TestController@create')->name('test.create');
     Route::get('sistema/test/data', 'App\Http\Controllers\TestController@dataindex')->name('test.data');
+    Route::get('sistema/test/dataMovil', 'App\Http\Controllers\TestController@dataindexMovil')->name('test.dataMovil');
     Route::post('sistema/test/store', 'App\Http\Controllers\TestController@store')->name('test.store');
     Route::put('sistema/test/{id}/update', 'App\Http\Controllers\TestController@update')->name('test.update');
+    Route::get('sistema/test/{id}/edit', 'App\Http\Controllers\TestController@edit')->name('test.edit');
     Route::delete('sistema/test/{id}/destroy', 'App\Http\Controllers\TestController@destroy')->name('test.destroy');
 
     // Users
@@ -64,7 +72,8 @@ use Illuminate\Support\Facades\Route;
 
     // Questions
     Route::get('sistema/question', 'App\Http\Controllers\QuestionController@index')->name('question.index');
-    Route::get('sistema/question/data', 'App\Http\Controllers\QuestionController@dataindex')->name('question.data');
+    Route::get('sistema/question/data/{test}', 'App\Http\Controllers\QuestionController@dataindex')->name('question.data');
+    Route::get('sistema/question/create', 'App\Http\Controllers\QuestionController@create')->name('question.create');
     Route::post('sistema/question/store', 'App\Http\Controllers\QuestionController@store')->name('question.store');
     Route::put('sistema/question/{id}/update', 'App\Http\Controllers\QuestionController@update')->name('question.update');
     Route::delete('sistema/question/{id}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');

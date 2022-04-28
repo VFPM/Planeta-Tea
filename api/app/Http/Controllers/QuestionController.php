@@ -9,18 +9,28 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        return view('system.Cuestionario.index');
+        return view('system.Cuestionario.Preguntas.index');
+    }
+    
+    public function dataindex($test){
+        
+        return datatables(Question::where('test', $test))
+        ->addColumn('btn', 'system.Evento.btn')
+        ->rawColumns(['btn'])
+        ->toJson();
+
+        return view('system.Cuestionario.Preguntas.index');
     }
 
-    public function dataindex(){
-        $data = Question::all();
-
+    public function dataindexMovil($test){
+        $data = Question::where('test', $test);
         return response()->json([
             'status' => 'success',
             'data' => $data,
             'msg' => 'Se ha mostrado la información correctamente'
         ],200);
     }
+
 
     public function store(Request $request)
     {
@@ -47,6 +57,13 @@ class QuestionController extends Controller
         $data->fill($request->all());
         $data->save();
     }
+
+    public function edit($id){
+        $data = Question::find($id);
+
+        return view('system.Cuestionario.Preguntas.edit', compact('data'));
+    }
+
 
     public function destroy($id)
     {

@@ -13,7 +13,15 @@ class InformationController extends Controller
         return view('system.Informacion.index');
     }
 
-    public function dataindex(){
+    public function dataindex(){        
+        return datatables(Information::all())
+
+        ->addColumn('btn', 'system.Informacion.btn')
+        ->rawColumns(['btn'])
+        ->toJson();
+    }
+
+    public function dataindexMovil(){
         $data = Information::all(); 
         
         return response()->json([
@@ -21,6 +29,10 @@ class InformationController extends Controller
             'data' => $data,
             'msg' => 'Se ha mostrado la información correctamente'
         ],200);
+    }
+
+    public function create() {
+        return view('system.Informacion.create');
     }
 
     public function store(Request $request)
@@ -38,13 +50,18 @@ class InformationController extends Controller
         }
 
         $data->save();
+        return redirect(route('information.index'));
+    }
+
+    public function edit($id) {
+        $data = Information::find($id);
+        return view('system.Informacion.edit', compact('data'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'pdf' => 'required',
+            'title' => 'required'
         ]);
 
         $data = Information::find($id);
@@ -57,11 +74,13 @@ class InformationController extends Controller
         }
 
         $data->save();
+        return redirect(route('information.index'));
     }
 
     public function destroy($id)
     {
         $noticia = Information::findOrFail($id);
         $noticia->delete();
+        return redirect(route('information.index'));
     }
 }

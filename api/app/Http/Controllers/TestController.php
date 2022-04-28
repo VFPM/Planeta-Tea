@@ -12,14 +12,24 @@ class TestController extends Controller
         return view('system.Cuestionario.index');
     }
 
-    public function dataindex(){
+    public function dataindexMovil(){
         $data = Test::all();
-
         return response()->json([
             'status' => 'success',
             'data' => $data,
             'msg' => 'Se ha mostrado la información correctamente'
-        ],200);
+        ],200);              
+    }
+
+    public function dataindex(){
+        return datatables(Test::all())
+        ->addColumn('btn', 'system.Cuestionario.btn')
+        ->rawColumns(['btn'])
+        ->toJson();
+    }
+
+    public function create() {
+        return view('system.Cuestionario.create');
     }
 
     public function store(Request $request)
@@ -31,6 +41,13 @@ class TestController extends Controller
         $data = new Test();
         $data->fill($request->all());
         $data->save();
+
+        return view('system.Cuestionario.index');
+    }
+
+    public function edit($id) {
+        $data = Test::find($id);
+        return view('system.Cuestionario.edit', compact('data'));
     }
 
     public function update(Request $request, $id)
@@ -46,7 +63,8 @@ class TestController extends Controller
 
     public function destroy($id)
     {
-        $noticia = Test::findOrFail($id);
-        $noticia->delete();
+        $data = Test::findOrFail($id);
+        $data->delete();
+        return redirect(route('test.index'));
     }
 }

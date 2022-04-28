@@ -21,4 +21,5 @@ class Question extends Model
     public function test(){
         return $this->hasOne(Test::class, 'id', 'test');
     }
+    
 }

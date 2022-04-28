@@ -49,6 +49,7 @@
                     <th width="150px">Fecha del Evento</th>
                     <th width="100px">Modalidad</th>
                     <th width="100px">Costo</th>
+                    <th width="100px">Acciones</th>
                 </tr>
                 </thead>
             </table>
@@ -77,7 +78,8 @@
                     {data: 'to'},
                     {data: 'event_date'},
                     {data: 'mode'},
-                    {data: 'cost'}
+                    {data: 'cost'},
+                    {data: 'btn'}
                 ],
                 "language": {
                     "info": "_TOTAL_ Registro(s)",

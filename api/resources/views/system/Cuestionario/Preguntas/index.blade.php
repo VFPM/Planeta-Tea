@@ -24,12 +24,12 @@
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h6 class="m-0">Lista de Eventos</h6>
+                <h6 class="m-0">Lista de Preguntas</h6>
             </div>
             <div class="col-sm-12 col-md-6" align="right">
 
-                <a href="{{route('test.create')}}" class="btn btn-primary">
-                    Registrar
+                <a href="{{route('question.create')}}" class="btn btn-primary">
+                    Agregar pregunta
                 </a>
             </div>
         </div>
@@ -41,9 +41,8 @@
             <table id="data" class="table table-flush">
                 <thead class="thead-light">
                 <tr>
-                    <th class="col-1">No.</th>
-                    <th class="col-6">Test</th>
-                    <th class="col-6">Acciones<th>
+                    <th width="10px">No.</th>
+                    <th>Pregunta</th>
                 </tr>
                 </thead>
             </table>
@@ -66,11 +65,11 @@
                 "header": {
                     "token": "{{ csrf_token() }}",
                 },
-                "ajax": "{{ url('sistema/test/data') }}",
+                "ajax": "{{ url('sistema/question/data/{test}') }}",
                 "columns": [
                     {data: 'id'},
-                    {data: 'test_name'},
-                    {data: 'btn'}
+                    {data: 'question'},
+                    {data: 'btn'},
                 ],
                 "language": {
                     "info": "_TOTAL_ Registro(s)",
