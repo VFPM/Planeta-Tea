@@ -28,7 +28,7 @@
             </div>
             <div class="col-sm-12 col-md-6" align="right">
 
-                <a href="{{route('question.create')}}" class="btn btn-primary">
+                <a href="{{route('question.create', ['test' => $test])}}" class="btn btn-primary">
                     Agregar pregunta
                 </a>
             </div>

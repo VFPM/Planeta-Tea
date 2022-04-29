@@ -31,6 +31,9 @@ class QuestionController extends Controller
         ],200);
     }
 
+    public function create(){
+        return view('system.Cuestionario.Preguntas.create');
+    }
 
     public function store(Request $request)
     {

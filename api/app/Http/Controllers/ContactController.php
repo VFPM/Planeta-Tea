@@ -9,7 +9,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('system.Contacto.index');
+        $data = Contact::all()->last();
+        return view('system.Contacto.index', compact('data'));
     }
 
     public function dataindex(){
@@ -37,7 +38,7 @@ class ContactController extends Controller
             $data = new Contact();
             $data->fill($request->all());
             $data->save();
-            return $data;
+            return redirect(route('contact.index'));
             
         }catch (\Exception $exception) {
             return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);

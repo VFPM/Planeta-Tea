@@ -25,7 +25,7 @@
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h6 class="m-0">Lista de Eventos</h6>
+                <h4 class="m-0">Lista de Eventos</h4>
             </div>
             <div class="col-sm-12 col-md-6" align="right">
 
