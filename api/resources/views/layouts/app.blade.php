@@ -57,7 +57,7 @@
                                 <a class="nav-link" href="{{ route('contact.index') }}">{{ __('Contacto') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="{{ route('event.index') }}">{{ __('Eventos') }}</a>
+                                <a class="nav-link" href="{{ route('news.index') }}">{{ __('Noticias') }}</a>
                             </li>
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('information.index') }}">{{ __('Información') }}</a>

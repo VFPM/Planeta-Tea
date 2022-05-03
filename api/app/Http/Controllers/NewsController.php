@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class EventController extends Controller
+class NewsController extends Controller
 {
     public function index()
     {
-        return view('system.Evento.index');
+        return view('system.Noticias.index');
     }
 
     public function dataindex(){
         
-        return datatables(Event::all())
+        return datatables(News::all())
 
-        ->addColumn('btn', 'system.Evento.btn')
+        ->addColumn('btn', 'system.Noticias.btn')
         ->rawColumns(['btn'])
         ->toJson();
     }
 
     public function dataIndexMovil(){
-        $data = Event::all();
+        $data = News::all();
 
         return response()->json([
             'status' => 'success',
@@ -33,7 +33,7 @@ class EventController extends Controller
     }
 
     public function create() {
-        return view('system.Evento.create');
+        return view('system.Noticias.create');
     }
 
     public function store(Request $request)
@@ -42,31 +42,31 @@ class EventController extends Controller
             'title' => 'required',
             'body' => 'required',
             'to' => 'required',
-            'event_date' => 'required',
-            'event_time' => 'required',
+            'news_date' => 'required',
+            'news_time' => 'required',
             'mode' => 'required',
             'cost' => 'required',
             'image' => 'required'
         ]);
 
-        $time_formated = date("H:i:s", strtotime($request->event_time));
+        $time_formated = date("H:i:s", strtotime($request->news_time));
         
-        $data = new Event();
+        $data = new News();
         $data->fill($request->all());
 
         $data->event_date = $data->event_date . " " . $time_formated;
 
         if($request->file('image')){
-            $data->image = $request->file('image')->store('event', 'public');
+            $data->image = $request->file('image')->store('news', 'public');
         }
 
         $data->save();
-        return redirect(route('event.index'));
+        return redirect(route('news.index'));
     }
 
     public function edit($id) {
-        $data = Event::find($id);
-        return view('system.Evento.edit', compact('data'));
+        $data = News::find($id);
+        return view('system.Noticias.edit', compact('data'));
     }
 
     public function update(Request $request, $id)
@@ -83,7 +83,7 @@ class EventController extends Controller
 
         $time_formated = date("H:i:s", strtotime($request->event_time));
 
-        $data = Event::find($id);
+        $data = News::find($id);
         $data->fill($request->all());
 
         $data->event_date = $data->event_date . " " . $time_formated;
@@ -91,17 +91,17 @@ class EventController extends Controller
         if($request->file('image') != '')
         {
             Storage::delete($data->image);
-            $data->image = $request->file('image')->store('event', 'public');
+            $data->image = $request->file('image')->store('news', 'public');
         }
 
         $data->save();
-        return redirect(route('event.index'));
+        return redirect(route('news.index'));
     }
 
     public function destroy($id)
     {
-        $noticia = Event::findOrFail($id);
+        $noticia = News::findOrFail($id);
         $noticia->delete();
-        return redirect(route('event.index'));
+        return redirect(route('news.index'));
     }
 }

@@ -13,7 +13,7 @@
                         </div>
                     @endif
 
-                    <h1 class="text-center">{{ __('Evento') }}</h1>
+                    <h1 class="text-center">{{ __('Noticias') }}</h1>
                 </div>
             </div>
         </div>
@@ -25,11 +25,11 @@
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h4 class="m-0">Lista de Eventos</h4>
+                <h4 class="m-0">Lista de Noticas</h4>
             </div>
             <div class="col-sm-12 col-md-6" align="right">
 
-                <a href="{{route('event.create')}}" class="btn btn-primary">
+                <a href="{{route('news.create')}}" class="btn btn-primary">
                     Registrar
                 </a>
             </div>
@@ -45,9 +45,9 @@
                     <th width="10px">No.</th>
                     <th>Titulo</th>
                     <th>Descripcion</th>
-                    <th>Dirigido a</th>
-                    <th width="150px">Fecha del Evento</th>
-                    <th width="100px">Modalidad</th>
+                    <th>Descripcion de la plataforma</th>
+                    <th width="150px">Fecha del Noticia</th>
+                    <th width="100px">Enlace</th>
                     <th width="100px">Costo</th>
                     <th width="100px">Acciones</th>
                 </tr>
@@ -70,14 +70,14 @@
                 "header": {
                     "token": "{{ csrf_token() }}",
                 },
-                "ajax": "{{ url('sistema/event/data') }}",
+                "ajax": "{{ url('sistema/news/data') }}",
                 "columns": [
                     {data: 'id'},
                     {data: 'title'},
-                    {data: 'body'},
-                    {data: 'to'},
-                    {data: 'event_date'},
-                    {data: 'mode'},
+                    {data: 'description'},
+                    {data: 'platform_description'},
+                    {data: 'news_date'},
+                    {data: 'link'},
                     {data: 'cost'},
                     {data: 'btn'}
                 ],

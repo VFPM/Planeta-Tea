@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMainInfoTable extends Migration
+class CreateQuestionTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateMainInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('main_info', function (Blueprint $table) {
+        Schema::create('question_type', function (Blueprint $table) {
             $table->id();
-            $table->string('body');
-            $table->json('values');
-            $table->json('services');
+            $table->string('name');
             $table->boolean('active')->default(1);
-            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateMainInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_info');
+        Schema::dropIfExists('question_type');
     }
 }

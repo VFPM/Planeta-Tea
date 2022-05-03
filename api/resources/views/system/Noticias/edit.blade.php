@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <h1 class="text-center">{{ __('Registrar Evento') }}</h1>
+                    <h1 class="text-center">{{ __('Editar Noticia') }}</h1>
                 </div>
             </div>
         </div>
@@ -22,12 +22,13 @@
 </div>
 
 <div class="container-fluid mt-5">
-    <form action="{{route('event.store')}}" method="post"  enctype="multipart/form-data">
+    <form action="{{route('news.update', $data->id)}}" method="post"  enctype="multipart/form-data">
+    @method('PATCH')
     @csrf
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Registrar Evento</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Editar Noticia</h6>
         </div>
 
         <div class="card-body">
@@ -46,47 +47,47 @@
             <div class="row">
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="title" class="form-label">Título</label>
-                    <input type="text" class="form-control" id="title_id" name="title" placeholder="Título" required>
+                    <input type="text" class="form-control" id="title_id" name="title" value="{{old('title', $data->title)}}" placeholder="Título" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="to" class="form-label">Para</label>
-                    <input type="text" class="form-control" id="to_id" name="to" placeholder="Para" required>
+                    <input type="text" class="form-control" id="to_id" name="to" value="{{old('to', $data->to)}}" placeholder="Para" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="event_date" class="form-label">Fecha del evento</label>
-                    <input type="date" class="form-control" id="event_date_id" name="event_date" placeholder="Fecha del evento" required>
+                    <label for="news_date" class="form-label">Fecha de la noticia</label>
+                    <input type="date" class="form-control" id="news_date_id" name="news_date" value="{{date("Y-m-d", strtotime(old('news_date', $data->news_date)))}}" placeholder="Fecha de la noticia" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="event_time" class="form-label">Hora del evento</label>
-                    <input type="time" class="form-control" id="event_time_id" name="event_time" placeholder="Hora del evento" required>
+                    <label for="news_time" class="form-label">Hora de la noticia</label>
+                    <input type="time" class="form-control" id="news_time_id" name="news_time" value="{{date("H:i:s", strtotime(old('news_date', $data->news_date)))}}" placeholder="Hora de la noticia" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6 ">
                     <label for="mode" class="form-label">Modalidad</label>
                     <select name="mode" class="form-control" id="mode_id" required>
                         <option value="">Selecciona...</option>
-                        <option value="Presencial">Presencial</option>
-                        <option value="En linea">En linea</option>
+                        <option value="Presencial" @if( $data->mode === 'Presencial') selected @endif >Presencial</option>
+                        <option value="En linea"   @if( $data->mode === 'En linea') selected @endif >En linea</option>
                     </select>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6 ">
                     <label for="cost" class="form-label">Costo</label>
-                    <input type="number" class="form-control" id="cost_id" name="cost" placeholder="Costo" required>
+                    <input type="number" class="form-control" id="cost_id" name="cost" value="{{old('cost', $data->cost)}}" placeholder="Costo" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="image" class="form-label">Imagen del evento</label>
-                    <input type="file" class="form-control" id="image_id" accept=".jpeg,.jpg,.png" name="image" placeholder="Imagen del evento">
+                    <label for="image" class="form-label">Imagen de la noticia</label>
+                    <input type="file" class="form-control" id="image_id" accept=".jpeg,.jpg,.png" name="image" placeholder="Imagen de la noticia">
                     <small>Tamaño Maximo 1MB, Resolución Maxima: 1920px * 1080px</small>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <label for="body" class="form-label">Contenido del evento</label>
-                    <textarea name="body" class="content_page" id="body_id" placeholder="Contenido del evento"></textarea>
+                    <label for="body" class="form-label">Contenido de la noticia</label>
+                    <textarea name="body" class="content_page" id="body_id" placeholder="Contenido de la noticia">{!! old('body', $data->body) !!}</textarea>
                 </div>
             </div>
 

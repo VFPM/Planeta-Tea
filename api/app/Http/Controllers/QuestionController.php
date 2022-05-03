@@ -74,13 +74,13 @@ class QuestionController extends Controller
         $noticia->delete();
     }
 
-    public function testQuestions($testId){
-        $data = Question::where('test', $testId)->exists()->orderBy("number");
+    // public function testQuestions($testId){
+    //     $data = Question::where('test', $testId)->exists()->orderBy("number");
 
-        return response()->json([
-            'status' => 'success',
-            'data' => $data,
-            'msg' => 'Se ha mostrado la información correctamente'
-        ],200);
-    }
+    //     return response()->json([
+    //         'status' => 'success',
+    //         'data' => $data,
+    //         'msg' => 'Se ha mostrado la información correctamente'
+    //     ],200);
+    // }
 }

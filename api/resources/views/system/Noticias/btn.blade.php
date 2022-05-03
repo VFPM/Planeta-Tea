@@ -1,6 +1,6 @@
-<a href="{{route('event.edit', $id)}}" class="btn btn-success btn-sm" >Editar</a>
+<a href="{{route('news.edit', $id)}}" class="btn btn-success btn-sm" >Editar</a>
 <form
-    action="{{route('event.destroy', $id)}}"
+    action="{{route('news.destroy', $id)}}"
     class="d-inline" method="POST">
     @method('DELETE')
     @csrf
@@ -10,7 +10,7 @@
 <script>
 
     $('.formdelete').submit(function(e){
-        e.preventDefault();
+        e.prnewsDefault();
         Swal.fire({
             title: '¿Seguro que deseas eliminar el registro?',
             text: "No se podrá recuperar la información eliminada",

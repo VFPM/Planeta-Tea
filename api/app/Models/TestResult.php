@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Test extends Model
+class TestResult extends Model
 {
     use HasFactory;
 
-    protected $table = 'test';
+    protected $table = 'test_result';
 
     protected $fillable = [
-        'test_name',
+        'name',
+        'email',
+        'phone',
+        'result',
         'active'
     ];
 

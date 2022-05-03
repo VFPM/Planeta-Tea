@@ -13,9 +13,10 @@ class Question extends Model
     protected $table = 'questions';
 
     protected $fillable = [
-        'number',
-        'question',
-        'test'
+        'description',
+        'type_id',
+        'test_id',
+        'active'
     ];
 
     public function test(){
