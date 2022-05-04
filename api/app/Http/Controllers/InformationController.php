@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Storage;
 
 class InformationController extends Controller
 {
+    // Móvil 
+    public function mobileDataIndex(){
+        $data = Information::all()->where('deleted_at', null); 
+        return response()->json(
+            $data
+            ,200);
+    }
+
+    // Web
     public function index()
     {
         return view('system.Informacion.index');
@@ -19,16 +28,6 @@ class InformationController extends Controller
         ->addColumn('btn', 'system.Informacion.btn')
         ->rawColumns(['btn'])
         ->toJson();
-    }
-
-    public function dataindexMovil(){
-        $data = Information::all(); 
-        
-        return response()->json([
-            'status' => 'success',
-            'data' => $data,
-            'msg' => 'Se ha mostrado la información correctamente'
-        ],200);
     }
 
     public function create() {

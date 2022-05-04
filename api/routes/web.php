@@ -71,9 +71,9 @@ use Illuminate\Support\Facades\Route;
     //Route::delete('sistema/user/{id}/destroy', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
 
     // Questions
-    Route::get('sistema/test/{test}/question', 'App\Http\Controllers\QuestionController@index')->name('question.index');
-    Route::get('sistema/test/{test}/question/data/{test}', 'App\Http\Controllers\QuestionController@dataindex')->name('question.data');
-    Route::get('sistema/test/{test}/question/create', 'App\Http\Controllers\QuestionController@create')->name('question.create');
-    Route::post('sistema/test/{test}/question/store', 'App\Http\Controllers\QuestionController@store')->name('question.store');
-    Route::put('sistema/test/{test}/question/{id}/update', 'App\Http\Controllers\QuestionController@update')->name('question.update');
-    Route::delete('sistema/test/{test}/question/{id}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');
+    // Route::get('sistema/test/{test}/question', 'App\Http\Controllers\QuestionController@index')->name('question.index');
+    // Route::get('sistema/test/{test}/question/data/{test}', 'App\Http\Controllers\QuestionController@dataindex')->name('question.data');
+    // Route::get('sistema/test/{test}/question/create', 'App\Http\Controllers\QuestionController@create')->name('question.create');
+    // Route::post('sistema/test/{test}/question/store', 'App\Http\Controllers\QuestionController@store')->name('question.store');
+    // Route::put('sistema/test/{test}/question/{id}/update', 'App\Http\Controllers\QuestionController@update')->name('question.update');
+    // Route::delete('sistema/test/{test}/question/{id}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');

@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    // Móvil
+
+    public function mobileDataIndex(){
+        $data = Contact::all()->last();
+        
+        return response()->json(
+            $data
+        , 200); 
+    }
+
+    // Web
     public function index()
     {
         $data = Contact::all()->last();

@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <h1 class="text-center">{{ __('Registrar Evento') }}</h1>
+                    <h1 class="text-center">{{ __('Registrar Noticia') }}</h1>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Registrar Evento</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Registrar Noticia</h6>
         </div>
 
         <div class="card-body">
@@ -44,6 +44,71 @@
             @endif
 
             <div class="row">
+
+                <div class="mb-3 col-sm-12 col-mb-5 col-xl-5">
+                    <label for="type_news_id" class="form-label">Agregar tipo de noticia</label>
+                    <input type="text" class="form-control" id="type_news_text" name="type_news_text" placeholder="Tipo de noticia" required>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
+                    <br>
+                    <button href="#" class="btn btn-success btn-sm" >Agregar tipo de noticia</button>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
+                    <label for="type" class="form-label">Selecciona tipo de noticia</label>
+                    <select class="form-control" id="type_news_id" name="type_news_id">
+                        <option selected disabled value="">Tipo...</option>
+                        <option value="Testimonio">Testimonio</option>
+                        <option value="Podcast">Aviso de Podcast</option>
+                        <option value="Eventos">Eventos</option>
+                    </select>
+                </div>
+
+
+
+                <div class="mb-3 col-sm-12 col-mb-5 col-xl-5">
+                    <label for="type_news_id" class="form-label">Agregar modalidad</label>
+                    <input type="text" class="form-control" id="type_news_text" name="type_news_text" placeholder="Tipo de noticia" required>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
+                    <br>
+                    <button href="#" class="btn btn-success btn-sm" >Agregar modalidad</button>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
+                    <label for="type" class="form-label">Selecciona la modalidad</label>
+                    <select class="form-control" id="type_news_id" name="type_news_id">
+                        <option selected disabled value="">Modalidad...</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="En linea">En linea</option>
+                    </select>
+                </div>
+
+
+
+                <div class="mb-3 col-sm-12 col-mb-5 col-xl-5">
+                    <label for="type_news_id" class="form-label">Agregar plataforma</label>
+                    <input type="text" class="form-control" id="type_news_text" name="type_news_text" placeholder="Tipo de noticia" required>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
+                    <br>
+                    <button href="#" class="btn btn-success btn-sm" >Agregar plataforma</button>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
+                    <label for="type" class="form-label">Selecciona la plataforma</label>
+                    <select class="form-control" id="type_news_id" name="type_news_id">
+                        <option selected disabled value="">Plataforma...</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Whatsapp">Whatsapp</option>
+                    </select>
+                </div>
+
+
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="title" class="form-label">Título</label>
                     <input type="text" class="form-control" id="title_id" name="title" placeholder="Título" required>
@@ -55,23 +120,16 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="event_date" class="form-label">Fecha del evento</label>
+                    <label for="event_date" class="form-label">Fecha de la noticia</label>
                     <input type="date" class="form-control" id="event_date_id" name="event_date" placeholder="Fecha del evento" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="event_time" class="form-label">Hora del evento</label>
+                    <label for="event_time" class="form-label">Hora de la noticia</label>
                     <input type="time" class="form-control" id="event_time_id" name="event_time" placeholder="Hora del evento" required>
                 </div>
 
-                <div class="mb-3 col-sm-12 col-mb-6 col-xl-6 ">
-                    <label for="mode" class="form-label">Modalidad</label>
-                    <select name="mode" class="form-control" id="mode_id" required>
-                        <option value="">Selecciona...</option>
-                        <option value="Presencial">Presencial</option>
-                        <option value="En linea">En linea</option>
-                    </select>
-                </div>
+
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6 ">
                     <label for="cost" class="form-label">Costo</label>
@@ -79,13 +137,13 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="image" class="form-label">Imagen del evento</label>
+                    <label for="image" class="form-label">Imagen de la noticia</label>
                     <input type="file" class="form-control" id="image_id" accept=".jpeg,.jpg,.png" name="image" placeholder="Imagen del evento">
                     <small>Tamaño Maximo 1MB, Resolución Maxima: 1920px * 1080px</small>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <label for="body" class="form-label">Contenido del evento</label>
+                    <label for="body" class="form-label">Contenido de la noticia</label>
                     <textarea name="body" class="content_page" id="body_id" placeholder="Contenido del evento"></textarea>
                 </div>
             </div>
