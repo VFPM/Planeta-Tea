@@ -13,7 +13,7 @@
                         </div>
                     @endif
 
-                    <h1 class="text-center">{{ __('Cuestionario') }}</h1>
+                    <h1 class="text-center">{{ __('Respuestas') }}</h1>
                 </div>
             </div>
         </div>
@@ -23,14 +23,8 @@
 <div class="card shadow mb-4 m-5">
     <div class="card-header py-3">
         <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h4 class="m-0">Lista de Cuestionarios</h4>
-            </div>
-            <div class="col-sm-12 col-md-6" align="right">
-
-                <a href="{{route('test.create')}}" class="btn btn-primary">
-                    Registrar
-                </a>
+            <div class="col-sm-12 col-md-12">
+                <h6 class="m-0">Lista de Respuestas</h6>
             </div>
         </div>
 
@@ -41,41 +35,30 @@
             <table id="data" class="table table-flush">
                 <thead class="thead-light">
                 <tr>
-                    <th class="col-1">No.</th>
-                    <th class="col-6">Test</th>
-                    <th class="col-6">Acciones<th>
+                    <th width="10px">No.</th>
+                    <th>Respuesta</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr class="odd">
-                    <td>1</td>
-                    <td>Test de diagnostico</td>
-                    <td>
-                        <form
-                            action=""
-                            class="d-inline formdelete" method="POST">
-                            @method('GET')
-                            @csrf
-                            <button class="btn btn-sm btn-success" type="submit">Editar
-                            </button>
-                        </form>
-                        <form
-                            action=""
-                            class="d-inline formdelete" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn btn-sm btn-danger" type="submit">Eliminar
-                            </button>
-                        </form>
-                        <form
-                            action="{{route('question.index')}}"
-                            class="d-inline formdelete" method="POST">
-                            @method('GET')
-                            @csrf
-                            <button class="btn btn-sm btn-info" type="submit">Ver preguntas
-                            </button>
-                        </form>
-                    </td>
+                    <tr>
+                        <th>1</th> 
+                        <th>Si</th>
+                    </tr>
+                    <tr>
+                        <th>2</th> 
+                        <th>Mayormente si<th>
+                    </tr>
+                    <tr>
+                        <th>3</th> 
+                        <th>Indiferente</th> 
+                    </tr>
+                    <tr>
+                        <th>4</th> 
+                        <th>Mayormente no</th> 
+                    </tr>
+                    <tr>
+                        <th>5</th> 
+                        <th>No</th> 
                     </tr>
                 </tbody>
             </table>
@@ -93,16 +76,16 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            /*$('#data').DataTable({
+            $('#data').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",
                 },
-                "ajax": "{{ url('sistema/test/data') }}",
+                "ajax": "{{ url('sistema/question/data/{test}') }}",
                 "columns": [
                     {data: 'id'},
-                    {data: 'test_name'},
-                    {data: 'btn'}
+                    {data: 'question'},
+                    {data: 'btn'},
                 ],
                 "language": {
                     "info": "_TOTAL_ Registro(s)",
@@ -125,7 +108,7 @@
                     "infoEmpty": "",
                     "infoFiltered": ""
                 }
-            });*/
+            });
         });
     </script>
 @endsection

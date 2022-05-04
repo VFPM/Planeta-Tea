@@ -13,7 +13,7 @@
                         </div>
                     @endif
 
-                    <h1 class="text-center">{{ __('Evento') }}</h1>
+                    <h1 class="text-center">{{ __('Noticia') }}</h1>
                 </div>
             </div>
         </div>
@@ -52,8 +52,117 @@
                     <th width="100px">Acciones</th>
                 </tr>
                 </thead>
+                <tbody>
+                    <tr class="odd">
+                        <td class="sorting_1">1</td>
+                        <td>Juguemos a disfrazarnos</td>
+                        <td>Evento recreativo y terapeutico donde niños y jovenes que viven con Autismo participarán en un concurso de disfraces</td>
+                        <td>Personas que viven en el Espectro Autismo y comunidad interesada</td>
+                        <td>2022-05-20 02:19:00</td>
+                        <td>Presencial</td>
+                        <td>55.00</td>
+                        <td>
+                            <a href="http://127.0.0.1:8001/sistema/event/1/edit" class="btn btn-success btn-sm">Editar</a>
+                            <form action="http://127.0.0.1:8001/sistema/event/1/destroy" class="d-inline" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="pwBvadhG0vFfFYmhwH7W7cKMPdXA4XaF2PhAr5Al">
+                                <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+                            </form>
+                            <script>
+                                $('.formdelete').submit(function(e){
+                                    e.preventDefault();
+                                    Swal.fire({
+                                        title: '¿Seguro que deseas eliminar el registro?',
+                                        text: "No se podrá recuperar la información eliminada",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#1cc88a',
+                                        cancelButtonColor: '#e74a3b',
+                                        confirmButtonText: 'Aceptar',
+                                        cancelButtonText: 'Cancelar'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            this.submit();
+                                        }
+                                    })
+                                });
+                            </script>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="sorting_1">2</td>
+                        <td>Dia muldial del Autismo</td>
+                        <td>Evento recreativo y terapeutico enfocado en las personas que padecen...</td>
+                        <td>Personas que viven en el Espectro Autismo y comunidad interesada</td>
+                        <td>2022-06-15 02:19:00</td>
+                        <td>En linea</td>
+                        <td>20.00</td>
+                        <td>
+                            <a href="http://127.0.0.1:8001/sistema/event/1/edit" class="btn btn-success btn-sm">Editar</a>
+                            <form action="http://127.0.0.1:8001/sistema/event/1/destroy" class="d-inline" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="pwBvadhG0vFfFYmhwH7W7cKMPdXA4XaF2PhAr5Al">
+                                <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+                            </form>
+                            <script>
+                                $('.formdelete').submit(function(e){
+                                    e.preventDefault();
+                                    Swal.fire({
+                                        title: '¿Seguro que deseas eliminar el registro?',
+                                        text: "No se podrá recuperar la información eliminada",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#1cc88a',
+                                        cancelButtonColor: '#e74a3b',
+                                        confirmButtonText: 'Aceptar',
+                                        cancelButtonText: 'Cancelar'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            this.submit();
+                                        }
+                                    })
+                                });
+                            </script>
+                        </td>
+                    </tr>
+                    <tr class="odd">
+                        <td class="sorting_1">3</td>
+                        <td>Dia muldial del sindrome de Asperger</td>
+                        <td>Evento recreativo y terapeutico enfocado en las personas que padecen...</td>
+                        <td>Personas que viven con el sindrome de Asperger y comunidad interesada</td>
+                        <td>2022-07-09 02:19:00</td>
+                        <td>En linea</td>
+                        <td>Gratis</td>
+                        <td>
+                            <a href="http://127.0.0.1:8001/sistema/event/1/edit" class="btn btn-success btn-sm">Editar</a>
+                            <form action="http://127.0.0.1:8001/sistema/event/1/destroy" class="d-inline" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="pwBvadhG0vFfFYmhwH7W7cKMPdXA4XaF2PhAr5Al">
+                                <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+                            </form>
+                            <script>
+                                $('.formdelete').submit(function(e){
+                                    e.preventDefault();
+                                    Swal.fire({
+                                        title: '¿Seguro que deseas eliminar el registro?',
+                                        text: "No se podrá recuperar la información eliminada",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#1cc88a',
+                                        cancelButtonColor: '#e74a3b',
+                                        confirmButtonText: 'Aceptar',
+                                        cancelButtonText: 'Cancelar'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            this.submit();
+                                        }
+                                    })
+                                });
+                            </script>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-
         </div>
     </div>
 </div>
@@ -65,7 +174,7 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            $('#data').DataTable({
+            /*$('#data').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",
@@ -102,7 +211,7 @@
                     "infoEmpty": "",
                     "infoFiltered": ""
                 }
-            });
+            });*/
         });
     </script>
 @endsection

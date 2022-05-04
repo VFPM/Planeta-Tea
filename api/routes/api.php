@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
     // ---------- HOME ---------- // 
     Modelo: Home
     Verbo: GET
-    URL: https://frosty-bassi.143-198-181-247.plesk.page/api/contact
+    URL: https://frosty-bassi.143-198-181-247.plesk.page/api/home 
+    {"id":1,
+    "body":"asd",
+    "values":"asd","services":"asd","deleted_at":null,"created_at":null,"updated_at":null}
+
 
     // ---------- CONTACTO ---------- // 
     Modelo: Contacto
@@ -75,11 +79,8 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
     Route::get('login', 'AuthController@login')->name('auth.login');
     Route::post('user/store', 'UserController@store')->name('user.store');
 
-    // Main Info
-    Route::get('main-info', 'MainInfoController@dataindex')->name('main-info.data');
-    Route::post('main-info/store', 'MainInfoController@store')->name('main-info.store');
-    Route::put('main-info/{id}/update', 'MainInfoController@update')->name('main-info.update');
-    Route::delete('main-info/{id}/destroy', 'MainInfoController@destroy')->name('main-info.destroy');
+    // Home
+    Route::get('home', 'MainInfoController@mobileDataIndex')->name('home.data');
 
     // Contact
     Route::get('contact', 'ContactController@mobileDataIndex')->name('contact.data');

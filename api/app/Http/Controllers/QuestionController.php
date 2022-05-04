@@ -11,7 +11,7 @@ class QuestionController extends Controller
     {
         return view('system.Cuestionario.Preguntas.index');
     }
-    
+
     public function dataindex($test){
         
         return datatables(Question::where('test', $test))

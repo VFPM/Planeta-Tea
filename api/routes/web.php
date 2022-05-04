@@ -64,6 +64,9 @@ use Illuminate\Support\Facades\Route;
     Route::get('sistema/test/{id}/edit', 'App\Http\Controllers\TestController@edit')->name('test.edit');
     Route::delete('sistema/test/{id}/destroy', 'App\Http\Controllers\TestController@destroy')->name('test.destroy');
 
+
+
+
     // Users
     //Route::get('sistema/user', 'App\Http\Controllers\UserController@dataindex')->name('user.data');
     //Route::post('sistema/user/store', 'App\Http\Controllers\UserController@store')->name('user.store');
@@ -71,9 +74,14 @@ use Illuminate\Support\Facades\Route;
     //Route::delete('sistema/user/{id}/destroy', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
 
     // Questions
-    // Route::get('sistema/test/{test}/question', 'App\Http\Controllers\QuestionController@index')->name('question.index');
+    Route::get('sistema/test/question', 'App\Http\Controllers\QuestionController@index')->name('question.index');
+    Route::get('sistema/test/question/create', 'App\Http\Controllers\QuestionController@create')->name('question.create');
+    //Route::get('sistema/test/{test}/question', 'App\Http\Controllers\QuestionController@index')->name('question.index');
     // Route::get('sistema/test/{test}/question/data/{test}', 'App\Http\Controllers\QuestionController@dataindex')->name('question.data');
     // Route::get('sistema/test/{test}/question/create', 'App\Http\Controllers\QuestionController@create')->name('question.create');
     // Route::post('sistema/test/{test}/question/store', 'App\Http\Controllers\QuestionController@store')->name('question.store');
     // Route::put('sistema/test/{test}/question/{id}/update', 'App\Http\Controllers\QuestionController@update')->name('question.update');
     // Route::delete('sistema/test/{test}/question/{id}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');
+
+    //Responses
+    Route::get('sistema/test/response', 'App\Http\Controllers\ResponseController@index')->name('response.index');

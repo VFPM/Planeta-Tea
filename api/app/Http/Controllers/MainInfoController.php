@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class MainInfoController extends Controller
 {    
+    // Mobile 
+    public function mobileDataIndex(){
+        $data = MainInfo::all()->last();
+
+        return response()->json(
+            $data,
+            200);
+    }
+    // Web 
     public function index()
     {
         return view('system.InformacionPrincipal.index');

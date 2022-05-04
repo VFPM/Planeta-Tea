@@ -38,35 +38,25 @@
         @csrf
             <div class="row">  
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <label for="contenido" class="form-label">Contenido</label>
+                    <h3 for="contenido" class="form-label">Contenido</h3>
                     <textarea name="contenido" id="contenido" placeholder="Agregar una descripcion" class="content_page"></textarea>
                 </div>
             </div>
+            <br>
+            <div class="row">  
+                <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
+                    <h3 for="valores" class="form-label">Valores</h3>
+                    <textarea name="valores" id="valores" placeholder="Agregar una descripcion" class="content_page"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="row">  
+                <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
+                    <h3 for="servicios" class="form-label">Servicios</h3>
+                    <textarea name="servicios" id="servicios" placeholder="Agregar una descripcion" class="content_page"></textarea>
+                </div>
+            </div>
         </form>    
-        <div class="table-responsive">
-          <table id="data" class="table table-flush">
-                <thead class="thead-light">
-                <tr>
-                    <th width="10px">No.</th>
-                    <th>Servicios</th>
-                    <th></th>
-                </tr>
-                </thead>
-            </table>
-        </div>
-
-        <div class="table-responsive">
-          <table id="data2" class="table table-flush">
-                <thead class="thead-light">
-                <tr>
-                    <th width="10px">No.</th>
-                    <th>Valores</th>
-                    <th></th>
-                </tr>
-                </thead>
-            </table>
-        </div>
-
     </div>
 </div>
 
