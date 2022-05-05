@@ -16,10 +16,12 @@ class MainInfoController extends Controller
             $data,
             200);
     }
+
     // Web 
     public function index()
     {
-        return view('system.InformacionPrincipal.index');
+        $data = MainInfo::all()->last();
+        return view('system.InformacionPrincipal.index', compact('data'));
     }
 
     public function dataindex(){
@@ -40,9 +42,16 @@ class MainInfoController extends Controller
             'services' => 'required'
         ]);
         
-        $data = new MainInfo();
-        $data->fill($request->all());
-        $data->save();
+
+        try{
+            $data = new MainInfo();
+            $data->fill($request->all());
+            $data->save();
+            return redirect(route('main-info.index'));
+            
+        }catch (\Exception $exception) {
+            return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);
+        }
     }
 
     public function update(Request $request, $id)

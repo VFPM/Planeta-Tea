@@ -18,8 +18,20 @@ use Illuminate\Support\Facades\Route;
     Verbo: GET
     URL: https://frosty-bassi.143-198-181-247.plesk.page/api/home 
     {"id":1,
-    "body":"asd",
-    "values":"asd","services":"asd","deleted_at":null,"created_at":null,"updated_at":null}
+    "body":"<p>La información de mi pantalla Home.&nbsp;</p>",
+    "values":"  <ul>
+                <li>Valor 1</li>
+                <li>Valor 2</li>
+                <li>Valor 3</li>
+                </ul>",
+    "services":"<ul>
+                <li>Servicio 1</li>
+                <li>Servicio 2</li>
+                <li>Servicio 3</li>
+                </ul>",
+    "deleted_at":null,
+    "created_at":"2022-05-05 21:14:47",
+    "updated_at":"2022-05-05 21:14:47"}
 
 
     // ---------- CONTACTO ---------- // 
@@ -31,7 +43,7 @@ use Illuminate\Support\Facades\Route;
    {"id":1,
     "phone":"12345678",
     "email":"correo@hotmail.com",
-    "address":"Dom",
+    "address":"Domicilio #123",
     "facebook":"facebook.com",
     "twitter":"twitter.com",
     "instagram":"instagram.com",

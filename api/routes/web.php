@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
     // Main Info
     Route::get('sistema/main-info', 'App\Http\Controllers\MainInfoController@index')->name('main-info.index');
     Route::get('sistema/main-info/data', 'App\Http\Controllers\MainInfoController@dataindex')->name('main-info.data');
-    Route::get('sistema/main-info/create', 'App\Http\Controllers\MainInfoController@create')->name('main-info.create');
+    //Route::get('sistema/main-info/create', 'App\Http\Controllers\MainInfoController@create')->name('main-info.create');
     Route::post('sistema/main-info/store', 'App\Http\Controllers\MainInfoController@store')->name('main-info.store');
     Route::get('sistema/main-info/{id}/edit', 'App\Http\Controllers\MainInfoController@edit')->name('main-info.edit');
     Route::put('sistema/main-info/{id}/update', 'App\Http\Controllers\MainInfoController@update')->name('main-info.update');
