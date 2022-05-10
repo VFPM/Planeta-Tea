@@ -25,35 +25,33 @@
                 <div class="col-sm-12 col-md-6">
                     <h4>Informacion Principal</h4>
                 </div>
-                <div class="col-sm-12 col-md-6" align="right">
-                    <a href="#" class="btn btn-primary">
-                        Subir informacion 
-                    </a>
-                </div>
             </div>
 
     </div>
     <div class="card-body">
-        <form action="#" method="post"  enctype="multipart/form-data">
+        <form action="{{route('main-info.store')}}" method="post"  enctype="multipart/form-data">
         @csrf
-            <div class="row">  
+        <div align="right">
+            <button type="submit" class="btn btn-primary">Aplicar cambios</button>
+        </div>
+        <div class="row">  
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <h3 for="contenido" class="form-label">Contenido</h3>
-                    <textarea name="contenido" id="contenido" placeholder="Agregar una descripcion" class="content_page"></textarea>
+                    <h3 for="body" class="form-label">Contenido</h3>
+                    <textarea name="body" id="body_id" value="@if($data){!! $data->body !!}@endif" placeholder="Agregar una descripcion" class="content_page"></textarea>
                 </div>
             </div>
             <br>
             <div class="row">  
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <h3 for="valores" class="form-label">Valores</h3>
-                    <textarea name="valores" id="valores" placeholder="Agregar una descripcion" class="content_page"></textarea>
+                    <h3 for="values" class="form-label">Valores</h3>
+                    <textarea name="values" id="values_id" value="@if($data){!! $data->values !!}@endif" placeholder="Agregar una descripcion" class="content_page"></textarea>
                 </div>
             </div>
             <br>
             <div class="row">  
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <h3 for="servicios" class="form-label">Servicios</h3>
-                    <textarea name="servicios" id="servicios" placeholder="Agregar una descripcion" class="content_page"></textarea>
+                    <h3 for="services" class="form-label">Servicios</h3>
+                    <textarea name="services" id="services_id" value="@if($data){!! $data->services !!}@endif" placeholder="Agregar una descripcion" class="content_page"></textarea>
                 </div>
             </div>
         </form>    
