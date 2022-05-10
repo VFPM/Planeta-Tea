@@ -45,7 +45,7 @@ use Illuminate\Support\Facades\Route;
     Route::patch('sistema/information/{id}/update', 'App\Http\Controllers\InformationController@update')->name('information.update');
     Route::delete('sistema/information/{id}/destroy', 'App\Http\Controllers\InformationController@destroy')->name('information.destroy');
 
-    // Events
+    // Events <- BORRAR
     Route::get('sistema/event', 'App\Http\Controllers\EventController@index')->name('event.index');
     Route::get('sistema/event/data', 'App\Http\Controllers\EventController@dataindex')->name('event.data');
     Route::get('sistema/event/create', 'App\Http\Controllers\EventController@create')->name('event.create');
@@ -53,6 +53,15 @@ use Illuminate\Support\Facades\Route;
     Route::get('sistema/event/{id}/edit', 'App\Http\Controllers\EventController@edit')->name('event.edit');
     Route::patch('sistema/event/{id}/update', 'App\Http\Controllers\EventController@update')->name('event.update');
     Route::delete('sistema/event/{id}/destroy', 'App\Http\Controllers\EventController@destroy')->name('event.destroy');
+
+    // News
+    Route::get('sistema/news', 'App\Http\Controllers\NewsController@index')->name('news.index');
+    Route::get('sistema/news/data', 'App\Http\Controllers\NewsController@dataindex')->name('news.data');
+    Route::get('sistema/news/create', 'App\Http\Controllers\NewsController@create')->name('news.create');
+    Route::post('sistema/news/store', 'App\Http\Controllers\NewsController@store')->name('news.store');
+    Route::get('sistema/news/{id}/edit', 'App\Http\Controllers\NewsController@edit')->name('news.edit');
+    Route::patch('sistema/news/{id}/update', 'App\Http\Controllers\NewsController@update')->name('news.update');
+    Route::delete('sistema/news/{id}/destroy', 'App\Http\Controllers\NewsController@destroy')->name('news.destroy');
 
     // Tests 
     Route::get('sistema/test', 'App\Http\Controllers\TestController@index')->name('test.index');
@@ -63,8 +72,6 @@ use Illuminate\Support\Facades\Route;
     Route::put('sistema/test/{id}/update', 'App\Http\Controllers\TestController@update')->name('test.update');
     Route::get('sistema/test/{id}/edit', 'App\Http\Controllers\TestController@edit')->name('test.edit');
     Route::delete('sistema/test/{id}/destroy', 'App\Http\Controllers\TestController@destroy')->name('test.destroy');
-
-
 
 
     // Users

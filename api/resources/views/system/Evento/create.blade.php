@@ -45,7 +45,7 @@
 
             <div class="row" style="align-items: center;">
 
-                <div class="mb-3 col-sm-12 col-mb-10 col-xl-10">
+                <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
                     <label for="type" class="form-label">Selecciona tipo de noticia</label>
                     <select class="form-control" id="type_news_id" name="type_news_id">
                         <option selected disabled value="">Tipo...</option>
@@ -57,71 +57,10 @@
 
                 <div class="mb-3 col-sm-12 col-mb-1 col-xl-1" >
                     <br>
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#select-noticia" >Selecciona tipo de noticia</a>
-                </div>
-
-                <div class="mb-3 col-sm-12 col-mb-1 col-xl-1" >
-                    <br>
                     <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#create-noticia" >Agregar tipo de noticia</a>
                 </div>
 
-                <!-- Modal Seleccionar Tipo de Noticia -->
-                <div class="modal fade" id="select-noticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Selecciona tipo de noticia</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
-                                <label for="type" class="form-label">Selecciona tipo de noticia</label>
-                                <select class="form-control" id="type_news_id" name="type_news_id">
-                                    <option selected disabled value="">Tipo...</option>
-                                    <option value="Testimonio">Testimonio</option>
-                                    <option value="Podcast">Aviso de Podcast</option>
-                                    <option value="Eventos">Eventos</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
-                        <button type="button" class="btn btn-primary">Seleccionar</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Modal Crear Tipo de Noticia -->
-                <div class="modal fade" id="create-noticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <form action="#" method="post">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Creacion de tipo de notcia</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <input type="text" class="form-control" name="title" placeholder="Descripción" required>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Crear</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-
-
-
-                <div class="mb-3 col-sm-12 col-mb-10 col-xl-10">
+                <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
                     <label for="type" class="form-label">Selecciona la modalidad</label>
                     <select class="form-control" id="type_news_id" name="type_news_id">
                         <option selected disabled value="">Modalidad...</option>
@@ -130,71 +69,14 @@
                     </select>
                 </div>
 
-                <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
-                    <br>
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#select-modalidad" >Selecciona la modalidad</a>
-                </div>
+
 
                 <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
                     <br>
                     <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#create-modalidad" >Agregar modalidad</a>
                 </div>
 
-                <!-- Modal Seleccionar Modalidad -->
-                <div class="modal fade" id="select-modalidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
-                                <label for="type" class="form-label">Selecciona la modalidad</label>
-                                <select class="form-control" id="type_news_id" name="type_news_id">
-                                    <option selected disabled value="">Modalidad...</option>
-                                    <option value="Presencial">Presencial</option>
-                                    <option value="En linea">En linea</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
-                        <button type="button" class="btn btn-primary">Seleccionar</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Modal Crear Modalidad -->
-                <div class="modal fade" id="create-modalidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <form action="#" method="post">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Creacion de modalidad</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <input type="text" class="form-control" name="title" placeholder="Descripción" required>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Crear</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-
-
-                <div class="mb-3 col-sm-12 col-mb-10 col-xl-10">
+                <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
                     <label for="type" class="form-label">Selecciona la plataforma</label>
                     <select class="form-control" id="type_news_id" name="type_news_id">
                         <option selected disabled value="">Plataforma...</option>
@@ -204,67 +86,11 @@
                     </select>
                 </div>
 
-                <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
-                    <br>
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#select-plataforma" >Selecciona la plataforma</a>
-                </div>
+
 
                 <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
                     <br>
                     <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#create-plataforma" >Agregar plataforma</a>
-                </div>
-                
-                <!-- Modal Seleccionar Plataforma -->
-                <div class="modal fade" id="select-plataforma" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Selecciona la plataforma</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
-                                <label for="type" class="form-label">Selecciona la plataforma</label>
-                                <select class="form-control" id="type_news_id" name="type_news_id">
-                                    <option selected disabled value="">Plataforma...</option>
-                                    <option value="Facebook">Facebook</option>
-                                    <option value="Instagram">Instagram</option>
-                                    <option value="Whatsapp">Whatsapp</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
-                        <button type="button" class="btn btn-primary">Seleccionar</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
-                <!-- Modal Crear Modalidad -->
-                <div class="modal fade" id="create-plataforma" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <form action="#" method="post">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Creacion de plataforma</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <input type="text" class="form-control" name="title" placeholder="Descripción" required>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Crear</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
 
 
@@ -325,10 +151,168 @@
     </div>
     </form>
 
+    <!-- Modal Crear Tipo de Noticia -->
+    <div class="modal fade" id="create-noticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <form action="#" method="post">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Creacion de tipo de notcia</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="align-items: center;">
+                            <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
+                                <label for="type" class="form-label">Selecciona tipo de noticia a editar</label>
+                                <select class="form-control" id="type_news_edit_id" name="type_news_edit_id" onchange="enableEditTypeNewsInput()">
+                                    <option selected disabled value="">Tipo...</option>
+                                    <option value="1">Testimonio</option>
+                                    <option value="2">Aviso de Podcast</option>
+                                    <option value="3">Eventos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
+                            <label for="type" class="form-label">Escribe el tipo de noticia a crear</label>
+                            <input type="text" class="form-control" name="title" placeholder="Descripción" id="type_news_text_id" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" id="type_news_update_btn" disabled>Editar</button>
+                        <button type="submit" class="btn btn-primary" id="type_news_create_btn">Crear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Modal Crear Modalidad -->
+    <div class="modal fade" id="create-modalidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <form action="#" method="post">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Creacion de modalidad</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="align-items: center;">
+                            <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
+                                <label for="type" class="form-label">Selecciona la modalidad</label>
+                                <select class="form-control" id="type_mode_edit_id" name="type_mode_edit_id" onchange="enableEditTypeModeInput()">
+                                    <option selected disabled value="">Modalidad...</option>
+                                    <option value="Presencial">Presencial</option>
+                                    <option value="En linea">En linea</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
+                            <label for="type" class="form-label">Escribe el tipo de modalidad a crear</label>
+                            <input type="text" class="form-control" name="title" placeholder="Descripción" id="type_mode_text_id" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" id="type_mode_update_btn" disabled>Editar</button>
+                        <button type="submit" class="btn btn-primary" id="type_mode_create_btn" >Crear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- Modal Crear Plataforma -->
+    <div class="modal fade" id="create-plataforma" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <form action="#" method="post">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Creacion de plataforma</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="align-items: center;">
+                            <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
+                                <label for="type" class="form-label">Selecciona la plataforma</label>
+                                <select class="form-control" id="type_platform_edit_id" name="type_platform_edit_id" onchange="enableEditTypePlatformInput()">
+                                    <option selected disabled value="">Plataforma...</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Whatsapp">Whatsapp</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
+                            <label for="type" class="form-label">Escribe el tipo de modalidad a crear</label>
+                            <input type="text" class="form-control" name="title" placeholder="Descripción" id="type_platform_text_id" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" id="type_platform_update_btn" disabled>Editar</button>
+                        <button type="submit" class="btn btn-primary" id="type_platform_create_btn" >Crear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>
 @endsection
 
 @section('scripts-page')
     <script src="https://cdn.tiny.cloud/1/1koh7nhlb1qkn9xsamo2b9zafsztdbzf5k2jpltnsvfekepa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src={{asset('/assets/js/specialtinyjs.js')}}></script>
+    <script>
+        function enableEditTypeNewsInput() {
+            var selectEditNews = document.getElementById('type_news_edit_id');
+            var titleNews = document.getElementById('type_news_text_id');
+            var btnUpdate = document.getElementById('type_news_update_btn');
+            var btnCreate = document.getElementById('type_news_create_btn');
+            
+            if(selectEditNews.value != ''){
+                btnUpdate.disabled = false;
+                btnCreate.disabled = true;
+                titleNews.value = selectEditNews.options[selectEditNews.selectedIndex].text;
+            }
+        }
+
+        function enableEditTypeModeInput() {
+            var selectEditMode = document.getElementById('type_mode_edit_id');
+            var titleMode = document.getElementById('type_mode_text_id');
+            var btnUpdate = document.getElementById('type_mode_update_btn');
+            var btnCreate = document.getElementById('type_mode_create_btn');
+            
+            if(selectEditMode.value != ''){
+                btnUpdate.disabled = false;
+                btnCreate.disabled = true;
+                titleMode.value = selectEditMode.options[selectEditMode.selectedIndex].text;
+            }
+        }
+
+        function enableEditTypePlatformInput() {
+            var selectEditPlatform = document.getElementById('type_platform_edit_id');
+            var titlePlatform = document.getElementById('type_platform_text_id');
+            var btnUpdate = document.getElementById('type_platform_update_btn');
+            var btnCreate = document.getElementById('type_platform_create_btn');
+            
+            if(selectEditPlatform.value != ''){
+                btnUpdate.disabled = false;
+                btnCreate.disabled = true;
+                titlePlatform.value = selectEditPlatform.options[selectEditPlatform.selectedIndex].text;
+            }
+        }
+    </script>
 @endsection

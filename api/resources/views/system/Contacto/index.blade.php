@@ -49,12 +49,6 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
-                    <label for="address" class="form-label">Domicilio</label>
-                    <input type="text" class="form-control" id="address_id" name="address" value="@if($data){!! $data->address !!}@endif" placeholder="Domicilio" required>
-                </div>
-
-
-                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
                     <label for="facebook" class="form-label">Facebook</label>
                     <input type="text" class="form-control" id="facebook_id" name="facebook" value="@if($data){!! $data->facebook !!}@endif" placeholder="Facebook" required>
                 </div>
@@ -68,7 +62,18 @@
                     <label for="instagram" class="form-label">Instagram</label>
                     <input type="text" class="form-control" id="instagram_id" name="instagram" value="@if($data){!! $data->instagram !!}@endif" placeholder="Instagram" required>
                 </div>
+
+                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                    <label for="address" class="form-label">Domicilio</label>
+                    <input type="text" class="form-control" id="address_id" name="address" value="@if($data){!! $data->address !!}@endif" placeholder="Domicilio" required>
+                </div>
+
+                <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
+                    <label for="google_address" class="form-label">Link Google Maps</label>
+                    <input type="text" class="form-control" id="google_address_id" name="google_address" placeholder="Link Google Maps" required>
+                </div>
     </div>
 </div>
 </form>
 @endsection
+    

@@ -88,11 +88,8 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
     // Information
     Route::get('information', 'InformationController@mobileDataIndex')->name('information.data');
 
-    // Events
-    Route::get('event', 'EventController@dataindex')->name('event.data');
-    Route::post('event/store', 'EventController@store')->name('event.store');
-    Route::put('event/{id}/update', 'EventController@update')->name('event.update');
-    Route::delete('event/{id}/destroy', 'EventController@destroy')->name('event.destroy');
+    // News
+    Route::get('news', 'NewsController@mobileDataIndex')->name('news.data');
 
     // Tests 
     // Route::get('test', 'TestController@dataindex')->name('test.data');

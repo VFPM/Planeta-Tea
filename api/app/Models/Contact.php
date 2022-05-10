@@ -19,6 +19,7 @@ class Contact extends Model
         'facebook',
         'twitter',
         'instagram',
+        'googlemaps',
     ];
 
 }
