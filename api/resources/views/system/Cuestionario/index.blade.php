@@ -41,43 +41,11 @@
             <table id="data" class="table table-flush">
                 <thead class="thead-light">
                 <tr>
-                    <th class="col-1">No.</th>
-                    <th class="col-6">Test</th>
-                    <th class="col-6">Acciones<th>
+                    <th width="10px">No.</th>
+                    <th>Nombre del cuestionario</th>
+                    <th width="100px">Acciones</th>
                 </tr>
                 </thead>
-                <tbody>
-                    <tr class="odd">
-                    <td>1</td>
-                    <td>Test de diagnostico</td>
-                    <td>
-                        <form
-                            action=""
-                            class="d-inline formdelete" method="POST">
-                            @method('GET')
-                            @csrf
-                            <button class="btn btn-sm btn-success" type="submit">Editar
-                            </button>
-                        </form>
-                        <form
-                            action=""
-                            class="d-inline formdelete" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn btn-sm btn-danger" type="submit">Eliminar
-                            </button>
-                        </form>
-                        <form
-                            action="{{route('question.index')}}"
-                            class="d-inline formdelete" method="POST">
-                            @method('GET')
-                            @csrf
-                            <button class="btn btn-sm btn-info" type="submit">Ver preguntas
-                            </button>
-                        </form>
-                    </td>
-                    </tr>
-                </tbody>
             </table>
 
         </div>
@@ -93,7 +61,7 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            /*$('#data').DataTable({
+            $('#data').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",
@@ -101,7 +69,7 @@
                 "ajax": "{{ url('sistema/test/data') }}",
                 "columns": [
                     {data: 'id'},
-                    {data: 'test_name'},
+                    {data: 'name'},
                     {data: 'btn'}
                 ],
                 "language": {
@@ -125,7 +93,7 @@
                     "infoEmpty": "",
                     "infoFiltered": ""
                 }
-            });*/
+            });
         });
     </script>
 @endsection

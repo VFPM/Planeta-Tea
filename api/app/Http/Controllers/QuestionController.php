@@ -14,7 +14,7 @@ class QuestionController extends Controller
 
     public function dataindex($test){
         
-        return datatables(Question::where('test', $test))
+        return datatables(Question::where('test_id', $test))
         ->addColumn('btn', 'system.Evento.btn')
         ->rawColumns(['btn'])
         ->toJson();
@@ -23,7 +23,8 @@ class QuestionController extends Controller
     }
 
     public function dataindexMovil($test){
-        $data = Question::where('test', $test);
+        $data = Question::where('test_id', $test);
+
         return response()->json([
             'status' => 'success',
             'data' => $data,
@@ -38,9 +39,9 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'number' => 'required',
-            'question' => 'required',
-            'test' => 'required'
+            'description' => 'required',
+            'question_type_id' => 'required',
+            'test_id' => 'required'
         ]);
         
         $data = new Question();
@@ -51,9 +52,9 @@ class QuestionController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'number' => 'required',
-            'question' => 'required',
-            'test' => 'required'
+            'description' => 'required',
+            'question_type_id' => 'required',
+            'test_id' => 'required'
         ]);
 
         $data = Question::find($id);
@@ -75,7 +76,7 @@ class QuestionController extends Controller
     }
 
     public function testQuestions($testId){
-        $data = Question::where('test', $testId)->exists()->orderBy("number");
+        $data = Question::where('test_id', $testId)->exists();
 
         return response()->json([
             'status' => 'success',

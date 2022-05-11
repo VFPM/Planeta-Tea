@@ -25,6 +25,7 @@ class CreateNewsTable extends Migration
             $table->unsignedBigInteger('type_news_id');
             $table->unsignedBigInteger('mode_id');
             $table->unsignedBigInteger('platform_id');
+            $table->unsignedBigInteger('abstract_id');
             $table->softDeletes();
             $table->timestamps();
 
@@ -36,6 +37,9 @@ class CreateNewsTable extends Migration
                 ->onDelete('cascade');
             $table->foreign('platform_id')
                 ->references('id')->on('platform')
+                ->onDelete('cascade');
+            $table->foreign('abstract_id')
+                ->references('id')->on('abstract')
                 ->onDelete('cascade');
         });
     }

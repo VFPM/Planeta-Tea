@@ -5,19 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\News;
+use App\Models\NewsType;
+use App\Models\Mode;
+use App\Models\Platform;
 
 class NewsController extends Controller
 {
 
     // Móvil
     public function mobileDataIndex(){
-        $data = News::all()->where('deleted_at', null); 
+        //$data = News::all()->where('deleted_at', null); 
+        //$data = News::all();
+
+        $data = News::with('type_news_id')->with('mode_id')->with('platform_id')->with('abstract_id')->where('deleted_at', null)->get();
+        
         return response()->json(
             $data
             ,200);
     }
 
-    // Web 
+    // Web
     public function index()
     {
         return view('system.Evento.index');
@@ -48,7 +55,6 @@ class NewsController extends Controller
             'type_news_id' => 'required',
             'mode_id' => 'required',
             'platform_id' => 'required',
-
             'news_time' => 'required',
         ]);
 

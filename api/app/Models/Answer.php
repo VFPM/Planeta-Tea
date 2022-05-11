@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Question extends Model
+class Answer extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -14,16 +14,11 @@ class Question extends Model
 
     protected $fillable = [
         'description',
-        'question_type_id',
-        'test_id'
+        'question_id'
     ];
 
-    public function questionType(){
-        return $this->hasOne(QuestionType::class, 'question_type_id');
-    }
-
-    public function test(){
-        return $this->hasOne(Test::class, 'test_id');
+    public function question(){
+        return $this->hasOne(Question::class, 'question_id');
     }
     
 }
