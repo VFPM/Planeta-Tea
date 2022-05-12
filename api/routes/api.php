@@ -103,8 +103,8 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
     // News
     Route::get('news', 'NewsController@mobileDataIndex')->name('news.data');
 
-    // Tests 
-    Route::get('tests', 'TestController@dataIndexMovil')->name('tests.data');  
+    // Tests
+    Route::get('tests', 'TestController@mobileDataIndex')->name('tests.data');
     // Route::get('test', 'TestController@dataindex')->name('test.data');
     // Route::post('test/store', 'TestController@store')->name('test.store');
     // Route::put('test/{id}/update', 'TestController@update')->name('test.update');

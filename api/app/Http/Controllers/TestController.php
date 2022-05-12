@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class TestController extends Controller
 {
     // Móvil
-    public function dataIndexMovil(){
+    public function mobileDataIndex(){
         $data = Test::all();
 
         return response()->json([
