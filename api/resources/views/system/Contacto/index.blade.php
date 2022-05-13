@@ -69,8 +69,8 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
-                    <label for="google_address" class="form-label">Link Google Maps</label>
-                    <input type="text" class="form-control" id="google_address_id" name="google_address" placeholder="Link Google Maps" required>
+                    <label for="googlemaps" class="form-label">Google Maps</label>
+                    <input type="text" class="form-control" id="google_address_id" name="googlemaps" value="@if($data){!! $data->googlemaps !!}@endif" placeholder="Google Maps" required>
                 </div>
     </div>
 </div>

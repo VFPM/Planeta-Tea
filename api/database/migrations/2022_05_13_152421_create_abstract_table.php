@@ -17,7 +17,12 @@ class CreateAbstractTable extends Migration
             $table->id();
             $table->text('description');
             $table->string('path');
+            $table->unsignedBigInteger('new_id');
             $table->timestamps();
+
+            $table->foreign('new_id')
+                ->references('id')->on('news')
+                ->onDelete('cascade');
         });
     }
 

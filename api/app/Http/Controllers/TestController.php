@@ -12,7 +12,8 @@ class TestController extends Controller
     // Móvil
     public function mobileDataIndex(){
         $data = Test::all();
-
+        
+        
         return response()->json([
             'status' => 'success',
             'data' => $data,

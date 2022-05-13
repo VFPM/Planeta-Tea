@@ -87,6 +87,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
+
     // Auth
     Route::get('login', 'AuthController@login')->name('auth.login');
     Route::post('user/store', 'UserController@store')->name('user.store');

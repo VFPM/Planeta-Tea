@@ -43,6 +43,7 @@ class ContactController extends Controller
             'facebook' => 'required',
             'twitter' => 'required',
             'instagram' => 'required',
+            'googlemaps' => 'required'
         ]);
 
         try{
@@ -65,6 +66,7 @@ class ContactController extends Controller
             'facebook' => 'required',
             'twitter' => 'required',
             'instagram' => 'required',
+            'googlemaps' => 'required'
         ]);
 
         try{

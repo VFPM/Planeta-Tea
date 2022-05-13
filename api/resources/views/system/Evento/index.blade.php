@@ -62,8 +62,9 @@
                         <td>Presencial</td>
                         <td>55.00</td>
                         <td>
-                            <a href="http://127.0.0.1:8001/sistema/event/1/edit" class="btn btn-success btn-sm">Editar</a>
-                            <form action="http://127.0.0.1:8001/sistema/event/1/destroy" class="d-inline" method="POST">
+                            @if($id)
+                            <a href="#" class="btn btn-success btn-sm">Editar</a>
+                            <form action="{{route('event.destroy', $data->id)}}" class="d-inline" method="POST">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="pwBvadhG0vFfFYmhwH7W7cKMPdXA4XaF2PhAr5Al">
                                 <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
@@ -87,6 +88,7 @@
                                     })
                                 });
                             </script>
+                            @endif
                         </td>
                     </tr>
                     <tr class="odd">
@@ -174,7 +176,7 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            /*$('#data').DataTable({
+            $('#data').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",
@@ -211,7 +213,7 @@
                     "infoEmpty": "",
                     "infoFiltered": ""
                 }
-            });*/
+            });
         });
     </script>
 @endsection
