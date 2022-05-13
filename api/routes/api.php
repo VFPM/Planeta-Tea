@@ -105,22 +105,4 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
 
     // Tests
     Route::get('tests', 'TestController@mobileDataIndex')->name('tests.data');
-    // Route::get('test', 'TestController@dataindex')->name('test.data');
-    // Route::post('test/store', 'TestController@store')->name('test.store');
-    // Route::put('test/{id}/update', 'TestController@update')->name('test.update');
-    // Route::delete('test/{id}/destroy', 'TestController@destroy')->name('test.destroy');
-
-    // Users
-    //Route::get('sistema/user', 'UserController@dataindex')->name('user.data');
-    //Route::post('sistema/user/store', 'UserController@store')->name('user.store');
-    //Route::put('sistema/user/{id}/update', 'UserController@update')->name('user.update');
-    //Route::delete('sistema/user/{id}/destroy', 'UserController@destroy')->name('user.destroy');
-
-    // Questions
-    // Route::get('test/{test}/question', 'App\Http\Controllers\QuestionController@index')->name('question.index');
-    // Route::get('test/{test}/question/data/{test}', 'App\Http\Controllers\QuestionController@dataindex')->name('question.data');
-    // Route::get('test/{test}/question/create', 'App\Http\Controllers\QuestionController@create')->name('question.create');
-    // Route::post('test/{test}/question/store', 'App\Http\Controllers\QuestionController@store')->name('question.store');
-    // Route::put('test/{test}/question/{id}/update', 'App\Http\Controllers\QuestionController@update')->name('question.update');
-    // Route::delete('test/{test}/question/{id}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');
 });
