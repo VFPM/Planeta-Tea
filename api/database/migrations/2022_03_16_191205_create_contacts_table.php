@@ -21,7 +21,6 @@ class CreateContactsTable extends Migration
             $table->string('facebook');
             $table->string('twitter');
             $table->string('instagram');
-            $table->string('googlemaps');
             $table->softDeletes();
             $table->timestamps();
         });

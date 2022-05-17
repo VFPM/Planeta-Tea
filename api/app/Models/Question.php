@@ -19,11 +19,11 @@ class Question extends Model
     ];
 
     public function questionType(){
-        return $this->hasOne(QuestionType::class, 'question_type_id');
+        return $this->hasOne(QuestionType::class);
     }
 
     public function test(){
-        return $this->hasOne(Test::class, 'test_id');
+        return $this->hasOne(Test::class);
     }
     
 }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Test;
 use App\Models\Event;
+use App\Models\News;
+use App\Models\Question;
+use App\Models\QuestionType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,14 +14,11 @@ class TestController extends Controller
 {
     // Móvil
     public function mobileDataIndex(){
-        $data = Test::all();
+        $data = QuestionType::all();
         
-        
-        return response()->json([
-            'status' => 'success',
-            'data' => $data,
-            'msg' => 'Se ha mostrado la información correctamente'
-        ],200);
+        return response()->json(
+            $data
+            ,200);
     }
 
     // Web

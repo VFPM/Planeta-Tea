@@ -60,10 +60,10 @@
                                 <a class="nav-link" href="{{ route('event.index') }}">{{ __('Noticias') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="{{ route('information.index') }}">{{ __('Información') }}</a>
+                                <a class="nav-link" href="{{ route('information.index') }}">{{ __('Info TEA') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="{{ route('main-info.index') }}">{{ __('Información Principal') }}</a>
+                                <a class="nav-link" href="{{ route('main-info.index') }}">{{ __('Nosotros') }}</a>
                             </li>
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('test.index') }}">{{ __('Cuestionario') }}</a>

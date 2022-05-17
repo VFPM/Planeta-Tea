@@ -3,19 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\QuestionType;
+use App\Models\Test;
 use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    public function index()
+    public function index($test_id)
     {
-        return view('system.Cuestionario.Preguntas.index');
+        $test = Test::find($test_id);
+
+        return view('system.Cuestionario.Preguntas.index', compact('test'));
     }
 
     public function dataindex($test){
         
         return datatables(Question::where('test_id', $test))
-        ->addColumn('btn', 'system.Evento.btn')
+        ->addColumn('btn', 'system.Cuestionario.Preguntas.btn')
         ->rawColumns(['btn'])
         ->toJson();
 
@@ -32,8 +36,11 @@ class QuestionController extends Controller
         ],200);
     }
 
-    public function create(){
-        return view('system.Cuestionario.Preguntas.create');
+    public function create($test_id){
+        $test = Test::find($test_id);
+        $questionTypes = QuestionType::all();
+
+        return view('system.Cuestionario.Preguntas.create', compact('test', 'questionTypes'));
     }
 
     public function store(Request $request)
@@ -49,6 +56,12 @@ class QuestionController extends Controller
         $data->save();
     }
 
+    public function edit($test, $id){
+        $data = Question::find($id);
+
+        return view('system.Cuestionario.Preguntas.edit', compact('data'));
+    }
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -60,12 +73,6 @@ class QuestionController extends Controller
         $data = Question::find($id);
         $data->fill($request->all());
         $data->save();
-    }
-
-    public function edit($id){
-        $data = Question::find($id);
-
-        return view('system.Cuestionario.Preguntas.edit', compact('data'));
     }
 
 

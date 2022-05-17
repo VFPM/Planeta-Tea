@@ -38,7 +38,7 @@
     <div class="card-body">
         <div class="table-responsive">
 
-            <table id="data" class="table table-flush">
+            <table id="data" class="dataindex table table-flush">
                 <thead class="thead-light">
                 <tr>
                     <th width="10px">No.</th>
@@ -61,7 +61,7 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            $('#data').DataTable({
+            $('.dataindex').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",

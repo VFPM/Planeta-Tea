@@ -29,7 +29,7 @@
             </div>
             <div class="col-sm-12 col-md-6" align="right">
 
-                <a href="{{route('event.create')}}" class="btn btn-primary">
+                <a href="{{route('news.create')}}" class="btn btn-primary">
                     Registrar
                 </a>
             </div>
@@ -62,9 +62,11 @@
                         <td>Presencial</td>
                         <td>55.00</td>
                         <td>
-                            @if($id)
+                            
                             <a href="#" class="btn btn-success btn-sm">Editar</a>
-                            <form action="{{route('event.destroy', $data->id)}}" class="d-inline" method="POST">
+                            <form action="#" class="d-inline" method="POST">
+                            @method('DELETE')
+                             @csrf
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="pwBvadhG0vFfFYmhwH7W7cKMPdXA4XaF2PhAr5Al">
                                 <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
@@ -88,7 +90,7 @@
                                     })
                                 });
                             </script>
-                            @endif
+                            
                         </td>
                     </tr>
                     <tr class="odd">

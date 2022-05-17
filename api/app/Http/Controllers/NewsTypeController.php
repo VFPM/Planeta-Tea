@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Mode;
 
-class ModeController extends Controller
+use App\Models\NewsType;
+
+class NewsTypeController extends Controller
 {
-
     public function dataindex(){
         
-        return datatables(Mode::all())
+        return datatables(NewsType::all())
         ->toJson();
     }
 
@@ -20,18 +20,15 @@ class ModeController extends Controller
             'name' => 'required',
         ]);
         
-        $data = new Mode();
+        $data = new NewsType();
         $data->fill($request->all());
 
         $data->save();
         return redirect(route('event.index'));
     }
-    public function create() {
-        return view('system.Evento.create');
-    }
 
     public function edit($id) {
-        $data = Mode::find($id);
+        $data = NewsType::find($id);
         return view('system.Evento.edit', compact('data'));
     }
 
@@ -41,7 +38,7 @@ class ModeController extends Controller
             'name' => 'required',
         ]);
 
-        $data = Mode::find($id);
+        $data = NewsType::find($id);
         $data->fill($request->all());
 
         $data->save();
@@ -50,9 +47,12 @@ class ModeController extends Controller
 
     public function destroy($id)
     {
-        $noticia = Mode::findOrFail($id);
+        $noticia = NewsType::findOrFail($id);
         $noticia->delete();
         return redirect(route('event.index'));
     }
+
+
+
 
 }

@@ -15,14 +15,14 @@ class NewsController extends Controller
 
     // Móvil
     public function mobileDataIndex(){
-        //$data = News::all()->where('deleted_at', null); 
-        //$data = News::all();
+        //$data = News::with('type_news_id')->with('mode_id')->with('platform_id')->with('abstract_id')->where('deleted_at', null)->get();
+        $data = News::with('type_news_id')->with('mode_id')->with('platform_id')->where('deleted_at', null)->get();
+        $images = Abstracts::with('new_id')->get();
 
-        $data = News::with('type_news_id')->with('mode_id')->with('platform_id')->with('abstract_id')->where('deleted_at', null)->get();
-        
         return response()->json(
-            $data
-            ,200);
+            [$data,
+            $images
+            ,200]);
     }
 
     // Web
@@ -40,8 +40,14 @@ class NewsController extends Controller
         ->toJson();
     }
 
+    
     public function create() {
-        return view('system.Evento.create');
+        $newsType = NewsType::all();
+        $mode = Mode::where('active',1)->get();
+        $plataform = Platform::all();
+        
+        return view('system.Evento.create', compact('newsType','mode','plataform'));
+        //return view('system.Evento.create', compact('mode','plataform'));
     }
 
     public function store(Request $request)
@@ -66,16 +72,14 @@ class NewsController extends Controller
         $data->fill($request->all());
 
         $data->news_date = $data->news_date . " " . $time_formated;
-        
-        if($request->file('image')){
-            $host= $_SERVER["HTTP_HOST"];
-            $dataImage = new Abstracts();
-            
-            $dataImage->path = "http://" . $host . "/storage/" . $request->file('pdf')->store('event', 'public');
-        }
 
+        $host= $_SERVER["HTTP_HOST"];
+        $dataImage = new Abstracts();
+        $dataImage->path = "http://" . $host . "/storage/" . $request->file('image')->store('news', 'public');
+        
         $data->save();
-     
+
+        $dataImage->new_id = $data->id;
 
         return redirect(route('event.index'));
     }
@@ -89,6 +93,16 @@ class NewsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'description' => 'required',
+            'platform_description' => 'required',
+            'news_date' => 'required',
+            'link' => 'required',
+            'cost' => 'required',
+            'type_news_id' => 'required',
+            'mode_id' => 'required',
+            'platform_id' => 'required',
+            'news_time' => 'required',
+            'image' => 'required',
         ]);
 
         $time_formated = date("H:i:s", strtotime($request->event_time));
@@ -101,8 +115,20 @@ class NewsController extends Controller
         if($request->file('image') != '')
         {
             Storage::delete($data->image);
-            $data->image = $request->file('image')->store('event', 'public');
+
+            $host= $_SERVER["HTTP_HOST"];
+            $dataImage = new Abstracts();
+            $dataImage->path = "http://" . $host . "/storage/" . $request->file('image')->store('news', 'public');
+
+            $data->image = $request->file('image')->store('news', 'public');
+            $dataImage->new_id = $id;
         }
+
+        /* 
+            $host= $_SERVER["HTTP_HOST"];
+            $dataImage = new Abstracts();
+            $dataImage->path = "http://" . $host . "/storage/" . $request->file('image')->store('news', 'public');
+        */
 
         $data->save();
         return redirect(route('event.index'));

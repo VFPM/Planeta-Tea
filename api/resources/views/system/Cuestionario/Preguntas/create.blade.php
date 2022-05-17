@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <h1 class="text-center">{{ __('Registrar Cuestionario') }}</h1>
+                    <h1 class="text-center">{{ __('Registrar Pregunta') }}</h1>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Registrar respuesta</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Registrar Pregunta</h6>
         </div>
 
         <div class="card-body">
@@ -45,17 +45,30 @@
 
             <div class="row">
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="test_name" class="form-label">Pregunta</label>
-                    <input type="text" class="form-control" id="pregunta_id" name="test_name" placeholder="Pregunta" required>
+                    <label for="test_name" class="form-label">Cuestionario</label>
+                    <select  class="form-control" id="tipo_pregunta" name="test_name" placeholder="Cuestionario" required>
+                        <option value="{{$test->id}}">{{$test->name}}</option>
+                    </select>
                 </div>
             </div>
 
             <div class="row">
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="test_name" class="form-label">Tipo de pregunta</label>
-                    <select  class="form-control" id="tipo_pregunta" name="test_name" placeholder="Tipo de pregunta" required>
-                        <option value="Abierta">Abierta</option>
-                        <option value="Multiple">Opcion Multiple</option>
+                    <label for="description" class="form-label">Pregunta</label>
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Pregunta" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
+                    <label for="question_type_id" class="form-label">Tipo de pregunta</label>
+                    <select  class="form-control" id="question_type_id" name="question_type_id" placeholder="Tipo de pregunta" required>
+                        @foreach($questionTypes as $questionType)
+                            <option value="{{$questionType->id}}">{{$questionType->name}}</option>
+                        @endforeach
+                    
+                    <!-- <option value="Abierta">Abierta</option>
+                        <option value="Multiple">Opcion Multiple</option> -->
                     </select>
                 </div>
             </div>

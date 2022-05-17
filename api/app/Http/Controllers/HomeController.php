@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use app\Models\News;
+use app\Models\NewsType;
+use app\Models\Mode;
 class HomeController extends Controller
 {
     /**
@@ -25,4 +27,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    //News
+    public function news(){
+        $newsType = NewsType::all();
+        $mode = Mode::where('active',1)->get();
+        //$data = 
+    }
 }
+
+?>

@@ -68,7 +68,7 @@
                     <input type="text" class="form-control" id="address_id" name="address" value="@if($data){!! $data->address !!}@endif" placeholder="Domicilio" required>
                 </div>
 
-                <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
+                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
                     <label for="googlemaps" class="form-label">Google Maps</label>
                     <input type="text" class="form-control" id="google_address_id" name="googlemaps" value="@if($data){!! $data->googlemaps !!}@endif" placeholder="Google Maps" required>
                 </div>

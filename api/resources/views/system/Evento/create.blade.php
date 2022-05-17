@@ -15,6 +15,7 @@
                     @endif
 
                     <h1 class="text-center">{{ __('Registrar Noticia') }}</h1>
+                   
                 </div>
             </div>
         </div>
@@ -22,7 +23,7 @@
 </div>
 
 <div class="container-fluid mt-5">
-    <form action="{{route('event.store')}}" method="post"  enctype="multipart/form-data">
+    <form action="{{route('news.store')}}" method="post"  enctype="multipart/form-data">
     @csrf
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -42,16 +43,15 @@
                     </div>
                 </div>
             @endif
-
+            
             <div class="row" style="align-items: center;">
 
                 <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
                     <label for="type" class="form-label">Selecciona tipo de noticia</label>
                     <select class="form-control" id="type_news_id" name="type_news_id">
-                        <option selected disabled value="">Tipo...</option>
-                        <option value="Testimonio">Testimonio</option>
-                        <option value="Podcast">Aviso de Podcast</option>
-                        <option value="Eventos">Eventos</option>
+                            @foreach ($newsType as $tipo)
+                                <option value="{{$tipo->id}}">{{$tipo->name}}</option>
+                            @endforeach
                     </select>
                 </div>
 
@@ -63,9 +63,10 @@
                 <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
                     <label for="type" class="form-label">Selecciona la modalidad</label>
                     <select class="form-control" id="type_news_id" name="type_news_id">
-                        <option selected disabled value="">Modalidad...</option>
-                        <option value="Presencial">Presencial</option>
-                        <option value="En linea">En linea</option>
+                        
+                        @foreach ($mode as $tipo)
+                                <option value="{{$tipo->id}}">{{$tipo->name}}</option>
+                            @endforeach
                     </select>
                 </div>
 
@@ -79,10 +80,10 @@
                 <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
                     <label for="type" class="form-label">Selecciona la plataforma</label>
                     <select class="form-control" id="type_news_id" name="type_news_id">
-                        <option selected disabled value="">Plataforma...</option>
-                        <option value="Facebook">Facebook</option>
-                        <option value="Instagram">Instagram</option>
-                        <option value="Whatsapp">Whatsapp</option>
+                        
+                        @foreach ($plataform as $tipo)
+                                <option value="{{$tipo->id}}">{{$tipo->name}}</option>
+                            @endforeach
                     </select>
                 </div>
 
@@ -138,7 +139,7 @@
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
                     <label for="body" class="form-label">Contenido de la noticia</label>
-                    <textarea name="body" class="content_page" id="body_id" placeholder="Contenido del evento"></textarea>
+                    <textarea name="body" class="form-control" id="body_id" placeholder="Contenido del evento" rows="10"></textarea>
                 </div>
             </div>
 
@@ -153,7 +154,7 @@
 
     <!-- Modal Crear Tipo de Noticia -->
     <div class="modal fade" id="create-noticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <form action="#" method="post">
+        <form action="{{route('newstype.store')}}" method="post">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -167,10 +168,13 @@
                             <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
                                 <label for="type" class="form-label">Selecciona tipo de noticia a editar</label>
                                 <select class="form-control" id="type_news_edit_id" name="type_news_edit_id" onchange="enableEditTypeNewsInput()">
-                                    <option selected disabled value="">Tipo...</option>
-                                    <option value="1">Testimonio</option>
+                                   
+                                    @foreach ($newsType as $tipo)
+                                    <option value="{{$tipo->id}}">{{$tipo->name}}</option>
+                                @endforeach
+                                    <!--<option value="1">Testimonio</option>
                                     <option value="2">Aviso de Podcast</option>
-                                    <option value="3">Eventos</option>
+                                    <option value="3">Eventos</option>-->
                                 </select>
                             </div>
                         </div>
@@ -193,7 +197,7 @@
 
     <!-- Modal Crear Modalidad -->
     <div class="modal fade" id="create-modalidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <form action="#" method="post">
+        <form action="{{route('mode.store')}}" method="post">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -207,9 +211,10 @@
                             <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
                                 <label for="type" class="form-label">Selecciona la modalidad</label>
                                 <select class="form-control" id="type_mode_edit_id" name="type_mode_edit_id" onchange="enableEditTypeModeInput()">
-                                    <option selected disabled value="">Modalidad...</option>
-                                    <option value="Presencial">Presencial</option>
-                                    <option value="En linea">En linea</option>
+                                    
+                                    @foreach ($mode as $tipo)
+                                    <option value="{{$tipo->id}}">{{$tipo->name}}</option>
+                                @endforeach
                                 </select>
                             </div>
                         </div>
@@ -221,8 +226,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="type_mode_update_btn" disabled>Editar</button>
-                        <button type="submit" class="btn btn-primary" id="type_mode_create_btn" >Crear</button>
+                        <button type="submit" class="btn btn-primary" id="type_mode_update_btn"href="{{route('mode.edit',$tipo->id)}}" disabled>Editar</button>
+                        <button type="submit" class="btn btn-primary" id="type_mode_create_btn" href="{{route('mode.create')}}"  >Crear</button>
                     </div>
                 </div>
             </div>
@@ -232,7 +237,7 @@
 
     <!-- Modal Crear Plataforma -->
     <div class="modal fade" id="create-plataforma" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <form action="#" method="post">
+        <form action="{{route('plataform.store')}}" method="post">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -246,10 +251,10 @@
                             <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
                                 <label for="type" class="form-label">Selecciona la plataforma</label>
                                 <select class="form-control" id="type_platform_edit_id" name="type_platform_edit_id" onchange="enableEditTypePlatformInput()">
-                                    <option selected disabled value="">Plataforma...</option>
-                                    <option value="Facebook">Facebook</option>
-                                    <option value="Instagram">Instagram</option>
-                                    <option value="Whatsapp">Whatsapp</option>
+                                    
+                                    @foreach ($plataform as $tipo)
+                                <option value="{{$tipo->id}}">{{$tipo->name}}</option>
+                            @endforeach
                                 </select>
                             </div>
                         </div>

@@ -67,7 +67,7 @@ use Illuminate\Support\Facades\Route;
     "created_at": "2022-05-04T15:17:49.000000Z",
     "updated_at": "2022-05-04T15:17:49.000000Z"
     },
-    {
+    { 
         "id": 2,
         "title": "Another Title",
         "pdf": "information/uuid2.pdf",
@@ -81,6 +81,9 @@ use Illuminate\Support\Facades\Route;
     // ---------- INFORMACIÓN ---------- // 
 
 */
+
+    
+    
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
@@ -106,4 +109,10 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
 
     // Tests
     Route::get('tests', 'TestController@mobileDataIndex')->name('tests.data');
+
+    // Test Contact 
+    Route::post('testcontact/store', 'TestContactController@store')->name('testcontact.store');
+
+    // Test Answer
+    Route::post('test-answer/store', 'TestAnswerController@store')->name('test-answer.store');
 });
