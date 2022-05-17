@@ -65,10 +65,13 @@ use Illuminate\Support\Facades\Route;
 
     //Mode
     Route::get('sistema/mode', 'App\Http\Controllers\ModeController@index')->name('mode.index');
+    Route::get('sistema/mode/{id}/edit', 'App\Http\Controllers\ModeController@edit')->name('mode.edit');
     Route::post('sistema/mode/store', 'App\Http\Controllers\ModeController@store')->name('mode.store');
 
     //Plataform
     Route::get('sistema/plataform', 'App\Http\Controllers\PlatformController@index')->name('plataform.index');
+    
+    Route::get('sistema/plataform/{id}/edit', 'App\Http\Controllers\plataformController@edit')->name('plataform.edit');
     Route::post('sistema/plataform/store', 'App\Http\Controllers\PlatformController@store')->name('plataform.store');
 
     //Type Noticia
@@ -103,9 +106,9 @@ use Illuminate\Support\Facades\Route;
     Route::get('sistema/test/{test}/questions', 'App\Http\Controllers\QuestionController@index')->name('question.index');
     Route::get('sistema/test/{test}/questions/data', 'App\Http\Controllers\QuestionController@dataindex')->name('question.data');
     Route::get('sistema/test/{test}/questions/create', 'App\Http\Controllers\QuestionController@create')->name('question.create');
+    Route::post('sistema/test/questions/store', 'App\Http\Controllers\QuestionController@store')->name('question.store');
     Route::get('sistema/test/{test}/questions/{question}/edit', 'App\Http\Controllers\QuestionController@edit')->name('question.edit');
     Route::delete('sistema/test/questions/{question}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');
-    // Route::post('sistema/test/{test}/question/store', 'App\Http\Controllers\QuestionController@store')->name('question.store');
     // Route::put('sistema/test/{test}/question/{id}/update', 'App\Http\Controllers\QuestionController@update')->name('question.update');
     // Route::delete('sistema/test/{test}/question/{id}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');
 

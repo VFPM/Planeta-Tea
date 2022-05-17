@@ -227,7 +227,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary" id="type_mode_update_btn"href="{{route('mode.edit',$tipo->id)}}" disabled>Editar</button>
-                        <button type="submit" class="btn btn-primary" id="type_mode_create_btn" href="{{route('mode.create')}}"  >Crear</button>
+                        <button type="submit" class="btn btn-primary" id="type_mode_create_btn"  >Crear</button>
                     </div>
                 </div>
             </div>
@@ -266,7 +266,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="type_platform_update_btn" disabled>Editar</button>
+                        <button type="submit" class="btn btn-primary" id="type_platform_update_btn" href="{{route('plataform.edit',$tipo->id)}}"  disabled>Editar</button>
                         <button type="submit" class="btn btn-primary" id="type_platform_create_btn" >Crear</button>
                     </div>
                 </div>

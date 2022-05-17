@@ -45,6 +45,7 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'description' => 'required',
             'question_type_id' => 'required',
@@ -54,6 +55,10 @@ class QuestionController extends Controller
         $data = new Question();
         $data->fill($request->all());
         $data->save();
+
+        $test_id = $request->test_id;
+
+        return view('system.Cuestionario.Preguntas.index', compact('test_id'));
     }
 
     public function edit($test, $id){
