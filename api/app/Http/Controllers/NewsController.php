@@ -55,13 +55,13 @@ class NewsController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'platform_description' => 'required',
             'news_date' => 'required',
             'link' => 'required',
             'cost' => 'required',
             'type_news_id' => 'required',
             'mode_id' => 'required',
             'platform_id' => 'required',
+            'to' => 'required',
             'news_time' => 'required',
             'image' => 'required',
         ]);
@@ -70,7 +70,7 @@ class NewsController extends Controller
         
         $data = new News();
         $data->fill($request->all());
-
+        $data->platform_description = 'descripcion de plataforma';
         $data->news_date = $data->news_date . " " . $time_formated;
 
         $host= $_SERVER["HTTP_HOST"];

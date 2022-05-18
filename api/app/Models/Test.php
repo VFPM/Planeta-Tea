@@ -13,11 +13,12 @@ class Test extends Model
 
     protected $fillable = [
         'name',
-        // 'description', // Agregar después de que funcione el front
+        'description', // Agregar después de que funcione el front
+        'active',
     ];
 
     public function questions()
     {
-        return $this->hasMany(Question::class);
+        return $this->hasMany(Question::class, 'test_id', 'id');
     }
 }

@@ -42,7 +42,7 @@
                     <tr>
                         <th width="10px">No.</th>
                         <th>Pregunta</th>
-                        <th>Acciones</th>
+                        <th width="180px">Acciones</th>
                     </tr>
                 </thead>
             </table>

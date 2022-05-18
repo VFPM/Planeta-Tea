@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mode;
+use App\Models\NewsType;
+use App\Models\Platform;
 
 class ModeController extends Controller
 {
@@ -24,7 +26,12 @@ class ModeController extends Controller
         $data->fill($request->all());
 
         $data->save();
-        return redirect(route('event.index'));
+        
+        $newsType = NewsType::all();
+        $mode = Mode::where('active',1)->get();
+        $plataform = Platform::all();
+        
+        return redirect(route('news.create', compact('newsType','mode','plataform')));
     }
     public function create() {
         return view('system.Evento.create');
@@ -45,7 +52,12 @@ class ModeController extends Controller
         $data->fill($request->all());
 
         $data->save();
-        return redirect(route('event.index'));
+        
+        $newsType = NewsType::all();
+        $mode = Mode::where('active',1)->get();
+        $plataform = Platform::all();
+        
+        return redirect(route('news.create', compact('newsType','mode','plataform')));
     }
 
     public function destroy($id)

@@ -1,5 +1,5 @@
 
-<a href="{{route('question.edit', $id)}}" class="btn btn-success btn-sm" >Editar</a>
+<a href="{{route('question.edit', ['question' => $id])}}" class="btn btn-success btn-sm" >Editar</a>
 <form
     action="{{route('question.destroy', ['question' => $id])}}"
     class="d-inline formdelete" method="POST">

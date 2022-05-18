@@ -86,8 +86,8 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <label for="body" class="form-label">Contenido del evento</label>
-                    <textarea name="body" class="content_page" id="body_id" placeholder="Contenido del evento">{!! old('body', $data->body) !!}</textarea>
+                    <label for="description" class="form-label">Contenido del evento</label>
+                    <textarea name="description" class="content_page" id="body_id" placeholder="Contenido del evento">{!! old('body', $data->body) !!}</textarea>
                 </div>
             </div>
 

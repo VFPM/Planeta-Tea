@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\Answer;
 use App\Models\QuestionType;
 use App\Models\Test;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class QuestionController extends Controller
 {
@@ -16,27 +18,28 @@ class QuestionController extends Controller
         return view('system.Cuestionario.Preguntas.index', compact('test'));
     }
 
-    public function dataindex($test){
-        
-        return datatables(Question::where('test_id', $test))
-        ->addColumn('btn', 'system.Cuestionario.Preguntas.btn')
-        ->rawColumns(['btn'])
-        ->toJson();
+    public function dataindex($test)
+    {
 
-        return view('system.Cuestionario.Preguntas.index');
+        return datatables(Question::where('test_id', $test)->get())
+            ->addColumn('btn', 'system.Cuestionario.Preguntas.btn')
+            ->rawColumns(['btn'])
+            ->toJson();
     }
 
-    public function dataindexMovil($test){
+    public function dataindexMovil($test)
+    {
         $data = Question::where('test_id', $test);
 
         return response()->json([
             'status' => 'success',
             'data' => $data,
             'msg' => 'Se ha mostrado la información correctamente'
-        ],200);
+        ], 200);
     }
 
-    public function create($test_id){
+    public function create($test_id)
+    {
         $test = Test::find($test_id);
         $questionTypes = QuestionType::all();
 
@@ -46,29 +49,50 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
 
+        // dd($request);
+        $test = $request->test_id;
+
+
         $request->validate([
             'description' => 'required',
             'question_type_id' => 'required',
             'test_id' => 'required'
         ]);
-        
+
+
+
         $data = new Question();
         $data->fill($request->all());
         $data->save();
 
-        $test_id = $request->test_id;
+        if ($request->question_type_id == 2) {
+            foreach ($request->respuestas as $respuesta) {
+                $responses = new Answer();
+                $responses->description = $respuesta;
+                $responses->question_id = $data->id;
+                $responses->save();
+            }
+        }
 
-        return view('system.Cuestionario.Preguntas.index', compact('test_id'));
+
+        return redirect(route('question.index', compact('test')));
     }
 
-    public function edit($test, $id){
+    public function edit($id)
+    {
         $data = Question::find($id);
+        $questionTypes = QuestionType::all();
+        $test = Test::find($data->test_id);
+        $responses = Answer::all()->where('question_id', $id);
 
-        return view('system.Cuestionario.Preguntas.edit', compact('data'));
+        return view('system.Cuestionario.Preguntas.edit', compact('test', 'data', 'questionTypes', 'responses'));
     }
 
     public function update(Request $request, $id)
     {
+
+        $test = $request->test_id;
+
         $request->validate([
             'description' => 'required',
             'question_type_id' => 'required',
@@ -78,22 +102,42 @@ class QuestionController extends Controller
         $data = Question::find($id);
         $data->fill($request->all());
         $data->save();
+
+        $responses = Answer::where('question_id', $id)->get();
+        foreach ($responses as $response ) {
+            $response->delete();
+        }
+
+
+        if ($request->question_type_id == 2) {
+            foreach ($request->respuestas as $respuesta) {
+                $responses = new Answer();
+                $responses->description = $respuesta;
+                $responses->question_id = $data->id;
+                $responses->save();
+            }
+        }
+
+        return redirect(route('question.index', compact('test')));
     }
 
 
     public function destroy($id)
     {
-        $noticia = Question::findOrFail($id);
-        $noticia->delete();
+        $question = Question::findOrFail($id);
+        $question->delete();
+
+        return redirect(route('question.index', compact('test')));
     }
 
-    public function testQuestions($testId){
+    public function testQuestions($testId)
+    {
         $data = Question::where('test_id', $testId)->exists();
 
         return response()->json([
             'status' => 'success',
             'data' => $data,
             'msg' => 'Se ha mostrado la información correctamente'
-        ],200);
+        ], 200);
     }
 }

@@ -43,7 +43,7 @@
                 <tr>
                     <th width="10px">No.</th>
                     <th>Nombre del cuestionario</th>
-                    <th width="100px">Acciones</th>
+                    <th width="260px">Acciones</th>
                 </tr>
                 </thead>
             </table>

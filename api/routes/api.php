@@ -111,7 +111,7 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
     Route::get('tests', 'TestController@mobileDataIndex')->name('tests.data');
 
     // Test Contact 
-    Route::post('testcontact/store', 'TestContactController@store')->name('testcontact.store');
+    Route::post('test-contact/store', 'TestContactController@store')->name('test-contact.store');
 
     // Test Answer
     Route::post('test-answer/store', 'TestAnswerController@store')->name('test-answer.store');

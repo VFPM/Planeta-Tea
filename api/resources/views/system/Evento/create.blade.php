@@ -39,6 +39,9 @@
                     <h4 class="alert-heading">¡Ha ocurrido un ERROR!</h4>|
                     <div class="alert-body">
                         <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -62,7 +65,7 @@
 
                 <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
                     <label for="type" class="form-label">Selecciona la modalidad</label>
-                    <select class="form-control" id="type_news_id" name="type_news_id">
+                    <select class="form-control" id="mode_id" name="mode_id">
                         
                         @foreach ($mode as $tipo)
                                 <option value="{{$tipo->id}}">{{$tipo->name}}</option>
@@ -79,7 +82,7 @@
 
                 <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
                     <label for="type" class="form-label">Selecciona la plataforma</label>
-                    <select class="form-control" id="type_news_id" name="type_news_id">
+                    <select class="form-control" id="platform_id" name="platform_id">
                         
                         @foreach ($plataform as $tipo)
                                 <option value="{{$tipo->id}}">{{$tipo->name}}</option>
@@ -94,6 +97,10 @@
                     <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#create-plataforma" >Agregar plataforma</a>
                 </div>
 
+                <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
+                    <label for="link" class="form-label">Link</label>
+                    <input type="text" class="form-control" id="link_id" name="link" placeholder="Link" required>
+                </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="title" class="form-label">Título</label>
@@ -107,12 +114,12 @@
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="event_date" class="form-label">Fecha de la noticia</label>
-                    <input type="date" class="form-control" id="event_date_id" name="event_date" placeholder="Fecha del evento" required>
+                    <input type="date" class="form-control" id="event_date_id" name="news_date" placeholder="Fecha del evento" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="event_time" class="form-label">Hora de la noticia</label>
-                    <input type="time" class="form-control" id="event_time_id" name="event_time" placeholder="Hora del evento" required>
+                    <input type="time" class="form-control" id="event_time_id" name="news_time" placeholder="Hora del evento" required>
                 </div>
 
                 <!-- Modalidades
@@ -138,8 +145,8 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <label for="body" class="form-label">Contenido de la noticia</label>
-                    <textarea name="body" class="form-control" id="body_id" placeholder="Contenido del evento" rows="10"></textarea>
+                    <label for="description" class="form-label">Contenido de la noticia</label>
+                    <textarea name="description" class="form-control" id="description_id" placeholder="Contenido del evento" rows="10"></textarea>
                 </div>
             </div>
 
@@ -154,11 +161,13 @@
 
     <!-- Modal Crear Tipo de Noticia -->
     <div class="modal fade" id="create-noticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <form action="{{route('newstype.store')}}" method="post">
+        <form method="post" id="form_news_type_id">
+            <input type="hidden" name="_method" id="method_type_news_id" value="">
+            @csrf
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Creacion de tipo de notcia</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Creacion de tipo de noticia</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -181,7 +190,7 @@
 
                         <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
                             <label for="type" class="form-label">Escribe el tipo de noticia a crear</label>
-                            <input type="text" class="form-control" name="title" placeholder="Descripción" id="type_news_text_id" required>
+                            <input type="text" class="form-control" name="name" placeholder="Descripción" id="type_news_text_id" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -197,7 +206,9 @@
 
     <!-- Modal Crear Modalidad -->
     <div class="modal fade" id="create-modalidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <form action="{{route('mode.store')}}" method="post">
+        <form method="post" id="form_mode_id">
+            <input type="hidden" name="_method" id="method_mode_id" value="">
+            @csrf
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -210,7 +221,7 @@
                         <div class="row" style="align-items: center;">
                             <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
                                 <label for="type" class="form-label">Selecciona la modalidad</label>
-                                <select class="form-control" id="type_mode_edit_id" name="type_mode_edit_id" onchange="enableEditTypeModeInput()">
+                                <select class="form-control" id="type_mode_edit_id" name="mode_id" onchange="enableEditTypeModeInput()">
                                     
                                     @foreach ($mode as $tipo)
                                     <option value="{{$tipo->id}}">{{$tipo->name}}</option>
@@ -221,12 +232,12 @@
 
                         <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
                             <label for="type" class="form-label">Escribe el tipo de modalidad a crear</label>
-                            <input type="text" class="form-control" name="title" placeholder="Descripción" id="type_mode_text_id" required>
+                            <input type="text" class="form-control" name="name" placeholder="Descripción" id="type_mode_text_id" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="type_mode_update_btn"href="{{route('mode.edit',$tipo->id)}}" disabled>Editar</button>
+                        <button type="submit" class="btn btn-primary" id="type_mode_update_btn" disabled>Editar</button>
                         <button type="submit" class="btn btn-primary" id="type_mode_create_btn"  >Crear</button>
                     </div>
                 </div>
@@ -237,7 +248,9 @@
 
     <!-- Modal Crear Plataforma -->
     <div class="modal fade" id="create-plataforma" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <form action="{{route('plataform.store')}}" method="post">
+        <form method="post" id="form_platform_id">
+            <input type="hidden" name="_method" id="method_platform_id" value="">
+            @csrf
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -250,7 +263,7 @@
                         <div class="row" style="align-items: center;">
                             <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
                                 <label for="type" class="form-label">Selecciona la plataforma</label>
-                                <select class="form-control" id="type_platform_edit_id" name="type_platform_edit_id" onchange="enableEditTypePlatformInput()">
+                                <select class="form-control" id="type_platform_edit_id" name="platform_id" onchange="enableEditTypePlatformInput()">
                                     
                                     @foreach ($plataform as $tipo)
                                 <option value="{{$tipo->id}}">{{$tipo->name}}</option>
@@ -261,12 +274,12 @@
 
                         <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
                             <label for="type" class="form-label">Escribe el tipo de modalidad a crear</label>
-                            <input type="text" class="form-control" name="title" placeholder="Descripción" id="type_platform_text_id" required>
+                            <input type="text" class="form-control" name="name" placeholder="Descripción" id="type_platform_text_id" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="type_platform_update_btn" href="{{route('plataform.edit',$tipo->id)}}"  disabled>Editar</button>
+                        <button type="button" class="btn btn-primary" id="type_platform_update_btn" disabled>Editar</button>
                         <button type="submit" class="btn btn-primary" id="type_platform_create_btn" >Crear</button>
                     </div>
                 </div>
@@ -280,7 +293,47 @@
 @section('scripts-page')
     <script src="https://cdn.tiny.cloud/1/1koh7nhlb1qkn9xsamo2b9zafsztdbzf5k2jpltnsvfekepa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script src={{asset('/assets/js/specialtinyjs.js')}}></script>
-    <script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $("#type_news_create_btn").on("click", function(e){
+                e.preventDefault();
+                $('#form_news_type_id').attr('action', "{{ url('sistema/news-type/store') }}").submit();
+            });
+
+            $("#type_news_update_btn").on("click", function(e){
+                e.preventDefault();
+                $('#method_type_news_id').val('PATCH');
+                let id = $('#type_news_edit_id').val();
+                $('#form_news_type_id').attr('action', `{{ url('sistema/news-type/${id}/update') }}`).submit();
+            });
+
+            $("#type_mode_create_btn").on("click", function(e){
+                e.preventDefault();
+                $('#form_mode_id').attr('action', "{{ url('sistema/mode/store') }}").submit();
+            });
+
+            $("#type_mode_update_btn").on("click", function(e){
+                e.preventDefault();
+                $('#method_mode_id').val('PATCH');
+                let id = $('#type_mode_edit_id').val();
+                $('#form_mode_id').attr('action', `{{ url('sistema/mode/${id}/update') }}`).submit();
+            });
+
+            $("#type_platform_create_btn").on("click", function(e){
+                e.preventDefault();
+                $('#form_platform_id').attr('action', "{{ url('sistema/plataform/store') }}").submit();
+            });
+
+            $("#type_platform_update_btn").on("click", function(e){
+                e.preventDefault();
+                $('#method_platform_id').val('PATCH');
+                let id = $('#type_platform_edit_id').val();
+                $('#form_platform_id').attr('action', `{{ url('sistema/plataform/${id}/update') }}`).submit();
+            });
+        });
+
         function enableEditTypeNewsInput() {
             var selectEditNews = document.getElementById('type_news_edit_id');
             var titleNews = document.getElementById('type_news_text_id');
@@ -318,6 +371,16 @@
                 btnCreate.disabled = true;
                 titlePlatform.value = selectEditPlatform.options[selectEditPlatform.selectedIndex].text;
             }
+        }
+
+        function submitTypeNews(event) {
+            event.preventDefault();
+            console.log(event.submitter.id);
+            console.log("{{ url('sistema/news-type/store') }}");
+
+            console.log($('#type_news_create_btn'));
+
+            $(this).attr('action', "{{ url('sistema/news-type/store') }}").submit();
         }
     </script>
 @endsection
