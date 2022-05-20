@@ -25,7 +25,7 @@
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h4 class="m-0">Lista de Eventos</h4>
+                <h4 class="m-0">Lista de Noticias</h4>
             </div>
             <div class="col-sm-12 col-md-6" align="right">
 
@@ -46,8 +46,7 @@
                     <th>Titulo</th>
                     <th>Descripcion</th>
                     <th>Dirigido a</th>
-                    <th width="150px">Fecha del Evento</th>
-                    <th width="100px">Modalidad</th>
+                    <th width="150px">Fecha de la Noticia</th>
                     <th width="100px">Costo</th>
                     <th width="100px">Acciones</th>
                 </tr>
@@ -69,14 +68,13 @@
                 "header": {
                     "token": "{{ csrf_token() }}",
                 },
-                "ajax": "{{ url('sistema/event/data') }}",
+                "ajax": "{{ url('sistema/news/data') }}",
                 "columns": [
                     {data: 'id'},
                     {data: 'title'},
-                    {data: 'decription'},
+                    {data: 'description'},
                     {data: 'to'},
-                    {data: 'event_date'},
-                    {data: 'mode'},
+                    {data: 'news_date'},
                     {data: 'cost'},
                     {data: 'btn'}
                 ],

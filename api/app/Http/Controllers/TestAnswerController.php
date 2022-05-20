@@ -11,27 +11,48 @@ class TestAnswerController extends Controller
     
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'telephone' => 'required',
+            'result' => 'required',
+            'test_answers' => 'required'
+        ]);
         
-        // $request->validate([
-        //     'question_id' => 'required',
-        //     'answer_id' => 'required',
-        //     'answer' => 'required'
-        // ]);
 
         try{
             
-                $data = new TestAnswer();
-                $data->test_contact_id = $request->test_contact_id;
-                $data->question_id = $request->question_id;
-                $data->answer_id = $request->answer_id;
-                $data->answer = $request->answer;
-                $data->save();
+            // Registrar el usuario
+            $testContact = new TestContact();
+            $testContact->name = $request->name;
+            $testContact->email = $request->email;
+            $testContact->telephone = $request->telephone;
+            $testContact->result = $request->result;
+            $testContact->save();
             
-                return response()->json([
-                    'status' => 'success',
-                    'data' => $data,
-                    'msg' => 'La respuesta ha sido registrada de forma exitosa'
-                ], 200); 
+            // Registrar las respuestas del usuario
+            foreach($request->test_answers as $testAnswer){
+                $dataTestAnswer = new TestAnswer();
+
+                $dataTestAnswer->test_contact_id = $testContact->id;
+                $dataTestAnswer->question_id = $testAnswer['question_id'];
+                $dataTestAnswer->answer_id = $testAnswer['answer_id'];
+                return $dataTestAnswer;
+                $dataTestAnswer->answer = $testAnswer['answer'];
+
+                
+                $dataTestAnswer->save();
+            }
+
+            // Obtener usuario con sus respuestas
+            $data = TestContact::with('testAnswers')->where('id', $testContact->id)->get();
+
+            return response()->json([
+               'status' => 'success',
+               'data'=> $data,
+               'msg' => 'La respuesta ha sido registrada de forma exitosa'
+            ], 200); 
             
         }catch (\Exception $exception) {
             return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);

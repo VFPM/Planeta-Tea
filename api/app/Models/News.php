@@ -34,5 +34,9 @@ class News extends Model
     public function platform_id(){
         return $this->hasOne(Platform::class, 'id', 'platform_id');
     }
+    
+    public function images(){
+        return $this->hasMany(Abstracts::class, 'new_id', 'id');
+    }
         
 }

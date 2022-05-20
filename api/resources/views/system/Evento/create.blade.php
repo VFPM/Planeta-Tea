@@ -114,24 +114,13 @@
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="event_date" class="form-label">Fecha de la noticia</label>
-                    <input type="date" class="form-control" id="event_date_id" name="news_date" placeholder="Fecha del evento" required>
+                    <input type="date" class="form-control" id="event_date_id" name="news_date" placeholder="Fecha de la noticia" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="event_time" class="form-label">Hora de la noticia</label>
-                    <input type="time" class="form-control" id="event_time_id" name="news_time" placeholder="Hora del evento" required>
+                    <input type="time" class="form-control" id="event_time_id" name="news_time" placeholder="Hora de la noticia" required>
                 </div>
-
-                <!-- Modalidades
-                <div class="mb-3 col-sm-12 col-mb-6 col-xl-6 ">
-                    <label for="mode" class="form-label">Modalidad</label>
-                    <select name="mode" class="form-control" id="mode_id" required>
-                        <option value="">Selecciona...</option>
-                        <option value="Presencial">Presencial</option>
-                        <option value="En linea">En linea</option>
-                    </select>
-                </div>
-                -->
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6 ">
                     <label for="cost" class="form-label">Costo</label>
@@ -140,13 +129,13 @@
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
                     <label for="image" class="form-label">Imagen de la noticia</label>
-                    <input type="file" class="form-control" id="image_id" accept=".jpeg,.jpg,.png" name="image" placeholder="Imagen del evento">
+                    <input type="file" class="form-control" id="image_id" accept=".jpeg,.jpg,.png" name="image" placeholder="Imagen de la noticia">
                     <small>Tamaño Maximo 1MB, Resolución Maxima: 1920px * 1080px</small>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
                     <label for="description" class="form-label">Contenido de la noticia</label>
-                    <textarea name="description" class="form-control" id="description_id" placeholder="Contenido del evento" rows="10"></textarea>
+                    <textarea name="description" class="form-control" id="description_id" placeholder="Contenido de la noticia" rows="10"></textarea>
                 </div>
             </div>
 
@@ -177,13 +166,13 @@
                             <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
                                 <label for="type" class="form-label">Selecciona tipo de noticia a editar</label>
                                 <select class="form-control" id="type_news_edit_id" name="type_news_edit_id" onchange="enableEditTypeNewsInput()">
-                                   
+                                    <option value="" selected disabled hidden>Selecciona un tipo de noticia...</option>
                                     @foreach ($newsType as $tipo)
                                     <option value="{{$tipo->id}}">{{$tipo->name}}</option>
                                 @endforeach
                                     <!--<option value="1">Testimonio</option>
                                     <option value="2">Aviso de Podcast</option>
-                                    <option value="3">Eventos</option>-->
+                                    <option value="3">Noticias</option>-->
                                 </select>
                             </div>
                         </div>
@@ -222,7 +211,7 @@
                             <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
                                 <label for="type" class="form-label">Selecciona la modalidad</label>
                                 <select class="form-control" id="type_mode_edit_id" name="mode_id" onchange="enableEditTypeModeInput()">
-                                    
+                                <option value="" selected disabled hidden>Selecciona una modalidad...</option>
                                     @foreach ($mode as $tipo)
                                     <option value="{{$tipo->id}}">{{$tipo->name}}</option>
                                 @endforeach
@@ -264,7 +253,7 @@
                             <div class="mb-3 col-sm-10 col-mb-10 col-xl-10">
                                 <label for="type" class="form-label">Selecciona la plataforma</label>
                                 <select class="form-control" id="type_platform_edit_id" name="platform_id" onchange="enableEditTypePlatformInput()">
-                                    
+                                <option value="" selected disabled hidden>Selecciona una plataforma...</option>
                                     @foreach ($plataform as $tipo)
                                 <option value="{{$tipo->id}}">{{$tipo->name}}</option>
                             @endforeach

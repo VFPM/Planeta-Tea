@@ -1,6 +1,6 @@
-<a href="{{route('event.edit', $id)}}" class="btn btn-success btn-sm" >Editar</a>
+<a href="{{route('news.edit', $id)}}" class="btn btn-success btn-sm" >Editar</a>
 <form
-    action="{{route('event.destroy', $id)}}"
+    action="{{route('news.destroy', $id)}}"
     class="d-inline" method="POST">
     @method('DELETE')
     @csrf

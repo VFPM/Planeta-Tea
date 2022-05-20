@@ -19,7 +19,7 @@ class TestController extends Controller
     public function mobileDataIndex(){
         
         //$data = Test::with('questions', 'questions.answers')->get();
-        $data = Test::with('questions', 'questions.answers')->where('tests.active', 1)->get();
+        $data = Test::with('questions', 'questions.answers')->where('tests.active', 1)->where('deleted_at', null)->get();
         // $data = TestAnswer::all();
         
         return response()->json(

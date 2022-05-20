@@ -17,4 +17,9 @@ class TestContact extends Model
         'telephone',
         'result',
     ];
+    
+    public function testAnswers(){
+        return $this->hasMany(TestAnswer::class, 'test_contact_id', 'id');
+    }
+
 }
