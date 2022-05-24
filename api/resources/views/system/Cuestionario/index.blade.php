@@ -43,6 +43,7 @@
                 <tr>
                     <th width="10px">No.</th>
                     <th>Nombre del cuestionario</th>
+                    <th width="10px">Activo</th>
                     <th width="260px">Acciones</th>
                 </tr>
                 </thead>
@@ -70,6 +71,20 @@
                 "columns": [
                     {data: 'id'},
                     {data: 'name'},
+                    {data: 'active', render: function(data){
+                        if(data == 1)
+                            return '<label class="switch">' +
+                                ' <input type="checkbox" class="checkbox" checked>' +
+                                `<span class="slider round" >` +
+                                '  </span>' +
+                                ' </label>';
+                        else
+                            return'<label class="switch">' +
+                                ' <input type="checkbox" class="checkbox">' +
+                                `<span class="slider round">` +
+                                '  </span>' +
+                                ' </label>';
+                    }},
                     {data: 'btn'}
                 ],
                 "language": {

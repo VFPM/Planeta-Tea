@@ -37,10 +37,14 @@ class TestAnswerController extends Controller
 
                 $dataTestAnswer->test_contact_id = $testContact->id;
                 $dataTestAnswer->question_id = $testAnswer['question_id'];
-                $dataTestAnswer->answer_id = $testAnswer['answer_id'];
-                return $dataTestAnswer;
-                $dataTestAnswer->answer = $testAnswer['answer'];
-
+                
+                if(array_key_exists('answer_id', $testAnswer)){ 
+                    $dataTestAnswer->answer_id = $testAnswer['answer_id'];
+                }
+                
+                if(array_key_exists('answer', $testAnswer)){ 
+                    $dataTestAnswer->answer = $testAnswer['answer']; 
+                }
                 
                 $dataTestAnswer->save();
             }

@@ -56,7 +56,7 @@ class TestController extends Controller
         $data->fill($request->all());
         $data->save();
 
-        return view('system.Cuestionario.index');
+        return redirect(route('test.index'));
     }
 
     public function edit($id) {
@@ -76,7 +76,7 @@ class TestController extends Controller
         $data->fill($request->all());
         $data->save();
 
-        return view('system.Cuestionario.index');
+        return redirect(route('test.index'));
     }
 
     public function destroy($id)
@@ -98,7 +98,7 @@ class TestController extends Controller
         $test->active = 1;
         $test->save();
 
-        return view('system.Cuestionario.index');
+        return redirect(route('test.index'));
     }
 
 }

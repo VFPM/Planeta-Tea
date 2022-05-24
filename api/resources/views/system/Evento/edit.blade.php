@@ -100,8 +100,8 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="to" class="form-label">Para</label>
-                    <input type="text" class="form-control" id="to_id" name="to" value="{{old('to', $data->to)}}" placeholder="Para" required>
+                    <label for="to" class="form-label">Dirigido a</label>
+                    <input type="text" class="form-control" id="to_id" name="to" value="{{old('to', $data->to)}}" placeholder="Dirigido a" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
@@ -126,8 +126,8 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <label for="description" class="form-label">Contenido de la noticia</label>
-                    <textarea name="description" class="form-control" id="body_id" placeholder="Contenido de la noticia" rows="10">{!! old('description', $data->description) !!}</textarea>
+                    <label for="description" class="form-label">Descripción</label>
+                    <textarea name="description" class="form-control" id="body_id" placeholder="Descripción" rows="10">{!! old('description', $data->description) !!}</textarea>
                 </div>
             </div>
 

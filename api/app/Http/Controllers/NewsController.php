@@ -22,6 +22,22 @@ class NewsController extends Controller
         ,200);
     }
 
+    public function mobileSpecificNews($id){
+        $data = News::with('images')->with('type_news_id')->with('mode_id')->with('platform_id')->where('id', $id)->get();
+
+        return response()->json(
+            $data[0]
+        ,200);
+    }
+    
+    public function mobileNewsList(){
+        $data = News::select('id', 'title', 'news_date')->where('deleted_at', null)->get();
+
+        return response()->json(
+            $data
+        ,200);
+    }
+
     // Web
     public function index()
     {

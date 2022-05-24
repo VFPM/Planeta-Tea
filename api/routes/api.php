@@ -106,6 +106,8 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
 
     // News
     Route::get('news', 'NewsController@mobileDataIndex')->name('news.data');
+    Route::get('news/{id}/specific-news', 'NewsController@mobileSpecificNews')->name('news.specific');
+    Route::get('news/list', 'NewsController@mobileNewsList')->name('news.list');
 
     // Tests
     Route::get('tests', 'TestController@mobileDataIndex')->name('tests.data');

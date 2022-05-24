@@ -46,8 +46,17 @@
 
                 <div class="row">
                     <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                        <label for="test_name" class="form-label">Nombre del cuestionario</label>
+                        <label for="name" class="form-label">Nombre del cuestionario</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{old('name', $data->name)}}" placeholder="Nombre del cuestionario" required>
+                </div>
+
+                <br>
+
+                <div class="row">  
+                    <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
+                        <label for="description" class="form-label">Descripción</label>
+                        <textarea name="description" id="description_id" value="" placeholder="Descripción del cuestionario" class="form-control" rows="10">{{old('description', $data->description)}}</textarea>
+                    </div>
                 </div>
 
             </div>

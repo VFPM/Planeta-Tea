@@ -48,8 +48,6 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
-
-        // dd($request);
         $test = $request->test_id;
 
 
@@ -125,6 +123,9 @@ class QuestionController extends Controller
     public function destroy($id)
     {
         $question = Question::findOrFail($id);
+
+        $test = $question->test_id;
+
         $question->delete();
 
         return redirect(route('question.index', compact('test')));

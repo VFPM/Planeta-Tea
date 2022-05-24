@@ -108,8 +108,8 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
-                    <label for="to" class="form-label">Para</label>
-                    <input type="text" class="form-control" id="to_id" name="to" placeholder="Para" required>
+                    <label for="to" class="form-label">Dirigido a</label>
+                    <input type="text" class="form-control" id="to_id" name="to" placeholder="Dirigido a" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
@@ -124,7 +124,7 @@
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6 ">
                     <label for="cost" class="form-label">Costo</label>
-                    <input type="number" class="form-control" id="cost_id" name="cost" placeholder="Costo" required>
+                    <input type="text" class="form-control" id="cost_id" name="cost" placeholder="Costo" required>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-6 col-xl-6">
@@ -134,8 +134,8 @@
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12 ">
-                    <label for="description" class="form-label">Contenido de la noticia</label>
-                    <textarea name="description" class="form-control" id="description_id" placeholder="Contenido de la noticia" rows="10"></textarea>
+                    <label for="description" class="form-label">Descripción</label>
+                    <textarea name="description" class="form-control" id="description_id" placeholder="Descripción" rows="10"></textarea>
                 </div>
             </div>
 
@@ -167,6 +167,7 @@
                                 <label for="type" class="form-label">Selecciona tipo de noticia a editar</label>
                                 <select class="form-control" id="type_news_edit_id" name="type_news_edit_id" onchange="enableEditTypeNewsInput()">
                                     <option value="" selected disabled hidden>Selecciona un tipo de noticia...</option>
+                                    <option value="">Crear tipo de noticia</option>
                                     @foreach ($newsType as $tipo)
                                     <option value="{{$tipo->id}}">{{$tipo->name}}</option>
                                 @endforeach
@@ -212,6 +213,7 @@
                                 <label for="type" class="form-label">Selecciona la modalidad</label>
                                 <select class="form-control" id="type_mode_edit_id" name="mode_id" onchange="enableEditTypeModeInput()">
                                 <option value="" selected disabled hidden>Selecciona una modalidad...</option>
+                                <option value="">Crear modalidad</option>
                                     @foreach ($mode as $tipo)
                                     <option value="{{$tipo->id}}">{{$tipo->name}}</option>
                                 @endforeach
@@ -254,6 +256,7 @@
                                 <label for="type" class="form-label">Selecciona la plataforma</label>
                                 <select class="form-control" id="type_platform_edit_id" name="platform_id" onchange="enableEditTypePlatformInput()">
                                 <option value="" selected disabled hidden>Selecciona una plataforma...</option>
+                                <option value="">Crear plataforma</option>
                                     @foreach ($plataform as $tipo)
                                 <option value="{{$tipo->id}}">{{$tipo->name}}</option>
                             @endforeach
@@ -329,10 +332,13 @@
             var btnUpdate = document.getElementById('type_news_update_btn');
             var btnCreate = document.getElementById('type_news_create_btn');
             
-            if(selectEditNews.value != ''){
+            if(selectEditNews.value != ""){
                 btnUpdate.disabled = false;
                 btnCreate.disabled = true;
                 titleNews.value = selectEditNews.options[selectEditNews.selectedIndex].text;
+            }else{
+                btnUpdate.disabled = true;
+                btnCreate.disabled = false;
             }
         }
 
@@ -346,6 +352,9 @@
                 btnUpdate.disabled = false;
                 btnCreate.disabled = true;
                 titleMode.value = selectEditMode.options[selectEditMode.selectedIndex].text;
+            }else{
+                btnUpdate.disabled = true;
+                btnCreate.disabled = false;
             }
         }
 
@@ -359,6 +368,9 @@
                 btnUpdate.disabled = false;
                 btnCreate.disabled = true;
                 titlePlatform.value = selectEditPlatform.options[selectEditPlatform.selectedIndex].text;
+            }else{
+                btnUpdate.disabled = true;
+                btnCreate.disabled = false;
             }
         }
 
