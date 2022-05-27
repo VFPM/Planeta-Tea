@@ -69,9 +69,9 @@
                             @endforeach
                         
                             <!-- <option value="Abierta">Abierta</option>
-                            <option value="Multiple">Opcion Multiple</option> -->
+                            <option value="Multiple">Opción Múltiple</option> -->
                         </select>
-                    </div>
+                     </div>
                 </div>
             
                 <div class="row" style='display:none' id='respuestas-multiples'>

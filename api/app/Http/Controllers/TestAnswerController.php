@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\TestAnswer;
 use App\Models\TestContact;
@@ -11,17 +12,17 @@ class TestAnswerController extends Controller
     
     public function store(Request $request)
     {
-
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'telephone' => 'required',
-            'result' => 'required',
-            'test_answers' => 'required'
-        ]);
-        
-
         try{
+
+            DB::beginTransaction();
+
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'telephone' => 'required',
+                'result' => 'required',
+                'test_answers' => 'required'
+            ]);
             
             // Registrar el usuario
             $testContact = new TestContact();
@@ -49,6 +50,8 @@ class TestAnswerController extends Controller
                 $dataTestAnswer->save();
             }
 
+            DB::commit();
+
             // Obtener usuario con sus respuestas
             $data = TestContact::with('testAnswers')->where('id', $testContact->id)->get();
 
@@ -59,6 +62,9 @@ class TestAnswerController extends Controller
             ], 200); 
             
         }catch (\Exception $exception) {
+
+            DB::rollback();
+
             return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);
         }
 

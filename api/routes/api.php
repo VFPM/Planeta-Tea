@@ -117,4 +117,10 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
 
     // Test Answer
     Route::post('test-answer/store', 'TestAnswerController@store')->name('test-answer.store');
+
+    // Form Contact - Recibir información
+    Route::post('form-contact/store', 'FormContactController@store')->name('form-contact.store');
+
+    // Form Contact - Obtener lista de todos los registros del formulario
+    Route::get('form-contact/data', 'FormContactController@data')->name('form-contact.data');
 });

@@ -21,59 +21,81 @@
 </div>
 
 
-    <form action="{{route('contact.store')}}" method="post"  enctype="multipart/form-data">
+<form action="{{route('contact.store')}}" method="post"  enctype="multipart/form-data">
     @csrf
-<div class="card shadow mb-4 m-5">
+    <div class="card shadow mb-4 m-5">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h4 class="m-0">Contacto</h4>
+                </div>
+                <div class="col-sm-12 col-md-6" align="right">
+                    <button type="submit" class="btn btn-primary">Aplicar cambios</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+        <div class="row">
+            <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="text" class="form-control" id="email_id" name="email" value="@if($data){!! $data->email !!}@endif" placeholder="Correo electrónico" required>
+            </div>
+
+            <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                <label for="phone" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="phone_id" name="phone" value="@if($data){!! $data->phone !!}@endif" placeholder="Teléfono" required>
+            </div>
+
+            <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                <label for="facebook" class="form-label">Facebook</label>
+                <input type="text" class="form-control" id="facebook_id" name="facebook" value="@if($data){!! $data->facebook !!}@endif" placeholder="Facebook" required>
+            </div>
+
+            <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                <label for="twitter" class="form-label">Twitter</label>
+                <input type="text" class="form-control" id="twitter_id" name="twitter" value="@if($data){!! $data->twitter !!}@endif" placeholder="Twitter" required>
+            </div>
+
+            <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                <label for="instagram" class="form-label">Instagram</label>
+                <input type="text" class="form-control" id="instagram_id" name="instagram" value="@if($data){!! $data->instagram !!}@endif" placeholder="Instagram" required>
+            </div>
+
+            <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                <label for="address" class="form-label">Domicilio</label>
+                <input type="text" class="form-control" id="address_id" name="address" value="@if($data){!! $data->address !!}@endif" placeholder="Domicilio" required>
+            </div>
+
+            <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
+                <label for="googlemaps" class="form-label">Google Maps</label>
+                <input type="text" class="form-control" id="google_address_id" name="googlemaps" value="@if($data){!! $data->googlemaps !!}@endif" placeholder="Google Maps" required>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="card ">
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h4 class="m-0">Contacto</h4>
-            </div>
-            <div class="col-sm-12 col-md-6" align="right">
-                <button type="submit" class="btn btn-primary">Aplicar cambios</button>
+                <h4 class="m-0">Lista de respuestas de formulario de contacto</h4>
             </div>
         </div>
-
     </div>
     <div class="card-body">
-    <div class="row">
-                
-                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
-                    <label for="email" class="form-label">Correo electrónico</label>
-                    <input type="text" class="form-control" id="email_id" name="email" value="@if($data){!! $data->email !!}@endif" placeholder="Correo electrónico" required>
-                </div>
-    
-                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
-                    <label for="phone" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="phone_id" name="phone" value="@if($data){!! $data->phone !!}@endif" placeholder="Teléfono" required>
-                </div>
+        <div class="table-responsive">
 
-                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
-                    <label for="facebook" class="form-label">Facebook</label>
-                    <input type="text" class="form-control" id="facebook_id" name="facebook" value="@if($data){!! $data->facebook !!}@endif" placeholder="Facebook" required>
-                </div>
-
-                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
-                    <label for="twitter" class="form-label">Twitter</label>
-                    <input type="text" class="form-control" id="twitter_id" name="twitter" value="@if($data){!! $data->twitter !!}@endif" placeholder="Twitter" required>
-                </div>
-
-                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
-                    <label for="instagram" class="form-label">Instagram</label>
-                    <input type="text" class="form-control" id="instagram_id" name="instagram" value="@if($data){!! $data->instagram !!}@endif" placeholder="Instagram" required>
-                </div>
-
-                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
-                    <label for="address" class="form-label">Domicilio</label>
-                    <input type="text" class="form-control" id="address_id" name="address" value="@if($data){!! $data->address !!}@endif" placeholder="Domicilio" required>
-                </div>
-
-                <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
-                    <label for="googlemaps" class="form-label">Google Maps</label>
-                    <input type="text" class="form-control" id="google_address_id" name="googlemaps" value="@if($data){!! $data->googlemaps !!}@endif" placeholder="Google Maps" required>
-                </div>
+            <table id="data" class="dataindex table table-flush">
+                <thead class="thead-light">
+                <tr>
+                    <th width="10px">No.</th>
+                    <th>Nombre del cuestionario</th>
+                    <th width="10px">Activo</th>
+                    <th width="260px">Acciones</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
 </div>
-</form>
 @endsection
-    
