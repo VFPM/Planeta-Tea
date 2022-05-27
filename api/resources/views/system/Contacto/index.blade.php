@@ -89,13 +89,62 @@
                 <thead class="thead-light">
                 <tr>
                     <th width="10px">No.</th>
-                    <th>Nombre del cuestionario</th>
-                    <th width="10px">Activo</th>
-                    <th width="260px">Acciones</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Name</th>
+                    <th>Subject</th>
+                    <th width="150px">Acciones</th>
                 </tr>
                 </thead>
             </table>
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('scripts-page')
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"> </script>
+    <script src="{{asset('assets/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#data').DataTable({
+                "serverSide": true,
+                "header": {
+                    "token": "{{ csrf_token() }}",
+                },
+                "ajax": "{{ url('sistema/form-contact/data') }}",
+                "columns": [
+                    {data: 'id'},
+                    {data: 'email'},
+                    {data: 'phone'},
+                    {data: 'name'},
+                    {data: 'subject'},
+                    {data: 'btn'}
+                ],
+                "language": {
+                    "info": "_TOTAL_ Registro(s)",
+                    "search": "Buscar",
+                    "paginate": {
+                        "next": ">",
+                        "previous": "<",
+                    },
+                    "lengthMenu": 'Mostrar <select >' +
+                        '<option value="10">10</option>' +
+                        '<option value="30">30</option>' +
+                        '<option value="50">50</option>' +
+                        '<option value="100">100</option>' +
+                        '<option value="-1">Todos</option>' +
+                        '</select> registros',
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "emptyTable": "No hay datos",
+                    "zeroRecords": "No hay coincidencias",
+                    "infoEmpty": "",
+                    "infoFiltered": ""
+                }
+            });
+        });
+    </script>
 @endsection

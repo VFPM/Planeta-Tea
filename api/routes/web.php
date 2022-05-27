@@ -115,3 +115,7 @@ use Illuminate\Support\Facades\Route;
 
     //Responses
     Route::get('sistema/test/response', 'App\Http\Controllers\ResponseController@index')->name('response.index');
+
+
+    // Form Contact - Obtener lista de todos los registros del formulario
+    Route::get('sistema/form-contact/data', 'App\Http\Controllers\FormContactController@dataindex')->name('form-contact.data');

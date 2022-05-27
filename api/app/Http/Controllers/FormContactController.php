@@ -18,6 +18,16 @@ class FormContactController extends Controller
         ],200);
     }
 
+    //WEB
+    public function dataindex(){
+
+        return datatables(FormContact::all())
+
+        ->addColumn('btn', 'system.Contacto.btn')
+        ->rawColumns(['btn'])
+        ->toJson();
+    }
+
     
     public function store(Request $request)
     {
