@@ -68,6 +68,9 @@
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('test.index') }}">{{ __('Cuestionario') }}</a>
                             </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="{{ route('donate.index') }}">{{ __('Donativo') }}</a>
+                            </li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

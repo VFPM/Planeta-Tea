@@ -119,3 +119,8 @@ use Illuminate\Support\Facades\Route;
 
     // Form Contact - Obtener lista de todos los registros del formulario
     Route::get('sistema/form-contact/data', 'App\Http\Controllers\FormContactController@dataindex')->name('form-contact.data');
+
+    // Donate
+    Route::get('sistema/donate', 'App\Http\Controllers\DonateController@index')->name('donate.index');
+    Route::get('sistema/donate/data', 'App\Http\Controllers\DonateController@dataindex')->name('donate.data');
+    Route::post('sistema/donate/store', 'App\Http\Controllers\DonateController@store')->name('donate.store');

@@ -123,4 +123,7 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
 
     // Form Contact - Obtener lista de todos los registros del formulario
     Route::get('form-contact/data', 'FormContactController@data')->name('form-contact.data');
+
+    // Contact
+    Route::get('donate', 'DonateController@mobileDataIndex')->name('donate.data');
 });
