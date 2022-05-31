@@ -9,6 +9,15 @@ use App\Models\TestContact;
 
 class TestAnswerController extends Controller
 {
+    // Móvil
+    public function mobileDataIndex(){
+        
+        $data = TestContact::with('testAnswers')->get();
+        
+        return response()->json(
+            $data
+            ,200);
+    }
     
     public function store(Request $request)
     {

@@ -47,7 +47,7 @@ class DonateController extends Controller
             $data = new Donate();
             $data->fill($request->all());
             $data->save();
-            return redirect(route('donate.index'));
+            return redirect(route('donate.index'))->with('success', 'Informacion actualizada con exito');
             
         }catch (\Exception $exception) {
             return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);

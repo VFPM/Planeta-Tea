@@ -35,6 +35,26 @@
             </div>
         </div>
         <div class="card-body">
+
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">¡Ha ocurrido un ERROR!</h4>|
+                    <div class="alert-body">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
+
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading"> {{session('success')}} </h4>
+                </div>
+            @endif
+
         <div class="row">
             <div class="mb-3 col-sm-12 col-mb-4 col-xl-4">
                 <label for="bank" class="form-label">Banco</label>

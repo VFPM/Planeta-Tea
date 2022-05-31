@@ -50,7 +50,7 @@ class ContactController extends Controller
             $data = new Contact();
             $data->fill($request->all());
             $data->save();
-            return redirect(route('contact.index'));
+            return redirect(route('contact.index'))->with('success', 'Informacion actualizada con exito');
             
         }catch (\Exception $exception) {
             return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);

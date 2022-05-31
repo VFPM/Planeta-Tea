@@ -29,6 +29,26 @@
 
     </div>
     <div class="card-body">
+        
+        @if ($errors->any())
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">¡Ha ocurrido un ERROR!</h4>|
+                <div class="alert-body">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
+
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading"> {{session('success')}} </h4>
+            </div>
+        @endif
+
         <form action="{{route('main-info.store')}}" method="post"  enctype="multipart/form-data">
         @csrf
         <div align="right">

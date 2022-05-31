@@ -116,6 +116,9 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
     Route::post('test-contact/store', 'TestContactController@store')->name('test-contact.store');
 
     // Test Answer
+    Route::get('test-answer/data', 'TestAnswerController@mobileDataIndex')->name('test-answer.data');
+
+    // Test Answer
     Route::post('test-answer/store', 'TestAnswerController@store')->name('test-answer.store');
 
     // Form Contact - Recibir información
