@@ -17,7 +17,7 @@
                 </button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
+                <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
                         <!-- <table id="data2" class="dataindex table table-flush"> 
                             <thead class="thead-light">
                                 <tr>
@@ -54,7 +54,7 @@
                             </table>
                         </div>
                        
-                    </div>
+                </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -67,23 +67,24 @@
 
     <script>
          $(document).ready(function () {
+            
             $('#data{{$id}}').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",
                 },
-                "ajax": "{{ url('sistema/responses-answers/data/'.$id) }}",
+                "ajax": "{{ url('sistema/responses-answers/data/' . $id) }}",
                 "columns": [
                     {data: 'id'},
                     {data: 'question_id'},
                     {data: 'answer'}
-                ]
+                ],
+                "searching" : false,
+                "ordering" : false,
+                "paging" : false
             });
         });
 
-        function test(){
-            
-
-        }
+      
     </script>
 
