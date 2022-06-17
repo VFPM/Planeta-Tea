@@ -128,4 +128,11 @@ use Illuminate\Support\Facades\Route;
         Route::get('sistema/donate/data', 'App\Http\Controllers\DonateController@dataindex')->name('donate.data');
         Route::post('sistema/donate/store', 'App\Http\Controllers\DonateController@store')->name('donate.store');
 
+        Route::get('sistema/responses',  'App\Http\Controllers\AnswerController@index')->name('responses.index');
+        Route::get('sistema/responses/data', 'App\Http\Controllers\AnswerController@data')->name('responses.data');
+        Route::get('sistema/responses-answers/data/{id}', 'App\Http\Controllers\AnswerController@dataAnswers')->name('responses-answers.data');
+
+        // Admin
+        Route::get('sistema/admin', 'App\Http\Controllers\AdminController@index')->name('admin.index');
+
     });

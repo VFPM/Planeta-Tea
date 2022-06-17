@@ -69,7 +69,13 @@
                                 <a class="nav-link" href="{{ route('test.index') }}">{{ __('Cuestionario') }}</a>
                             </li>
                             <li class="nav-item mx-2">
+                                <a class="nav-link" href="{{ route('responses.index') }}">{{ __('Respuestas') }}</a>
+                            </li>
+                            <li class="nav-item mx-2">
                                 <a class="nav-link" href="{{ route('donate.index') }}">{{ __('Donativo') }}</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="{{ route('admin.index') }}">{{ __('Administradores') }}</a>
                             </li>
 
                             <li class="nav-item dropdown">

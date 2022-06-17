@@ -4,9 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Answer;
 use Illuminate\Http\Request;
+use App\Models\TestAnswer;
+use App\Models\TestContact;
 
 class AnswerController extends Controller
 {
+
+    public function index(){
+        return view('system.Response.index');
+
+    }
+
+    public function data(){
+        return datatables(TestContact::all())
+
+        ->addColumn('btn', 'system.Response.btn')
+        ->rawColumns(['btn'])
+        ->toJson();
+    }
+
+    public function dataAnswers($id){
+        return datatables(TestAnswer::find($id))
+        ->toJson();
+    }
+
     // public function index()
     // {
     //     return view('system.Cuestionario.Preguntas.index');
