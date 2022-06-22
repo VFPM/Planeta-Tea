@@ -15,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 
     Auth::routes();
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //VerifyUser
+    Route::get('sistema/verifyuser', 'App\Http\Controllers\VerifyUserController@index')->name('verifyUser.index');
     
     //Route::get('/','App\Http\Controllers\Front\HomeController@index')->name('login');
     //Route::get('register','App\Http\Controllers\Front\HomeController@register')->name('register');
 
-    Route::group(['middleware' => ['auth:web','auth']], function () {
+    Route::group(['middleware' => ['auth:web','auth','user.validation']], function () {
         
         // Main Info
         Route::get('sistema/main-info', 'App\Http\Controllers\MainInfoController@index')->name('main-info.index');
@@ -134,5 +137,10 @@ use Illuminate\Support\Facades\Route;
 
         // Admin
         Route::get('sistema/admin', 'App\Http\Controllers\AdminController@index')->name('admin.index');
+        Route::get('sistema/admin/data', 'App\Http\Controllers\AdminController@dataindex')->name('admin.data');
+        Route::patch('sistema/admin/activar/{id}', 'App\Http\Controllers\AdminController@activarUsuario')->name('admin.activar');
+        Route::patch('sistema/admin/desactivar/{id}', 'App\Http\Controllers\AdminController@desactivarUsuario')->name('admin.desactivar');
+
+        
 
     });

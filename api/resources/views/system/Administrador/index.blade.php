@@ -58,11 +58,9 @@
                     <thead class="thead-light">
                     <tr>
                         <th width="10px">No.</th>
-                        <th>Email</th>
-                        <th>Phone</th>
                         <th>Name</th>
-                        <th>Subject</th>
-                        <th width="150px">Acciones</th>
+                        <th>Email</th>
+                        <th>Accion</th>
                     </tr>
                     </thead>
                 </table>
@@ -84,13 +82,11 @@
                 "header": {
                     "token": "{{ csrf_token() }}",
                 },
-                "ajax": "{{ url('sistema/form-contact/data') }}",
+                "ajax": "{{ url('sistema/admin/data') }}",
                 "columns": [
                     {data: 'id'},
-                    {data: 'email'},
-                    {data: 'phone'},
                     {data: 'name'},
-                    {data: 'subject'},
+                    {data: 'email'},
                     {data: 'btn'}
                 ],
                 "language": {
