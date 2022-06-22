@@ -67,7 +67,7 @@ use Illuminate\Support\Facades\Route;
     "created_at": "2022-05-04T15:17:49.000000Z",
     "updated_at": "2022-05-04T15:17:49.000000Z"
     },
-    {
+    { 
         "id": 2,
         "title": "Another Title",
         "pdf": "information/uuid2.pdf",
@@ -82,11 +82,15 @@ use Illuminate\Support\Facades\Route;
 
 */
 
+    
+    
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
+
     // Auth
     Route::get('login', 'AuthController@login')->name('auth.login');
     Route::post('user/store', 'UserController@store')->name('user.store');
@@ -102,7 +106,27 @@ Route::namespace('App\Http\Controllers')->name('api.')->group(function () {
 
     // News
     Route::get('news', 'NewsController@mobileDataIndex')->name('news.data');
+    Route::get('news/{id}/specific-news', 'NewsController@mobileSpecificNews')->name('news.specific');
+    Route::get('news/list', 'NewsController@mobileNewsList')->name('news.list');
 
     // Tests
     Route::get('tests', 'TestController@mobileDataIndex')->name('tests.data');
+
+    // Test Contact 
+    Route::post('test-contact/store', 'TestContactController@store')->name('test-contact.store');
+
+    // Test Answer
+    Route::get('test-answer/data', 'TestAnswerController@mobileDataIndex')->name('test-answer.data');
+
+    // Test Answer
+    Route::post('test-answer/store', 'TestAnswerController@store')->name('test-answer.store');
+
+    // Form Contact - Recibir información
+    Route::post('form-contact/store', 'FormContactController@store')->name('form-contact.store');
+
+    // Form Contact - Obtener lista de todos los registros del formulario
+    Route::get('form-contact/data', 'FormContactController@data')->name('form-contact.data');
+
+    // Contact
+    Route::get('donate', 'DonateController@mobileDataIndex')->name('donate.data');
 });

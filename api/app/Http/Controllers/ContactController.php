@@ -43,13 +43,14 @@ class ContactController extends Controller
             'facebook' => 'required',
             'twitter' => 'required',
             'instagram' => 'required',
+            'googlemaps' => 'required'
         ]);
 
         try{
             $data = new Contact();
             $data->fill($request->all());
             $data->save();
-            return redirect(route('contact.index'));
+            return redirect(route('contact.index'))->with('success', 'Informacion actualizada con exito');
             
         }catch (\Exception $exception) {
             return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);
@@ -65,6 +66,7 @@ class ContactController extends Controller
             'facebook' => 'required',
             'twitter' => 'required',
             'instagram' => 'required',
+            'googlemaps' => 'required'
         ]);
 
         try{

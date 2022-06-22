@@ -14,14 +14,13 @@ class News extends Model
     protected $fillable = [
         'title',
         'description',
-        'platform_description',
         'news_date',
         'link',
         'cost',
         'type_news_id',  
         'mode_id',
         'platform_id',
-        'abstract_id',
+        'to'
     ];
 
     public function type_news_id(){
@@ -35,8 +34,9 @@ class News extends Model
     public function platform_id(){
         return $this->hasOne(Platform::class, 'id', 'platform_id');
     }
-        
-    public function abstract_id(){
-        return $this->hasOne(Abstracts::class, 'id', 'abstract_id');
+    
+    public function images(){
+        return $this->hasMany(Abstracts::class, 'new_id', 'id');
     }
+        
 }

@@ -47,7 +47,7 @@ class MainInfoController extends Controller
             $data = new MainInfo();
             $data->fill($request->all());
             $data->save();
-            return redirect(route('main-info.index'));
+            return redirect(route('main-info.index'))->with('success', 'Informacion actualizada con exito');
             
         }catch (\Exception $exception) {
             return response()->json(['status' => 'error', 'msg' => $exception->getMessage()], 400);

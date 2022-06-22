@@ -45,7 +45,8 @@ class InformationController extends Controller
         $data->fill($request->all());
 
         if($request->file('pdf')){
-            $data->pdf = $request->file('pdf')->store('information', 'public');
+            $host= $_SERVER["HTTP_HOST"];
+            $data->pdf = "http://" . $host . "/storage/" . $request->file('pdf')->store('information', 'public');
         }
 
         $data->save();
@@ -69,7 +70,8 @@ class InformationController extends Controller
         if($request->file('pdf') != '')
         {
             Storage::delete($data->pdf);
-            $data->pdf = $request->file('pdf')->store('information', 'public');
+            $host= $_SERVER["HTTP_HOST"];
+            $data->pdf = "http://" . $host . "/storage/" . $request->file('pdf')->store('information', 'public');
         }
 
         $data->save();

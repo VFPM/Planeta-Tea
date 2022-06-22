@@ -38,12 +38,13 @@
     <div class="card-body">
         <div class="table-responsive">
 
-            <table id="data" class="table table-flush">
+            <table id="data" class="dataindex table table-flush">
                 <thead class="thead-light">
                 <tr>
                     <th width="10px">No.</th>
                     <th>Nombre del cuestionario</th>
-                    <th width="100px">Acciones</th>
+                    <th width="10px">Activo</th>
+                    <th width="260px">Acciones</th>
                 </tr>
                 </thead>
             </table>
@@ -61,7 +62,7 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            $('#data').DataTable({
+            $('.dataindex').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",
@@ -70,6 +71,20 @@
                 "columns": [
                     {data: 'id'},
                     {data: 'name'},
+                    {data: 'active', render: function(data){
+                        if(data == 1)
+                            return '<label class="switch">' +
+                                ' <input type="checkbox" class="checkbox" checked>' +
+                                `<span class="slider round" >` +
+                                '  </span>' +
+                                ' </label>';
+                        else
+                            return'<label class="switch">' +
+                                ' <input type="checkbox" class="checkbox">' +
+                                `<span class="slider round">` +
+                                '  </span>' +
+                                ' </label>';
+                    }},
                     {data: 'btn'}
                 ],
                 "language": {

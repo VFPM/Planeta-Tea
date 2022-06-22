@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Abstracts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\News;
@@ -14,14 +15,27 @@ class NewsController extends Controller
 
     // Móvil
     public function mobileDataIndex(){
-        //$data = News::all()->where('deleted_at', null); 
-        //$data = News::all();
+        $data = News::with('images')->with('type_news_id')->with('mode_id')->with('platform_id')->where('deleted_at', null)->get();
 
-        $data = News::with('type_news_id')->with('mode_id')->with('platform_id')->with('abstract_id')->where('deleted_at', null)->get();
-        
         return response()->json(
             $data
-            ,200);
+        ,200);
+    }
+
+    public function mobileSpecificNews($id){
+        $data = News::with('images')->with('type_news_id')->with('mode_id')->with('platform_id')->where('id', $id)->get();
+
+        return response()->json(
+            $data[0]
+        ,200);
+    }
+    
+    public function mobileNewsList(){
+        $data = News::select('id', 'title', 'news_date')->where('deleted_at', null)->get();
+
+        return response()->json(
+            $data
+        ,200);
     }
 
     // Web
@@ -39,8 +53,14 @@ class NewsController extends Controller
         ->toJson();
     }
 
+    
     public function create() {
-        return view('system.Evento.create');
+        $newsType = NewsType::all();
+        $mode = Mode::where('active',1)->get();
+        $plataform = Platform::all();
+        
+        return view('system.Evento.create', compact('newsType','mode','plataform'));
+        //return view('system.Evento.create', compact('mode','plataform'));
     }
 
     public function store(Request $request)
@@ -48,56 +68,75 @@ class NewsController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'platform_description' => 'required',
             'news_date' => 'required',
             'link' => 'required',
             'cost' => 'required',
             'type_news_id' => 'required',
             'mode_id' => 'required',
             'platform_id' => 'required',
+            'to' => 'required',
             'news_time' => 'required',
+            'image' => 'required',
         ]);
 
         $time_formated = date("H:i:s", strtotime($request->news_time));
-        
+    
         $data = new News();
         $data->fill($request->all());
-
+        $data->platform_description = 'descripcion de plataforma';
         $data->news_date = $data->news_date . " " . $time_formated;
-
-        // if($request->file('image')){
-        //     $data->image = $request->file('image')->store('event', 'public');
-        // }
-
         $data->save();
+
+        $host= $_SERVER["HTTP_HOST"];
+        $dataImage = new Abstracts();
+        $dataImage->path = "http://" . $host . "/storage/" . $request->file('image')->store('news', 'public');
+        $dataImage->description = "Descripcion de la imagen";
+        $dataImage->new_id = $data->id;
+        $dataImage->save();
+
         return redirect(route('event.index'));
     }
 
     public function edit($id) {
         $data = News::find($id);
-        return view('system.Evento.edit', compact('data'));
+        $newsType = NewsType::all();
+        $mode = Mode::where('active',1)->get();
+        $plataform = Platform::all();
+
+        return view('system.Evento.edit', compact('data','newsType','mode','plataform'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required',
+            'description' => 'required',
+            'news_date' => 'required',
+            'link' => 'required',
+            'cost' => 'required',
+            'type_news_id' => 'required',
+            'mode_id' => 'required',
+            'platform_id' => 'required',
+            'to' => 'required',
+            'news_time' => 'required',
         ]);
 
-        $time_formated = date("H:i:s", strtotime($request->event_time));
+        $time_formated = date("H:i:s", strtotime($request->news_time));
 
         $data = News::find($id);
         $data->fill($request->all());
-
-        $data->event_date = $data->event_date . " " . $time_formated;
+        $data->news_date = $data->news_date . " " . $time_formated;
+        $data->save();
 
         if($request->file('image') != '')
         {
-            Storage::delete($data->image);
-            $data->image = $request->file('image')->store('event', 'public');
+            $host= $_SERVER["HTTP_HOST"];
+            $dataImage = Abstracts::select('id', 'description', 'path', 'new_id')->where('new_id', $id)->first();
+            Storage::delete($dataImage->path);
+            $dataImage->path = "http://" . $host . "/storage/" . $request->file('image')->store('news', 'public');
+            $dataImage->save();
         }
 
-        $data->save();
         return redirect(route('event.index'));
     }
 
@@ -107,4 +146,5 @@ class NewsController extends Controller
         $noticia->delete();
         return redirect(route('event.index'));
     }
+
 }

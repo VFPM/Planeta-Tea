@@ -24,11 +24,11 @@
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h6 class="m-0">Lista de Preguntas</h6>
+                <h6 class="m-0">Lista de Preguntas del Cuestionario {{$test->name}}</h6>
             </div>
             <div class="col-sm-12 col-md-6" align="right">
-                <a href="{{route('question.create')}}" class="btn btn-primary">
-                    Agregar preguntas
+                <a href="{{route('question.create', $test)}}" class="btn btn-primary">
+                    Registrar pregunta
                 </a>
             </div>
         </div>
@@ -42,71 +42,9 @@
                     <tr>
                         <th width="10px">No.</th>
                         <th>Pregunta</th>
-                        <th>Acciones</th>
+                        <th width="180px">Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td> 
-                        <td>¿Prefiero hacer cosas con otras personas en vez de hacerlas solo?</td>
-                        <td>
-                            <form
-                                action=""
-                                class="d-inline formdelete" method="POST">
-                                @method('GET')
-                                @csrf
-                                <button class="btn btn-sm btn-success" type="submit">Editar
-                                </button>
-                            </form>
-                            <form
-                                action=""
-                                class="d-inline formdelete" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button class="btn btn-sm btn-danger" type="submit">Eliminar
-                                </button>
-                            </form>
-                            <form
-                                action="{{route('response.index')}}"
-                                class="d-inline formdelete" method="POST">
-                                @method('GET')
-                                @csrf
-                                <button class="btn btn-sm btn-info" type="submit">Ver respuestas
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td> 
-                        <td>¿Prefiero hacer cosas con otras personas en vez de hacerlas solo?</td> 
-                        <td>
-                            <form
-                                action=""
-                                class="d-inline formdelete" method="POST">
-                                @method('GET')
-                                @csrf
-                                <button class="btn btn-sm btn-success" type="submit">Editar
-                                </button>
-                            </form>
-                            <form
-                                action=""
-                                class="d-inline formdelete" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button class="btn btn-sm btn-danger" type="submit">Eliminar
-                                </button>
-                            </form>
-                            <form
-                                action="{{route('response.index')}}"
-                                class="d-inline formdelete" method="POST">
-                                @method('GET')
-                                @csrf
-                                <button class="btn btn-sm btn-info" type="submit">Ver respuestas
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
             </table>
 
         </div>
@@ -122,15 +60,15 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-           /* $('#data').DataTable({
+            $('#data').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",
                 },
-                "ajax": "{{ url('sistema/question/data/{test}') }}",
+                "ajax": "{{ url('sistema/test/'.$test->id.'/questions/data') }}",
                 "columns": [
                     {data: 'id'},
-                    {data: 'question'},
+                    {data: 'description'},
                     {data: 'btn'},
                 ],
                 "language": {
@@ -154,7 +92,7 @@
                     "infoEmpty": "",
                     "infoFiltered": ""
                 }
-            });*/
+            });
         });
     </script>
 @endsection

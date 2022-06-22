@@ -60,13 +60,22 @@
                                 <a class="nav-link whiteText" href="{{ route('event.index') }}">{{ __('Noticias') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link whiteText" href="{{ route('information.index') }}">{{ __('Información') }}</a>
+                                <a class="nav-link whiteText" href="{{ route('information.index') }}">{{ __('Info TEA') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link whiteText" href="{{ route('main-info.index') }}">{{ __('Información Principal') }}</a>
+                                <a class="nav-link whiteText" href="{{ route('main-info.index') }}">{{ __('Nosotros') }}</a>
                             </li>
                             <li class="nav-item mx-2">
                                 <a class="nav-link whiteText" href="{{ route('test.index') }}">{{ __('Cuestionario') }}</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link whiteText" href="{{ route('responses.index') }}">{{ __('Respuestas') }}</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link whiteText" href="{{ route('donate.index') }}">{{ __('Donativo') }}</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link whiteText" href="{{ route('admin.index') }}">{{ __('Administradores') }}</a>
                             </li>
 
                             <li class="nav-item dropdown">

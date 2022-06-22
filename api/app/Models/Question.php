@@ -23,7 +23,11 @@ class Question extends Model
     }
 
     public function test(){
-        return $this->hasOne(Test::class, 'test_id');
+        return $this->hasOne(Test::class, 'id', 'test_id');
     }
     
+    public function answers(){
+        return $this->hasMany(Answer::class, 'question_id', 'id');
+    }
+
 }

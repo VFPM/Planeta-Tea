@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAbstractTable extends Migration
+class AddActiveToUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateAbstractTable extends Migration
      */
     public function up()
     {
-        Schema::create('abstract', function (Blueprint $table) {
-            $table->id();
-            $table->text('description');
-            $table->string('path');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('active')->default(false);
         });
     }
 
@@ -28,6 +25,8 @@ class CreateAbstractTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abstract');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

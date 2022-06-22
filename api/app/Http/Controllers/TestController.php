@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Test;
 use App\Models\Event;
+use App\Models\News;
+use App\Models\Question;
+use App\Models\QuestionType;
+use App\Models\TestAnswer;
+use App\Models\TestContact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,13 +17,14 @@ class TestController extends Controller
 {
     // Móvil
     public function mobileDataIndex(){
-        $data = Test::all();
-
-        return response()->json([
-            'status' => 'success',
-            'data' => $data,
-            'msg' => 'Se ha mostrado la información correctamente'
-        ],200);
+        
+        //$data = Test::with('questions', 'questions.answers')->get();
+        $data = Test::with('questions', 'questions.answers')->where('tests.active', 1)->where('deleted_at', null)->get();
+        // $data = TestAnswer::all();
+        
+        return response()->json(
+            $data
+            ,200);
     }
 
     // Web
@@ -41,14 +48,15 @@ class TestController extends Controller
     {
         
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'description' => 'required',
         ]);
         
         $data = new Test();
         $data->fill($request->all());
         $data->save();
 
-        return view('system.Cuestionario.index');
+        return redirect(route('test.index'));
     }
 
     public function edit($id) {
@@ -60,14 +68,15 @@ class TestController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'description' => 'required',
         ]);
 
         $data = Test::find($id);
         $data->fill($request->all());
         $data->save();
 
-        return view('system.Cuestionario.index');
+        return redirect(route('test.index'));
     }
 
     public function destroy($id)
@@ -76,4 +85,20 @@ class TestController extends Controller
         $data->delete();
         return redirect(route('test.index'));
     }
+
+    public function testActive($id){
+        $data = Test::all(); 
+        
+        foreach($data as $inactiveTest){
+            $inactiveTest->active = 0;
+            $inactiveTest->save();
+        }
+
+        $test = Test::find($id);
+        $test->active = 1;
+        $test->save();
+
+        return redirect(route('test.index'));
+    }
+
 }

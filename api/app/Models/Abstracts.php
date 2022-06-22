@@ -13,7 +13,12 @@ class Abstracts extends Model
     protected $table = 'abstract';
 
     protected $fillable = [
-        'description'.
+        'description',
         'path',
+        'new_id'
     ];
+    
+    public function new_id(){
+        return $this->hasOne(News::class, 'id', 'new_id');
+    }
 }

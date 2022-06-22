@@ -25,11 +25,11 @@
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h4 class="m-0">Lista de Eventos</h4>
+                <h4 class="m-0">Lista de Noticias</h4>
             </div>
             <div class="col-sm-12 col-md-6" align="right">
 
-                <a href="{{route('event.create')}}" class="btn btn-primary">
+                <a href="{{route('news.create')}}" class="btn btn-primary">
                     Registrar
                 </a>
             </div>
@@ -46,122 +46,11 @@
                     <th>Titulo</th>
                     <th>Descripcion</th>
                     <th>Dirigido a</th>
-                    <th width="150px">Fecha del Evento</th>
-                    <th width="100px">Modalidad</th>
+                    <th width="150px">Fecha de la Noticia</th>
                     <th width="100px">Costo</th>
                     <th width="100px">Acciones</th>
                 </tr>
                 </thead>
-                <tbody>
-                    <tr class="odd">
-                        <td class="sorting_1">1</td>
-                        <td>Juguemos a disfrazarnos</td>
-                        <td>Evento recreativo y terapeutico donde niños y jovenes que viven con Autismo participarán en un concurso de disfraces</td>
-                        <td>Personas que viven en el Espectro Autismo y comunidad interesada</td>
-                        <td>2022-05-20 02:19:00</td>
-                        <td>Presencial</td>
-                        <td>55.00</td>
-                        <td>
-                            <a href="http://127.0.0.1:8001/sistema/event/1/edit" class="btn btn-success btn-sm">Editar</a>
-                            <form action="http://127.0.0.1:8001/sistema/event/1/destroy" class="d-inline" method="POST">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="pwBvadhG0vFfFYmhwH7W7cKMPdXA4XaF2PhAr5Al">
-                                <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
-                            </form>
-                            <script>
-                                $('.formdelete').submit(function(e){
-                                    e.preventDefault();
-                                    Swal.fire({
-                                        title: '¿Seguro que deseas eliminar el registro?',
-                                        text: "No se podrá recuperar la información eliminada",
-                                        icon: 'warning',
-                                        showCancelButton: true,
-                                        confirmButtonColor: '#1cc88a',
-                                        cancelButtonColor: '#e74a3b',
-                                        confirmButtonText: 'Aceptar',
-                                        cancelButtonText: 'Cancelar'
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            this.submit();
-                                        }
-                                    })
-                                });
-                            </script>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="sorting_1">2</td>
-                        <td>Dia muldial del Autismo</td>
-                        <td>Evento recreativo y terapeutico enfocado en las personas que padecen...</td>
-                        <td>Personas que viven en el Espectro Autismo y comunidad interesada</td>
-                        <td>2022-06-15 02:19:00</td>
-                        <td>En linea</td>
-                        <td>20.00</td>
-                        <td>
-                            <a href="http://127.0.0.1:8001/sistema/event/1/edit" class="btn btn-success btn-sm">Editar</a>
-                            <form action="http://127.0.0.1:8001/sistema/event/1/destroy" class="d-inline" method="POST">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="pwBvadhG0vFfFYmhwH7W7cKMPdXA4XaF2PhAr5Al">
-                                <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
-                            </form>
-                            <script>
-                                $('.formdelete').submit(function(e){
-                                    e.preventDefault();
-                                    Swal.fire({
-                                        title: '¿Seguro que deseas eliminar el registro?',
-                                        text: "No se podrá recuperar la información eliminada",
-                                        icon: 'warning',
-                                        showCancelButton: true,
-                                        confirmButtonColor: '#1cc88a',
-                                        cancelButtonColor: '#e74a3b',
-                                        confirmButtonText: 'Aceptar',
-                                        cancelButtonText: 'Cancelar'
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            this.submit();
-                                        }
-                                    })
-                                });
-                            </script>
-                        </td>
-                    </tr>
-                    <tr class="odd">
-                        <td class="sorting_1">3</td>
-                        <td>Dia muldial del sindrome de Asperger</td>
-                        <td>Evento recreativo y terapeutico enfocado en las personas que padecen...</td>
-                        <td>Personas que viven con el sindrome de Asperger y comunidad interesada</td>
-                        <td>2022-07-09 02:19:00</td>
-                        <td>En linea</td>
-                        <td>Gratis</td>
-                        <td>
-                            <a href="http://127.0.0.1:8001/sistema/event/1/edit" class="btn btn-success btn-sm">Editar</a>
-                            <form action="http://127.0.0.1:8001/sistema/event/1/destroy" class="d-inline" method="POST">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="pwBvadhG0vFfFYmhwH7W7cKMPdXA4XaF2PhAr5Al">
-                                <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
-                            </form>
-                            <script>
-                                $('.formdelete').submit(function(e){
-                                    e.preventDefault();
-                                    Swal.fire({
-                                        title: '¿Seguro que deseas eliminar el registro?',
-                                        text: "No se podrá recuperar la información eliminada",
-                                        icon: 'warning',
-                                        showCancelButton: true,
-                                        confirmButtonColor: '#1cc88a',
-                                        cancelButtonColor: '#e74a3b',
-                                        confirmButtonText: 'Aceptar',
-                                        cancelButtonText: 'Cancelar'
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            this.submit();
-                                        }
-                                    })
-                                });
-                            </script>
-                        </td>
-                    </tr>
-                </tbody>
             </table>
         </div>
     </div>
@@ -174,19 +63,18 @@
     <script src="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-            /*$('#data').DataTable({
+            $('#data').DataTable({
                 "serverSide": true,
                 "header": {
                     "token": "{{ csrf_token() }}",
                 },
-                "ajax": "{{ url('sistema/event/data') }}",
+                "ajax": "{{ url('sistema/news/data') }}",
                 "columns": [
                     {data: 'id'},
                     {data: 'title'},
-                    {data: 'body'},
+                    {data: 'description'},
                     {data: 'to'},
-                    {data: 'event_date'},
-                    {data: 'mode'},
+                    {data: 'news_date'},
                     {data: 'cost'},
                     {data: 'btn'}
                 ],
@@ -211,7 +99,7 @@
                     "infoEmpty": "",
                     "infoFiltered": ""
                 }
-            });*/
+            });
         });
     </script>
 @endsection
