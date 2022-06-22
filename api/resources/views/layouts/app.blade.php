@@ -22,10 +22,10 @@
 <body>
     <?php date_default_timezone_set('UTC'); ?>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light  shadow-sm" style="background-color:#2d8ea9;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                   <img src="/assets/images/logo_planeta_menu.png" height="55" class="d-inline-block align-top"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,34 +43,34 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Inicio de sesión') }}</a>
+                                    <a class="nav-link whiteText" href="{{ route('login') }}">{{ __('Inicio de sesión') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registro') }}</a>
+                                    <a class="nav-link whiteText" href="{{ route('register') }}">{{ __('Registro') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="{{ route('contact.index') }}">{{ __('Contacto') }}</a>
+                                <a class="nav-link whiteText"  href="{{ route('contact.index') }}">{{ __('Contacto') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="{{ route('event.index') }}">{{ __('Noticias') }}</a>
+                                <a class="nav-link whiteText" href="{{ route('event.index') }}">{{ __('Noticias') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="{{ route('information.index') }}">{{ __('Información') }}</a>
+                                <a class="nav-link whiteText" href="{{ route('information.index') }}">{{ __('Información') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="{{ route('main-info.index') }}">{{ __('Información Principal') }}</a>
+                                <a class="nav-link whiteText" href="{{ route('main-info.index') }}">{{ __('Información Principal') }}</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="{{ route('test.index') }}">{{ __('Cuestionario') }}</a>
+                                <a class="nav-link whiteText" href="{{ route('test.index') }}">{{ __('Cuestionario') }}</a>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle whiteText" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 

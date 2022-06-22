@@ -11286,3 +11286,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+.whiteText{
+  color:white !important;
+}
+
+.whiteText:hover{
+  color: black !important;
+}
