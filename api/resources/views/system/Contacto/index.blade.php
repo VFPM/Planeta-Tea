@@ -98,7 +98,7 @@
     <div class="card-header py-3">
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <h4 class="m-0">Lista de respuestas de formulario de contacto</h4>
+                <h4 class="m-0">Lista de respuestas del formulario de contacto</h4>
             </div>
         </div>
     </div>
@@ -109,10 +109,10 @@
                 <thead class="thead-light">
                 <tr>
                     <th width="10px">No.</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Name</th>
-                    <th>Subject</th>
+                    <th>Correo electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Nombre</th>
+                    <th>Asunto</th>
                     <th width="150px">Acciones</th>
                 </tr>
                 </thead>

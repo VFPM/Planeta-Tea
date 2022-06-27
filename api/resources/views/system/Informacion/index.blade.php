@@ -43,7 +43,7 @@
                 <thead class="thead-light">
                 <tr>
                     <th width="10px">No.</th>
-                    <th>Titulo</th>
+                    <th>Título</th>
                     <th>Archivo</th>
                     <th width="100px">Acciones</th>
                 </tr>

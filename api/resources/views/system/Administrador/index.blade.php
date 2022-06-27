@@ -13,7 +13,7 @@
                             </div>
                         @endif
 
-                        <h1 class="text-center">{{ __('Adminstradores') }}</h1>
+                        <h1 class="text-center">{{ __('Administradores') }}</h1>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
         <div class="card-header py-3">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h4 class="m-0">Lista de respuestas de formulario de contacto</h4>
+                    <h4 class="m-0">Panel de usuarios</h4>
                 </div>
                 <div class="col-sm-12 col-md-6" align="right">
                     <button type="submit" class="btn btn-primary" id="contact_create_btn">Aplicar cambios</button>
@@ -58,9 +58,9 @@
                     <thead class="thead-light">
                     <tr>
                         <th width="10px">No.</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Accion</th>
+                        <th>Nombre</th>
+                        <th>Correo electrónico</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
                 </table>

@@ -43,8 +43,8 @@
                 <thead class="thead-light">
                 <tr>
                     <th width="10px">No.</th>
-                    <th>Titulo</th>
-                    <th>Descripcion</th>
+                    <th>Título</th>
+                    <th>Descripción</th>
                     <th>Dirigido a</th>
                     <th width="150px">Fecha de la Noticia</th>
                     <th width="100px">Costo</th>

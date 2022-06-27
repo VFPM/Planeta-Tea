@@ -1,12 +1,21 @@
-<a href="{{route('news.edit', $id)}}" class="btn btn-success btn-sm" >Editar</a>
-<form
-    action="{{route('news.destroy', $id)}}"
-    class="d-inline" method="POST">
-    @method('DELETE')
-    @csrf
-    <button class="btn btn-sm btn-danger" type="submit">Eliminar
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Opciones
     </button>
-</form>
+    <div class="dropdown-menu">
+        <a href="{{route('news.edit', $id)}}" class="dropdown-item" >Editar</a>
+        <form
+            action="{{route('news.destroy', $id)}}"
+            class="d-inline" method="POST">
+            @method('DELETE')
+            @csrf
+            <button class="dropdown-item" type="submit">Eliminar
+            </button>
+        </form>
+    </div> 
+</div>
+
+
 <script>
 
     $('.formdelete').submit(function(e){

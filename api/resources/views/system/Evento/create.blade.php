@@ -28,7 +28,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Registrar Noticia</h6>
+           
         </div>
 
         <div class="card-body">
@@ -60,7 +60,7 @@
 
                 <div class="mb-3 col-sm-12 col-mb-1 col-xl-1" >
                     <br>
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#create-noticia" >Agregar tipo de noticia</a>
+                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-noticia" >Agregar tipo de noticia</a>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
@@ -77,7 +77,7 @@
 
                 <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
                     <br>
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#create-modalidad" >Agregar modalidad</a>
+                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-modalidad" >Agregar modalidad</a>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-11 col-xl-11">
@@ -94,7 +94,7 @@
 
                 <div class="mb-3 col-sm-12 col-mb-1 col-xl-1">
                     <br>
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#create-plataforma" >Agregar plataforma</a>
+                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#create-plataforma" >Agregar plataforma</a>
                 </div>
 
                 <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">

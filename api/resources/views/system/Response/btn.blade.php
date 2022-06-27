@@ -1,7 +1,7 @@
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
 
-<a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-info-{{$id}}">Ver Informacion</a>
+<a href="#" class="btn-primary" data-toggle="modal" data-target="#modal-info-{{$id}}">Ver Informacion</a>
 
 <!-- Modal Crear Tipo de Noticia -->
 <div class="modal fade" id="modal-info-{{$id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
