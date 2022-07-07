@@ -24,7 +24,7 @@ class AnswerController extends Controller
     }
 
     public function dataAnswers($id){
-        return datatables(TestAnswer::where("test_contact_id",$id)->get())
+        return datatables(TestAnswer::where("test_contact_id",$id)->with('question_id')->get())
         ->toJson();
     }
 

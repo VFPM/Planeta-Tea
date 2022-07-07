@@ -73,8 +73,8 @@
                 },
                 "ajax": "{{ url('sistema/responses-answers/data/' . $id) }}",
                 "columns": [
-                    {data: 'question_id', "width": "10%" , "className" : 'text-center'},
-                    {data: 'answer', "width": "90%"}
+                    {data: 'description', "width": "60%" , "className" : 'text-center'},
+                    {data: 'answer', "width": "40%"}
                 ],
                 "lengthChange": false,
                 "ordering": false,
