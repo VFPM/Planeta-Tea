@@ -9,7 +9,11 @@ use App\Models\TestContact;
 
 class TestAnswerController extends Controller
 {
-    // Móvil
+    
+    /*
+        API
+    */
+
     public function mobileDataIndex(){
         
         $data = TestContact::with('testAnswers')->get();
@@ -18,6 +22,7 @@ class TestAnswerController extends Controller
             $data
             ,200);
     }
+
     
     public function store(Request $request)
     {
@@ -79,5 +84,21 @@ class TestAnswerController extends Controller
 
         return;
     }
+
+    
+    /*
+        WEB
+    */
+
+    public function index() {
+        return view('system.Response.index');
+    }
+
+    public function dataIndex($id) {
+
+        return datatables(TestAnswer::with('question', 'answerDescription')->where('test_contact_id', $id)->get())->toJson();
+    
+    }
+    
     
 }

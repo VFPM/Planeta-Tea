@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\TestAnswer;
 use App\Models\TestContact;
@@ -12,7 +13,6 @@ class AnswerController extends Controller
 
     public function index(){
         return view('system.Response.index');
-
     }
 
     public function data(){
@@ -21,11 +21,28 @@ class AnswerController extends Controller
         ->addColumn('btn', 'system.Response.btn')
         ->rawColumns(['btn'])
         ->toJson();
+
+        // return datatables(TestAnswer::with('question')->get())
+        //     ->toJson();
+        
     }
 
     public function dataAnswers($id){
-        return datatables(TestAnswer::with('question_id')->where("test_contact_id",$id)->get())
+        return datatables(TestAnswer::where("test_contact_id", $id)->get())
         ->toJson();
+
+        // $data = TestContact::with('testAnswers','testAnswers.question')->get();
+
+        // return response()->json(
+        //     $data
+        //     ,200);
+
+        // return datatables(TestAnswer::with('question')->where("test_contact_id", $id)->get())
+        // ->addColumn('questions', function (Question $question) {
+        //     return $question->name;
+        // })->toJson();
+
+     
     }
 
     // public function index()
@@ -34,7 +51,7 @@ class AnswerController extends Controller
     // }
 
     // public function dataindex($test){
-        
+         
     //     return datatables(Answer::where('test_id', $test))
     //     ->addColumn('btn', 'system.Evento.btn')
     //     ->rawColumns(['btn'])

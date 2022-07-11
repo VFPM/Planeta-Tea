@@ -119,9 +119,9 @@ use Illuminate\Support\Facades\Route;
         Route::delete('sistema/test/questions/{question}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');
         // Route::delete('sistema/test/{test}/question/{id}/destroy', 'App\Http\Controllers\QuestionController@destroy')->name('question.destroy');
 
-        //Responses
-        Route::get('sistema/test/response', 'App\Http\Controllers\ResponseController@index')->name('response.index');
-
+        // Test Answers
+        Route::get('sistema/test-answers/index', 'App\Http\Controllers\TestAnswerController@index')->name('test-answers.index');
+        Route::get('sistema/test-answers/data/{id}', 'App\Http\Controllers\TestAnswerController@dataIndex')->name('test-answers.data');
 
         // Form Contact - Obtener lista de todos los registros del formulario
         Route::get('sistema/form-contact/data', 'App\Http\Controllers\FormContactController@dataindex')->name('form-contact.data');

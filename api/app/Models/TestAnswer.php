@@ -23,11 +23,11 @@ class TestAnswer extends Model
         return $this->hasOne(TestContact::class, 'id', 'test_contact_id');
     }
     
-    public function question_id(){
+    public function question(){
         return $this->hasOne(Question::class, 'id', 'question_id');
     }
         
-    public function answer_id(){
+    public function answerDescription(){
         return $this->hasOne(Answer::class, 'id', 'answer_id');
     }
 }
