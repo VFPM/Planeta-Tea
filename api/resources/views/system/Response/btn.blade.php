@@ -66,6 +66,10 @@
          $(document).ready(function () {
             
             $('#data{{$id}}').DataTable({
+                "dom": 'Bfrtip',
+                "buttons": [
+                    'print',
+                ],
                 "columnDefs": [{
                     "targets": '_all',
                     "defaultContent": ""
@@ -79,12 +83,11 @@
                     {data: 'question.description', "width": "33%" , "className" : 'text-center'}, 
                     {data: 'answer', "width": "33%"},
                     {data: 'answerDescription.description', "width": "33%"}
-                ],
+                ],                
                 "lengthChange": false,
                 "ordering": false,
                 "searching" : false,
                 "autoWidth": false,
-
                 "language" : {
                     "info" : "_TOTAL_ Registro(s)",
                     "emptyTable": "No hay datos",
