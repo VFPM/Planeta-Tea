@@ -5,14 +5,14 @@
 <!-- Modal Crear Tipo de Noticia -->
 <div class="modal fade" id="modal-info-{{$id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content print">
+        <div class="modal-content">
             <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Información de la respuesta</h5>
             <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button> -->
             </div>
-            <div class="modal-body print">
+            <div class="modal-body">
             <div class="mb-3 col-sm-12 col-mb-12 col-xl-12">
                     <!-- <table id="data2" class="dataindex table table-flush"> 
                         <thead class="thead-light">
@@ -39,7 +39,7 @@
                         </tbody>
                     </table> -->
                     
-                    <table id="data{{$id}}" class="dataindex table table-flush w-100 table-striped">
+                    <table id="data{{$id}}" class="dataindex table table-flush w-100 table-striped display print" style="width: 100%">
                         <thead class="thead-light">
                         <tr >
                             <th >Pregunta</th>
@@ -53,8 +53,9 @@
                     
             </div>
            
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="window.print()">Imprimir</button>
+            <div class="modal-footer" id="modal{{$id}}">
+                 <!-- onClick="window.print()" -->
+                <!-- <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="window.print()">Imprimir</button> -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
@@ -64,11 +65,35 @@
 
     <script>
          $(document).ready(function () {
-            
-            $('#data{{$id}}').DataTable({
+       
+            var table = $('#data{{$id}}').DataTable({
+                // "dom": 'Bfrtip',
+                // "buttons": [
+                    
+                //        'print'
+                    
+                // ],
                 "dom": 'Bfrtip',
-                "buttons": [
-                    'print',
+                "buttons" : [
+                    {
+                        "extend" : 'print',
+                        "text" : 'Imprimir',
+                        "exportOptions": {
+                            "modifier": {
+                                "page": 'current'
+                            }
+                        }
+                    },
+                    {
+                        "extend" : 'pdf',
+                        "text" : 'Descargar PDF',
+                        "title" : '{{$name}} respuestas'
+                    },
+                    {
+                        "extend" : 'excel',
+                        "text" : 'Descargar EXCEL',
+                        "title" : '{{$name}} respuestas'
+                    }
                 ],
                 "columnDefs": [{
                     "targets": '_all',
@@ -100,6 +125,12 @@
                 }
                 
             });
+
+            table.buttons().container()
+                .appendTo(
+                    $('#modal{{$id}}', table.table().container() )
+                );
+
         });
 
       
